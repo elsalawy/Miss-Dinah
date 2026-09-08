@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>مغامرة الطالب الذكي</title>
+    <title>وقت المغامرة</title>
 
     <style>
         * {
@@ -1786,6 +1786,14 @@
             background: linear-gradient(135deg, #f0a191, #f5c1b6);
         }
 
+        .activity:nth-child(23) {
+            background: linear-gradient(135deg, #8ab5e8, #b5d3f3);
+        }
+
+        .activity:nth-child(24) {
+            background: linear-gradient(135deg, #9c8ce5, #c8bdf4);
+        }
+
         .extra-challenge {
             display: grid !important;
         }
@@ -2679,14 +2687,14 @@
             <a class="logo-circle"
                 href="https://www.instagram.com/idafaacademy?stkn=MXhnYThoOGo2ZXE0MQ%3D%3D&utm_source=qr"
                 target="_blank" rel="noopener" title="صفحة إضافة أكاديمي على انستجرام">
-                <img src="logo.png" alt="شعار مغامرة الطالب الذكي"
+                <img src="logo.png" alt="شعار وقت المغامرة"
                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <span class="logo-fallback">🧠</span>
             </a>
         </div>
 
         <div class="header-center-title">
-            <div class="logo-title">مغامرة الطالب الذكي</div>
+            <div class="logo-title">وقت المغامرة</div>
             <div class="logo-subtitle">اتعلم • العب • طور نفسك</div>
         </div>
 
@@ -2998,7 +3006,7 @@
         <div class="name-card">
             <div class="name-avatar">🧠</div>
             <div class="name-sparkles">✨ ⭐ ✨</div>
-            <h2 id="nameModalTitle">اهلا بك في مغامرة الطالب الذكي!</h2>
+            <h2 id="nameModalTitle">اهلا بك في وقت المغامرة!</h2>
             <p id="nameModalText">اكتب اسمك عشان نبدأ المغامرة ونحسب سكورك</p>
             <div class="name-input-wrap">
                 <span>👤</span>
@@ -6084,7 +6092,7 @@
         function openNameModal(isReset = false) {
             const overlay = document.getElementById("nameOverlay"), input = document.getElementById("studentNameInput"), title = document.getElementById("nameModalTitle"), text = document.getElementById("nameModalText"), error = document.getElementById("nameError");
             if (!overlay) return; overlay.style.display = "flex";
-            title.textContent = isReset ? "نبدأ من جديد يا بطل! 🎯" : "اهلا بك في مغامرة الطالب الذكي!";
+            title.textContent = isReset ? "نبدأ من جديد يا بطل! 🎯" : "اهلا بك في وقت المغامرة!";
             text.textContent = isReset ? "اكتب اسم الطالب عشان نبدأ سكور جديد من الصفر" : "اكتب اسمك عشان نبدأ المغامرة ونحسب سكورك";
             input.value = isReset ? "" : studentName; if (error) error.textContent = "";
             setTimeout(() => input && input.focus(), 120);
