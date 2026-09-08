@@ -14,7 +14,7 @@
             padding: 0;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&display=swap');
+        @import url('[https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&display=swap](https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&display=swap)');
 
         .quran-text,
         .ayah-card,
@@ -863,6 +863,462 @@
             line-height: 1.8;
         }
 
+        /* ================= NEW CHALLENGES ================= */
+        .xo-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: min(300px, 78vw);
+            margin: 18px auto;
+        }
+
+        .xo-cell {
+            width: 100%;
+            aspect-ratio: 1;
+            border: 0;
+            border-radius: 18px;
+            background: #f4f3ff;
+            font-size: clamp(26px, 9vw, 46px);
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, .07);
+            transition: .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .xo-cell:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, .12);
+        }
+
+        .xo-cell:disabled {
+            cursor: default;
+            opacity: .9;
+        }
+
+        .xo-cell.x {
+            color: #6c5ce7;
+        }
+
+        .xo-cell.o {
+            color: #e17055;
+        }
+
+        .challenge-inline-status {
+            text-align: center;
+            min-height: 34px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .new-game-options {
+            max-width: 760px;
+            margin: 18px auto;
+        }
+
+        .new-game-options .answer {
+            min-height: 64px;
+        }
+
+        /* ================= NEW INTERACTIVE VISUAL DESIGN ================= */
+        body {
+            background: radial-gradient(circle at 8% 12%, rgba(255, 255, 255, .38) 0 55px, transparent 56px), radial-gradient(circle at 90% 22%, rgba(255, 255, 255, .25) 0 70px, transparent 71px), linear-gradient(145deg, #5264d8 0%, #7068df 38%, #78cbe2 100%);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: auto 0 0;
+            height: 180px;
+            background: linear-gradient(180deg, transparent, rgba(255, 255, 255, .22));
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            border-radius: 0 0 34px 34px;
+            direction: ltr;
+            padding: 18px clamp(18px, 4vw, 55px);
+            min-height: 105px;
+            background: linear-gradient(135deg, rgba(61, 73, 180, .96), rgba(86, 105, 220, .94));
+            border-bottom: 3px solid rgba(255, 255, 255, .25);
+            box-shadow: 0 12px 35px rgba(35, 39, 112, .22);
+            color: #fff;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-circle {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            padding: 4px;
+            background: rgba(255, 255, 255, .95);
+            border: 3px solid rgba(255, 255, 255, .8);
+            box-shadow: 0 7px 18px rgba(0, 0, 0, .18);
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            flex: none;
+        }
+
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .logo-fallback {
+            display: none;
+            font-size: 42px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-copy {
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+        }
+
+        .logo-title {
+            font-size: clamp(25px, 3vw, 38px);
+            font-weight: 900;
+            line-height: 1.15;
+            color: #fff;
+            text-shadow: 0 3px 0 rgba(40, 45, 130, .25);
+        }
+
+        .logo-subtitle {
+            margin-top: 6px;
+            font-size: 15px;
+            color: rgba(255, 255, 255, .88);
+            font-weight: 700;
+        }
+
+        .header-student {
+            display: flex;
+            flex-direction: column;
+            direction: rtl;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .student-line {
+            background: rgba(255, 255, 255, .13);
+            border: 1px solid rgba(255, 255, 255, .28);
+            padding: 7px 14px;
+            border-radius: 18px;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        header .stats {
+            gap: 8px;
+        }
+
+        header .stat {
+            background: rgba(255, 255, 255, .14);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .2);
+            box-shadow: none;
+            padding: 8px 13px;
+            border-radius: 15px;
+        }
+
+        header .stat span {
+            color: #fff;
+        }
+
+        .container {
+            width: min(1240px, 92%);
+            margin: 34px auto 20px;
+            color: var(--dark);
+            font-size: inherit;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: rgba(245, 247, 255, .88);
+            border: 2px solid rgba(255, 255, 255, .65);
+            border-radius: 34px;
+            padding: 34px;
+            box-shadow: 0 22px 50px rgba(37, 43, 125, .2);
+            grid-template-columns: 1.1fr .9fr;
+        }
+
+        .hero::after {
+            content: "⭐";
+            position: absolute;
+            top: 18px;
+            left: 28px;
+            font-size: 25px;
+            animation: floatStar 4s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            color: #3f4fc4;
+            font-size: clamp(30px, 4vw, 46px);
+        }
+
+        .hero p {
+            color: #47516f;
+        }
+
+        .character-box {
+            background: linear-gradient(145deg, #ffe7a5, #f5b2c8);
+            box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .35);
+        }
+
+        .section-title {
+            color: #fff;
+            text-shadow: 0 3px 8px rgba(40, 45, 130, .25);
+            font-size: 30px;
+        }
+
+        .activities {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .activity {
+            position: relative;
+            overflow: hidden;
+            min-height: 175px;
+            border: 2px solid rgba(255, 255, 255, .55);
+            background: linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(245, 247, 255, .9));
+            border-radius: 27px;
+            padding: 23px 18px;
+            box-shadow: 0 12px 28px rgba(35, 42, 120, .16);
+        }
+
+        .activity::before {
+            content: "";
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: rgba(108, 92, 231, .08);
+            top: -38px;
+            left: -30px;
+        }
+
+        .activity .icon {
+            font-size: 50px;
+            position: relative;
+        }
+
+        .activity h3 {
+            position: relative;
+            color: #3949b8;
+            font-size: 20px;
+        }
+
+        .activity p {
+            position: relative;
+            color: #626b88;
+            font-size: 14px;
+        }
+
+        .activity:hover {
+            transform: translateY(-8px) scale(1.015);
+            box-shadow: 0 18px 35px rgba(35, 42, 120, .22);
+        }
+
+        .activity:nth-child(3n+1) {
+            background: linear-gradient(145deg, rgba(255, 249, 224, .97), rgba(255, 255, 255, .92));
+        }
+
+        .activity:nth-child(3n+2) {
+            background: linear-gradient(145deg, rgba(232, 255, 249, .97), rgba(255, 255, 255, .92));
+        }
+
+        .activity:nth-child(3n) {
+            background: linear-gradient(145deg, rgba(242, 236, 255, .98), rgba(255, 255, 255, .92));
+        }
+
+        .progress-section,
+        .settings {
+            background: rgba(255, 255, 255, .83);
+            border: 2px solid rgba(255, 255, 255, .55);
+            border-radius: 25px;
+            padding: 18px 22px;
+            box-shadow: 0 10px 25px rgba(35, 42, 120, .13);
+        }
+
+        .progress-top {
+            color: #3949b8;
+        }
+
+        .progress {
+            background: #e9e9ff;
+            height: 17px;
+        }
+
+        .game {
+            border: 2px solid rgba(255, 255, 255, .75);
+            box-shadow: 0 20px 45px rgba(35, 42, 120, .2);
+        }
+
+        .name-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(37, 42, 117, .62);
+            backdrop-filter: blur(8px);
+        }
+
+        .name-card {
+            width: min(500px, 94vw);
+            text-align: center;
+            background: linear-gradient(180deg, #fff, #f5f4ff);
+            border: 3px solid rgba(255, 255, 255, .9);
+            border-radius: 34px;
+            padding: 30px 28px 28px;
+            box-shadow: 0 28px 70px rgba(24, 30, 100, .32);
+            animation: namePop .45s ease;
+        }
+
+        @keyframes namePop {
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(.94)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .name-avatar {
+            width: 84px;
+            height: 84px;
+            margin: -68px auto 5px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6c5ce7, #8e82ff);
+            display: grid;
+            place-items: center;
+            font-size: 46px;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 25px rgba(108, 92, 231, .3);
+        }
+
+        .name-sparkles {
+            color: #fdcb6e;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .name-card h2 {
+            color: #3f4fc4;
+            font-size: 26px;
+            margin: 8px 0;
+        }
+
+        .name-card p {
+            color: #68708a;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .name-input-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            border: 2px solid #d7d2ff;
+            border-radius: 18px;
+            padding: 4px 14px;
+            box-shadow: inset 0 2px 7px rgba(70, 70, 150, .05);
+        }
+
+        .name-input-wrap span {
+            font-size: 22px;
+        }
+
+        .name-input-wrap input {
+            flex: 1;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            padding: 13px 5px;
+            font-size: 18px;
+            color: #30365a;
+            text-align: right;
+        }
+
+        .name-input-wrap:focus-within {
+            border-color: #6c5ce7;
+            box-shadow: 0 0 0 4px rgba(108, 92, 231, .12);
+        }
+
+        .name-start-btn {
+            width: 100%;
+            margin-top: 16px;
+            border: 0;
+            border-radius: 18px;
+            padding: 14px 20px;
+            font-size: 18px;
+            font-weight: 900;
+            color: #fff;
+            cursor: pointer;
+            background: linear-gradient(135deg, #6c5ce7, #8175f1);
+            box-shadow: 0 10px 22px rgba(108, 92, 231, .28);
+            transition: .2s;
+        }
+
+        .name-start-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .name-error {
+            min-height: 22px;
+            color: #d63031;
+            font-weight: 700;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        @media(max-width:900px) {
+            .activities {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            header {
+                gap: 20px;
+                direction: rtl
+            }
+
+            .logo-copy {
+                position: static;
+                transform: none;
+                width: auto;
+                text-align: right
+            }
+        }
+
         /* ================= RESPONSIVE ================= */
 
         @media(max-width:900px) {
@@ -1071,6 +1527,565 @@
                 padding: 10px;
             }
         }
+
+        /* =====================================================
+           HOME UI — تصميم مطابق للواجهة المرجعية
+        ===================================================== */
+        body {
+            background:
+                radial-gradient(circle at 18% 18%, rgba(255, 255, 255, .35) 0 2px, transparent 3px),
+                radial-gradient(circle at 74% 10%, rgba(255, 255, 255, .45) 0 2px, transparent 3px),
+                linear-gradient(180deg, #5865d9 0%, #7284e4 20%, #d8e1f2 57%, #aeb9ed 100%);
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: auto 0 0;
+            height: 150px;
+            z-index: -1;
+            background: radial-gradient(ellipse at 15% 100%, #707be0 0 25%, transparent 26%),
+                radial-gradient(ellipse at 55% 115%, #8490e7 0 30%, transparent 31%),
+                radial-gradient(ellipse at 92% 105%, #6574dc 0 25%, transparent 26%);
+            pointer-events: none;
+        }
+
+        header {
+            width: 100%;
+            margin: 0;
+            min-height: 78px;
+            padding: 9px 28px;
+            border-radius: 0 0 28px 28px;
+            direction: ltr;
+            background: linear-gradient(180deg, rgba(64, 78, 190, .98), rgba(77, 96, 208, .94));
+            box-shadow: 0 8px 25px rgba(35, 42, 120, .22);
+        }
+
+        .header-brand {
+            gap: 10px;
+        }
+
+        .logo-circle {
+            width: 62px;
+            height: 62px;
+            border-width: 2px;
+            box-shadow: 0 5px 14px rgba(0, 0, 0, .18);
+        }
+
+        .logo-copy {
+            left: 50%;
+        }
+
+        .logo-title {
+            font-size: clamp(23px, 3vw, 32px);
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .header-student {
+            gap: 4px;
+        }
+
+        .student-line {
+            font-size: 11px;
+            padding: 4px 9px;
+            border-radius: 14px;
+        }
+
+        header .stats {
+            gap: 4px;
+        }
+
+        header .stat {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 11px;
+        }
+
+        .container {
+            width: min(1160px, 92%);
+            margin: 27px auto 18px;
+        }
+
+        .hero,
+        .progress-section {
+            display: none !important;
+        }
+
+        .section-title {
+            display: none;
+        }
+
+        .activities {
+            display: grid !important;
+            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            gap: 12px;
+            margin: 0;
+        }
+
+        .activity {
+            min-height: 105px;
+            height: 105px;
+            padding: 9px 10px;
+            border-radius: 15px;
+            display: grid;
+            grid-template-columns: 58px 1fr 22px;
+            align-items: center;
+            text-align: right;
+            direction: rtl;
+            gap: 7px;
+            border: 1px solid rgba(255, 255, 255, .5);
+            box-shadow: 0 7px 16px rgba(35, 42, 120, .13);
+            transition: .2s;
+        }
+
+        .activity .icon {
+            width: 54px;
+            height: 54px;
+            margin: 0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-size: 26px;
+            line-height: 1;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, .38);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25);
+        }
+
+        .activity-text {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .activity h3 {
+            font-size: 14px;
+            margin: 0 0 3px;
+            color: #26358e;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .activity p {
+            font-size: 9px;
+            line-height: 1.5;
+            color: #4c587b;
+            margin: 0;
+        }
+
+        .activity::after {
+            content: "›";
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .4);
+            font-size: 18px;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .activity:hover {
+            transform: translateY(-3px) scale(1.01);
+        }
+
+        .activity:nth-child(1) {
+            background: linear-gradient(135deg, #f5d990, #f0dda9);
+        }
+
+        .activity:nth-child(2) {
+            background: linear-gradient(135deg, #91d9bd, #a8e4c8);
+        }
+
+        .activity:nth-child(3) {
+            background: linear-gradient(135deg, #aaa0ed, #c1b9f3);
+        }
+
+        .activity:nth-child(4) {
+            background: linear-gradient(135deg, #e79ab6, #e9aec6);
+        }
+
+        .activity:nth-child(5) {
+            background: linear-gradient(135deg, #82d6df, #9de0e7);
+        }
+
+        .activity:nth-child(6) {
+            background: linear-gradient(135deg, #86bde8, #9bc8ed);
+        }
+
+        .activity:nth-child(7) {
+            background: linear-gradient(135deg, #f3b88a, #f6cba7);
+        }
+
+        .activity:nth-child(8) {
+            background: linear-gradient(135deg, #9fd8a0, #bfe8bf);
+        }
+
+        .activity:nth-child(9) {
+            background: linear-gradient(135deg, #c9a0ea, #ddc0f2);
+        }
+
+        .activity:nth-child(10) {
+            background: linear-gradient(135deg, #f2a0b8, #f6c2d1);
+        }
+
+        .activity:nth-child(11) {
+            background: linear-gradient(135deg, #8fd0d9, #b3e4e9);
+        }
+
+        .activity:nth-child(12) {
+            background: linear-gradient(135deg, #97b9ec, #b6cdf2);
+        }
+
+        .activity:nth-child(13) {
+            background: linear-gradient(135deg, #f6cf7e, #f8dda3);
+        }
+
+        .activity:nth-child(14) {
+            background: linear-gradient(135deg, #7fd4c1, #a6e4d6);
+        }
+
+        .activity:nth-child(15) {
+            background: linear-gradient(135deg, #b5a3ea, #cfc2f2);
+        }
+
+        .activity:nth-child(16) {
+            background: linear-gradient(135deg, #ee9d9d, #f4bcbc);
+        }
+
+        .activity:nth-child(17) {
+            background: linear-gradient(135deg, #7ec8e3, #a5daed);
+        }
+
+        .activity:nth-child(18) {
+            background: linear-gradient(135deg, #a7c9f0, #c4dbf5);
+        }
+
+        .activity:nth-child(19) {
+            background: linear-gradient(135deg, #f0c987, #f4dba9);
+        }
+
+        .activity:nth-child(20) {
+            background: linear-gradient(135deg, #93d1a8, #b6e2c3);
+        }
+
+        .activity:nth-child(21) {
+            background: linear-gradient(135deg, #c69be0, #dcbdec);
+        }
+
+        .activity:nth-child(22) {
+            background: linear-gradient(135deg, #f0a191, #f5c1b6);
+        }
+
+        .extra-challenge {
+            display: grid !important;
+        }
+
+        .settings {
+            margin-top: 18px;
+            padding: 8px 12px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, .32);
+            box-shadow: none;
+            border: 1px solid rgba(255, 255, 255, .35);
+        }
+
+        .setting-btn {
+            font-size: 10px;
+            padding: 5px 8px;
+            border-radius: 10px;
+        }
+
+        .game {
+            margin-top: 20px;
+        }
+
+        .name-overlay {
+            background: rgba(207, 216, 242, .22);
+            backdrop-filter: blur(2px);
+        }
+
+        .name-card {
+            width: 235px;
+            padding: 14px 15px 13px;
+            border-radius: 19px;
+            border: 2px solid rgba(255, 255, 255, .95);
+            box-shadow: 0 18px 45px rgba(38, 45, 130, .24);
+        }
+
+        .name-avatar {
+            width: 49px;
+            height: 49px;
+            margin: -37px auto 2px;
+            font-size: 26px;
+            border-width: 3px;
+        }
+
+        .name-sparkles {
+            font-size: 10px;
+            margin: 2px 0;
+        }
+
+        .name-card h2 {
+            font-size: 13px;
+            margin: 4px 0;
+            color: #3345a9;
+        }
+
+        .name-card p {
+            font-size: 9px;
+            margin-bottom: 7px;
+        }
+
+        .name-input-wrap {
+            border-radius: 10px;
+            padding: 1px 7px;
+            gap: 4px;
+        }
+
+        .name-input-wrap span {
+            font-size: 13px;
+        }
+
+        .name-input-wrap input {
+            font-size: 11px;
+            padding: 7px 3px;
+        }
+
+        .name-start-btn {
+            margin-top: 7px;
+            border-radius: 10px;
+            padding: 7px 10px;
+            font-size: 11px;
+            box-shadow: 0 6px 14px rgba(108, 92, 231, .22);
+        }
+
+        .name-error {
+            min-height: 11px;
+            font-size: 8px;
+            margin-top: 3px;
+        }
+
+        @media(max-width:520px) {
+            header {
+                padding: 8px 12px;
+            }
+
+            .logo-circle {
+                width: 52px;
+                height: 52px;
+            }
+
+            .logo-title {
+                font-size: 19px;
+            }
+
+            .logo-subtitle {
+                font-size: 9px;
+            }
+
+            .activities {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+
+            .activity {
+                height: 98px;
+                min-height: 98px;
+            }
+
+            .activity h3 {
+                font-size: 13px;
+            }
+        }
+
+
+        .header-reset-btn {
+            border: 1px solid rgba(255, 255, 255, .35);
+            background: rgba(255, 255, 255, .16);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .header-reset-btn:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, .24);
+        }
+
+        .header-reset-btn:active {
+            transform: scale(.97);
+        }
+
+        /* ================= FINAL HOME LAYOUT ================= */
+        header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            direction: ltr;
+            min-height: 105px;
+        }
+
+        .header-brand {
+            position: relative;
+            z-index: 3;
+            flex: 0 0 auto;
+        }
+
+        .header-center-title {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: max-content;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .header-center-title .logo-title {
+            font-size: clamp(26px, 3.1vw, 40px);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            text-shadow: 0 3px 0 rgba(40, 45, 130, .25);
+        }
+
+        .header-center-title .logo-subtitle {
+            margin-top: 6px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, .9);
+            font-weight: 700;
+        }
+
+        .header-student {
+            position: relative;
+            z-index: 3;
+            margin-left: auto;
+        }
+
+        .activities {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .extra-challenge {
+            display: grid !important;
+        }
+
+        .featured-activities .activity {
+            min-height: 150px;
+        }
+
+        .activity {
+            min-height: 150px;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                min-height: 82px;
+                padding: 10px 14px;
+            }
+
+            .logo-circle {
+                width: 58px;
+                height: 58px;
+            }
+
+            .header-center-title .logo-title {
+                font-size: 21px;
+            }
+
+            .header-center-title .logo-subtitle {
+                font-size: 9px;
+                margin-top: 2px;
+            }
+
+            .header-student {
+                gap: 4px;
+            }
+
+            .activities {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .activity {
+                min-height: 110px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .header-center-title .logo-title {
+                font-size: 17px;
+            }
+
+            .header-center-title .logo-subtitle {
+                display: none;
+            }
+
+            .header-student .student-line {
+                font-size: 10px;
+                padding: 5px 8px;
+            }
+
+            header .stat {
+                padding: 5px 7px;
+                font-size: 10px;
+            }
+
+            .activities {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .activities {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .activities {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+
+            .header-reset-btn {
+                font-size: 9px;
+                padding: 4px 7px;
+            }
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 22px 14px 34px;
+            color: #fff;
+            font-weight: 800;
+            font-size: 14px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+        }
+
+        .site-footer a {
+            color: #ffe38a;
+            text-decoration: underline;
+            font-weight: 900;
+        }
+
+        .site-footer a:hover {
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -1088,18 +2103,30 @@
     </div>
 
     <header>
-
-        <div class="logo">
-            <span>🎓</span>
-            مغامرة الطالب الذكي
+        <div class="header-brand">
+            <a class="logo-circle"
+                href="https://www.instagram.com/idafaacademy?stkn=MXhnYThoOGo2ZXE0MQ%3D%3D&utm_source=qr"
+                target="_blank" rel="noopener" title="صفحة إضافة أكاديمي على انستجرام">
+                <img src="logo.png" alt="شعار مغامرة الطالب الذكي"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="logo-fallback">🧠</span>
+            </a>
         </div>
 
-        <div class="stats">
-            <div class="stat">⭐ <span id="stars">0</span></div>
-            <div class="stat">🔥 <span id="combo">0</span></div>
-            <div class="stat">🏆 المستوى <span id="level">1</span></div>
+        <div class="header-center-title">
+            <div class="logo-title">مغامرة الطالب الذكي</div>
+            <div class="logo-subtitle">اتعلم • العب • طور نفسك</div>
         </div>
 
+        <div class="header-student">
+            <div class="student-line">👤 <span id="studentNameHeader">الطالب</span></div>
+            <div class="stats">
+                <div class="stat">⭐ <span id="stars">0</span></div>
+                <div class="stat">🔥 <span id="combo">0</span></div>
+                <div class="stat">🏆 المستوى <span id="level">1</span></div>
+            </div>
+            <button class="header-reset-btn" onclick="resetProgress()" title="تصفير التقدم">🔄 تصفير التقدم</button>
+        </div>
     </header>
 
     <main class="container">
@@ -1144,6 +2171,7 @@
         </section>
 
 
+
         <section class="progress-section">
 
             <div class="progress-top">
@@ -1156,10 +2184,11 @@
             </div>
 
             <button class="reset-progress-btn" onclick="resetProgress()">
-                🔄 تصفير التقدم
+                🔄 تصفير التقييم
             </button>
 
         </section>
+
 
 
         <h2 class="section-title">
@@ -1167,105 +2196,159 @@
         </h2>
 
 
-        <section class="activities">
 
-            <button class="activity" onclick="startGame('islamic')">
-                <div class="icon">🕌</div>
-                <h3>معلومات إسلامية</h3>
-                <p>أسئلة بسيطة ومفيدة</p>
-            </button>
-
-            <button class="activity" onclick="startGame('arabic')">
-                <div class="icon">🔤</div>
-                <h3>لغة عربية</h3>
-                <p>حروف وكلمات</p>
-            </button>
+        <section class="activities featured-activities">
 
             <button class="activity" onclick="startGame('missing')">
-                <div class="icon">🧩</div>
-                <h3>الحرف الناقص</h3>
-                <p>أكمل الكلمة</p>
-            </button>
-
-            <button class="activity" onclick="startGame('memory')">
-                <div class="icon">🧠</div>
-                <h3>اختبار الذاكرة</h3>
-                <p>اختبر قوة تركيزك</p>
-            </button>
-
-            <button class="activity" onclick="startGame('different')">
-                <div class="icon">🔎</div>
-                <h3>اكتشف المختلف</h3>
-                <p>مين المختلف؟</p>
-            </button>
-
-            <button class="activity" onclick="startGame('reaction')">
-                <div class="icon">⚡</div>
-                <h3>سرعة التركيز</h3>
-                <p>اضغط بسرعة!</p>
-            </button>
-
-            <button class="activity" onclick="startGame('word')">
-                <div class="icon">📝</div>
-                <h3>رتب الكلمة</h3>
-                <p>رتب الحروف</p>
-            </button>
-
-            <button class="activity" onclick="startGame('scenario')">
-                <div class="icon">💭</div>
-                <h3>ماذا تفعل؟</h3>
-                <p>مواقف تربوية</p>
-            </button>
-
-            <button class="activity" onclick="startGame('number')">
-                <div class="icon">🔢</div>
-                <h3>ذاكرة الأرقام</h3>
-                <p>تذكر الرقم</p>
-            </button>
-
-            <button class="activity" onclick="startGame('pattern')">
-                <div class="icon">🎨</div>
-                <h3>أكمل النمط</h3>
-                <p>فكر واختار</p>
-            </button>
-
-            <button class="activity" onclick="startGame('listen')">
-                <div class="icon">🔊</div>
-                <h3>اختار الكلمة</h3>
-                <p>اختار الكلمة الصحيحة</p>
+                <div class="icon">🔤</div>
+                <div class="activity-text">
+                    <h3>الحرف الناقص</h3>
+                    <p>أكمل الكلمة بالحرف الصحيح</p>
+                </div>
             </button>
 
             <button class="activity" onclick="startGame('surahOrder')">
                 <div class="icon">📖</div>
-                <h3>رتّب آيات السورة</h3>
-                <p>رتّب آيات سورة قصيرة</p>
+                <div class="activity-text">
+                    <h3>تحدي السور القرآنية</h3>
+                    <p>رتب الآيات بشكل صحيح</p>
+                </div>
             </button>
 
-            <button class="activity" onclick="startGame('harakat')">
+            <button class="activity" onclick="startGame('math')">
+                <div class="icon">➕</div>
+                <div class="activity-text">
+                    <h3>تحدي الحساب السريع</h3>
+                    <p>احسب بسرعة ودقة</p>
+                </div>
+            </button>
+
+            <button class="activity" onclick="startGame('opposites')">
+                <div class="icon">🔄</div>
+                <div class="activity-text">
+                    <h3>الكلمة وعكسها</h3>
+                    <p>اختر عكس الكلمة الصحيح</p>
+                </div>
+            </button>
+
+            <button class="activity" onclick="startGame('riddles')">
+                <div class="icon">❓</div>
+                <div class="activity-text">
+                    <h3>من أنا؟</h3>
+                    <p>اكتشف الإجابة من الوصف</p>
+                </div>
+            </button>
+
+            <button class="activity" onclick="startGame('xo')">
+                <div class="icon">🎮</div>
+                <div class="activity-text">
+                    <h3>لعبة X O</h3>
+                    <p>واجه الكمبيوتر وكن الأفضل</p>
+                </div>
+            </button>
+
+            <!-- باقي التحديات القديمة محفوظة كما هي -->
+            <button class="activity extra-challenge" onclick="startGame('islamic')">
+                <div class="icon">🕌</div>
+                <div class="activity-text">
+                    <h3>معلومات إسلامية</h3>
+                    <p>أسئلة بسيطة ومفيدة</p>
+                </div>
+            </button>
+            <button class="activity extra-challenge" onclick="startGame('arabic')">
                 <div class="icon">🔤</div>
-                <h3>تحدي الحركات</h3>
-                <p>اختر الكلمة المضبوطة</p>
+                <div class="activity-text">
+                    <h3>لغة عربية</h3>
+                    <p>حروف وكلمات</p>
+                </div>
             </button>
-
-            <button class="activity" onclick="startGame('truefalse')">
-                <div class="icon">✅</div>
-                <h3>صح أم خطأ؟</h3>
-                <p>اختبر معلوماتك بسرعة</p>
+            <button class="activity extra-challenge" onclick="startGame('memory')">
+                <div class="icon">🧠</div>
+                <div class="activity-text">
+                    <h3>اختبار الذاكرة</h3>
+                    <p>اختبر قوة تركيزك</p>
+                </div>
             </button>
-
-            <button class="activity" onclick="startGame('numberOrder')">
+            <button class="activity extra-challenge" onclick="startGame('different')">
+                <div class="icon">🔎</div>
+                <div class="activity-text">
+                    <h3>اكتشف المختلف</h3>
+                    <p>مين المختلف؟</p>
+                </div>
+            </button>
+            <button class="activity extra-challenge" onclick="startGame('reaction')">
+                <div class="icon">⚡</div>
+                <div class="activity-text">
+                    <h3>سرعة التركيز</h3>
+                    <p>اضغط بسرعة!</p>
+                </div>
+            </button>
+            <button class="activity extra-challenge" onclick="startGame('word')">
+                <div class="icon">📝</div>
+                <div class="activity-text">
+                    <h3>رتب الكلمة</h3>
+                    <p>رتب الحروف</p>
+                </div>
+            </button>
+            <button class="activity extra-challenge" onclick="startGame('scenario')">
+                <div class="icon">💭</div>
+                <div class="activity-text">
+                    <h3>ماذا تفعل؟</h3>
+                    <p>مواقف تربوية</p>
+                </div>
+            </button>
+            <button class="activity extra-challenge" onclick="startGame('number')">
                 <div class="icon">🔢</div>
-                <h3>رتّب الأرقام</h3>
-                <p>درّب تركيزك وترتيبك</p>
+                <div class="activity-text">
+                    <h3>ذاكرة الأرقام</h3>
+                    <p>تذكر الرقم</p>
+                </div>
             </button>
-
-            <button class="activity" onclick="startGame('mixed')">
-                <div class="icon">🎁</div>
-                <h3>تحدي عشوائي</h3>
-                <p>مفاجأة كل مرة</p>
+            <button class="activity extra-challenge" onclick="startGame('pattern')">
+                <div class="icon">🎨</div>
+                <div class="activity-text">
+                    <h3>أكمل النمط</h3>
+                    <p>فكر واختار</p>
+                </div>
+            </button>
+            <button class="activity extra-challenge" onclick="startGame('listen')">
+                <div class="icon">🔊</div>
+                <div class="activity-text">
+                    <h3>اختار الكلمة</h3>
+                    <p>اختار الكلمة الصحيحة</p>
+                </div>
+            </button>
+            <button class="activity extra-challenge" onclick="startGame('harakat')">
+                <div class="icon">🔤</div>
+                <div class="activity-text">
+                    <h3>تحدي الحركات</h3>
+                    <p>اختر الكلمة المضبوطة</p>
+                </div>
+            </button>
+            <button class="activity extra-challenge" onclick="startGame('truefalse')">
+                <div class="icon">✅</div>
+                <div class="activity-text">
+                    <h3>صح أم خطأ؟</h3>
+                    <p>اختبر معلوماتك بسرعة</p>
+                </div>
+            </button>
+            <button class="activity extra-challenge" onclick="startGame('numberOrder')">
+                <div class="icon">🔢</div>
+                <div class="activity-text">
+                    <h3>رتب الأرقام</h3>
+                    <p>درب تركيزك وترتيبك</p>
+                </div>
+            </button>
+            <button class="activity extra-challenge" onclick="startGame('mixed')">
+                <div class="icon">🎲</div>
+                <div class="activity-text">
+                    <h3>التحدي العشوائي</h3>
+                    <p>جرب حظك مع تحدي عشوائي</p>
+                </div>
             </button>
 
         </section>
+
 
 
         <!-- GAME -->
@@ -1289,6 +2372,7 @@
         </section>
 
 
+
         <section class="settings">
 
             <button class="setting-btn" onclick="toggleSound()">
@@ -1303,10 +2387,33 @@
                 🎲 تحدي عشوائي
             </button>
 
+
         </section>
 
     </main>
 
+    <footer class="site-footer">
+        تم الصناعة بواسطة المهندس
+        <a href="https://www.instagram.com/hussein____elsalawy/" target="_blank" rel="noopener">حسين السلاوي</a>
+    </footer>
+
+
+    <!-- STUDENT NAME -->
+    <div class="name-overlay" id="nameOverlay">
+        <div class="name-card">
+            <div class="name-avatar">🧠</div>
+            <div class="name-sparkles">✨ ⭐ ✨</div>
+            <h2 id="nameModalTitle">اهلا بك في مغامرة الطالب الذكي!</h2>
+            <p id="nameModalText">اكتب اسمك عشان نبدأ المغامرة ونحسب سكورك</p>
+            <div class="name-input-wrap">
+                <span>👤</span>
+                <input id="studentNameInput" type="text" maxlength="30" autocomplete="off"
+                    placeholder="اكتب اسمك هنا...">
+            </div>
+            <button class="name-start-btn" onclick="saveStudentName()">ابدأ المغامرة 🚀</button>
+            <div class="name-error" id="nameError"></div>
+        </div>
+    </div>
 
     <!-- FEEDBACK -->
 
@@ -1335,11 +2442,13 @@
     </div>
 
 
+
     <script>
 
 
-        /* =====================================================
-           CHARACTERS
+
+        /* ===================================================== 
+           CHARACTERS 
         ===================================================== */
 
         const characters = [
@@ -1456,7 +2565,63 @@
 
         ];
 
+        // شخصيات إضافية لتصل لـ 50 شخصية، كل واحدة تستخدم نفس رسائل التشجيع العامة
+        const genericCharMessages = [
+            "يلا يا بطل! 🌟",
+            "ركز شوية كمان! 💪",
+            "أنت شاطر جدًا! 🎉",
+            "جاهز للتحدي الجاي؟",
+            "استمر كده! 🔥",
+            "واثق إنك هتنجح! ⭐"
+        ];
+
+        const extraCharacters = [
+            {id: "lion", name: "الأسد الملك", emoji: "🦁"},
+            {id: "owl", name: "البومة الحكيمة", emoji: "🦉"},
+            {id: "dolphin", name: "الدولفين المرح", emoji: "🐬"},
+            {id: "bear", name: "الدب الطيب", emoji: "🐻"},
+            {id: "koala", name: "الكوالا النعسان", emoji: "🐨"},
+            {id: "tiger", name: "النمر الشجاع", emoji: "🐯"},
+            {id: "unicorn", name: "المهر السحري", emoji: "🦄"},
+            {id: "dragon", name: "التنين الودود", emoji: "🐉"},
+            {id: "penguin", name: "البطريق الأنيق", emoji: "🐧"},
+            {id: "turtle", name: "السلحفاة الصبورة", emoji: "🐢"},
+            {id: "eagle", name: "النسر القوي", emoji: "🦅"},
+            {id: "bee", name: "النحلة النشيطة", emoji: "🐝"},
+            {id: "butterfly", name: "الفراشة الملونة", emoji: "🦋"},
+            {id: "octopus", name: "الأخطبوط الذكي", emoji: "🐙"},
+            {id: "shark", name: "القرش الشجاع", emoji: "🦈"},
+            {id: "elephant", name: "الفيل الحنون", emoji: "🐘"},
+            {id: "giraffe", name: "الزرافة الطويلة", emoji: "🦒"},
+            {id: "monkey", name: "القرد المرح", emoji: "🐵"},
+            {id: "squirrel", name: "السنجاب النشيط", emoji: "🐿️"},
+            {id: "hedgehog", name: "القنفذ الصغير", emoji: "🦔"},
+            {id: "wolf", name: "الذئب الوفي", emoji: "🐺"},
+            {id: "horse", name: "الحصان السريع", emoji: "🐴"},
+            {id: "peacock", name: "الطاووس الجميل", emoji: "🦚"},
+            {id: "parrot", name: "الببغاء الفصيح", emoji: "🦜"},
+            {id: "crab", name: "السلطعون المضحك", emoji: "🦀"},
+            {id: "frog", name: "الضفدع القافز", emoji: "🐸"},
+            {id: "ladybug", name: "الدعسوقة المحظوظة", emoji: "🐞"},
+            {id: "chick", name: "الكتكوت اللطيف", emoji: "🐤"},
+            {id: "cow", name: "البقرة الهادئة", emoji: "🐄"},
+            {id: "sheep", name: "الخروف الوديع", emoji: "🐑"},
+            {id: "camel", name: "الجمل الصبور", emoji: "🐫"},
+            {id: "seal", name: "الفقمة اللعوبة", emoji: "🦭"},
+            {id: "ninja", name: "النينجا الخفي", emoji: "🥷"},
+            {id: "knight", name: "الفارس الشجاع", emoji: "🛡️"},
+            {id: "fairy", name: "الجنية الطيبة", emoji: "🧚"},
+            {id: "mermaid", name: "حورية البحر", emoji: "🧜"},
+            {id: "genie", name: "المارد الطيب", emoji: "🧞"},
+            {id: "alien", name: "الكائن الفضائي", emoji: "👽"},
+            {id: "ghost", name: "الشبح المرح", emoji: "👻"},
+            {id: "pirate", name: "القرصان المغامر", emoji: "🏴‍☠️"}
+        ].map(c => ({...c, messages: genericCharMessages}));
+
+        characters.push(...extraCharacters);
+
         let currentCharacter;
+        let studentCharacterId = localStorage.getItem("studentCharacterId") || "";
 
         function randomCharacter() {
 
@@ -1477,8 +2642,29 @@
             updateCharacter();
         }
 
+        // شخصية ثابتة وخاصة بالطالب: تتحدد عشوائيًا من الـ50 شخصية أول ما يسجل اسمه،
+        // وتفضل هي شخصيته لحد ما يعمل تصفير للتقدم ويسجل من جديد.
+        function assignRandomCharacterForStudent() {
+            let last = localStorage.getItem("lastCharacter");
+            let available = characters.filter(c => c.id !== last);
+            currentCharacter = available[Math.floor(Math.random() * available.length)];
+            studentCharacterId = currentCharacter.id;
+            localStorage.setItem("studentCharacterId", studentCharacterId);
+            localStorage.setItem("lastCharacter", studentCharacterId);
+            updateCharacter();
+        }
+
+        function loadAssignedCharacter() {
+            if (!studentCharacterId) return false;
+            const found = characters.find(c => c.id === studentCharacterId);
+            if (!found) return false;
+            currentCharacter = found;
+            updateCharacter();
+            return true;
+        }
+
         function changeCharacter() {
-            randomCharacter();
+            assignRandomCharacterForStudent();
             playSuccess();
         }
 
@@ -1498,15 +2684,18 @@
         }
 
 
-        /* =====================================================
-           ARABIC DIACRITICS — تشكيل أوضح للطفل
+
+        /* ===================================================== 
+           ARABIC DIACRITICS — تشكيل أوضح للطفل 
         ===================================================== */
 
         const letterDiacritics = {
-            "ا": "أَ", "أ": "أَ", "ب": "بَ", "ت": "تَ", "ث": "ثَ", "ج": "جَ", "ح": "حَ", "خ": "خَ",
-            "د": "دَ", "ذ": "ذَ", "ر": "رَ", "ز": "زَ", "س": "سَ", "ش": "شَ", "ص": "صَ", "ض": "ضَ",
-            "ط": "طَ", "ظ": "ظَ", "ع": "عَ", "غ": "غَ", "ف": "فَ", "ق": "قَ", "ك": "كَ", "ل": "لَ",
-            "م": "مَ", "ن": "نَ", "ه": "هَ", "و": "وَ", "ي": "يَ", "ى": "ىَ"
+            "أ": "أ", "إ": "إ", "آ": "آ", "ا": "ا",
+            "ب": "ب", "ت": "ت", "ث": "ث", "ج": "ج", "ح": "ح", "خ": "خ",
+            "د": "د", "ذ": "ذ", "ر": "ر", "ز": "ز", "س": "س", "ش": "ش",
+            "ص": "ص", "ض": "ض", "ط": "ط", "ظ": "ظ", "ع": "ع", "غ": "غ",
+            "ف": "ف", "ق": "ق", "ك": "ك", "ل": "ل", "م": "م", "ن": "ن",
+            "ه": "ه", "و": "و", "ي": "ي", "ى": "ى"
         };
 
         const vocalizedWords = {
@@ -1516,44 +2705,23 @@
             "رجل": "رَجُل", "أسد": "أَسَد", "طفل": "طِفْل", "كتب": "كُتُب", "كاتب": "كَاتِب",
             "كتابة": "كِتَابَة", "مكتوب": "مَكْتُوب", "طفلة": "طِفْلَة", "طفول": "طُفُول", "طويل": "طَوِيل",
             "كبير": "كَبِير", "صغير": "صَغِير", "سريع": "سَرِيع", "قوي": "قَوِيّ", "جميل": "جَمِيل",
-            "مدرسة": "مَدْرَسَة", "الحمد لله": "الْحَمْدُ لِلَّه", "بسم الله": "بِسْمِ اللَّه",
-            "السلام عليكم": "السَّلَامُ عَلَيْكُمْ", "الله أكبر": "اللَّهُ أَكْبَر", "القرآن الكريم": "الْقُرْآنُ الْكَرِيم"
+            "الحمد لله": "الْحَمْدُ لِلَّهِ", "بسم الله": "بِسْمِ اللَّهِ",
+            "السلام عليكم": "السَّلَامُ عَلَيْكُمْ", "الله أكبر": "اللَّهُ أَكْبَر",
+            "القرآن الكريم": "الْقُرْآنُ الْكَرِيمُ"
         };
 
-        function stripFinalHaraka(text) {
-            const chars = Array.from(text);
-            for (let i = chars.length - 1; i >= 0; i--) {
-                if (/[ء-ي]/.test(chars[i])) {
-                    while (i + 1 < chars.length && /[\u064B-\u065F\u0670]/.test(chars[i + 1])) chars.splice(i + 1, 1);
-                    break;
-                }
-            }
-            return chars.join("");
-        }
-
-        function stripWordFinalHarakat(text) {
-            return String(text).split(/(\s+)/).map(part => {
-                if (/\s+/.test(part)) return part;
-                return stripFinalHaraka(part);
-            }).join("");
-        }
-
-        function vocalizeLetter(letter) {
-            return letterDiacritics[letter] || letter;
-        }
-
-        function vocalizeWord(word) {
-            if (vocalizedWords[word]) return stripFinalHaraka(vocalizedWords[word]);
-            const result = Array.from(word).map(letter => vocalizeLetter(letter)).join("");
-            return stripFinalHaraka(result);
-        }
-
+        function stripFinalHaraka(text) {return String(text);}
+        function stripWordFinalHarakat(text) {return String(text);}
+        function vocalizeLetter(letter) {return letterDiacritics[letter] || letter;}
+        function vocalizeWord(word) {return vocalizedWords[word] || word;}
         function vocalizeText(text) {
-            return String(text).split(/(\s+)/).map(part => /\s+/.test(part) ? part : vocalizeWord(part)).join("");
+            return String(text).split(/(\s+)/).map(part =>
+                /\s+/.test(part) ? part : vocalizeWord(part)
+            ).join("");
         }
 
-        /* =====================================================
-           QUESTIONS
+        /* ===================================================== 
+           QUESTIONS 
         ===================================================== */
 
         const islamicQuestions = [
@@ -1741,8 +2909,9 @@
         ];
 
 
-        /* =====================================================
-           ARABIC QUESTIONS
+
+        /* ===================================================== 
+           ARABIC QUESTIONS 
         ===================================================== */
 
         const arabicQuestions = [
@@ -1870,34 +3039,17 @@
         ];
 
 
-        /* =====================================================
-           MISSING LETTERS
+
+        /* ===================================================== 
+           MISSING LETTERS 
         ===================================================== */
 
-        const missingWords = [
-            {word: "ك_اب", answers: ["ت", "ب", "م", "ن"], correct: "ت"}, {word: "ق_م", answers: ["ل", "ب", "ر", "ت"], correct: "ل"},
-            {word: "_اب", answers: ["ب", "ك", "م", "ق"], correct: "ب"}, {word: "م_ز", answers: ["و", "ا", "ي", "ن"], correct: "و"},
-            {word: "ش_س", answers: ["م", "ر", "ب", "ن"], correct: "م"}, {word: "ب_ت", answers: ["ي", "ا", "و", "م"], correct: "ي"},
-            {word: "ن_ر", answers: ["و", "ا", "ي", "م"], correct: "و"}, {word: "_لم", answers: ["ق", "ك", "ب", "ت"], correct: "ق"},
-            {word: "ت_اح", answers: ["ف", "ب", "م", "ن"], correct: "ف"}, {word: "ب_تقال", answers: ["ر", "ز", "س", "ل"], correct: "ر"},
-            {word: "م_رسة", answers: ["د", "ذ", "ر", "ز"], correct: "د"}, {word: "ش_رة", answers: ["ج", "ح", "خ", "ع"], correct: "ج"},
-            {word: "ط_ل", answers: ["ف", "ف", "ا", "و"], correct: "ف"}, {word: "ص_يق", answers: ["د", "ذ", "ر", "ز"], correct: "د"},
-            {word: "م_لم", answers: ["ع", "غ", "ق", "ك"], correct: "ع"}, {word: "ط_لب", answers: ["ا", "و", "ي", "ر"], correct: "ا"},
-            {word: "ح_يبة", answers: ["ق", "ك", "ل", "م"], correct: "ق"}, {word: "د_تر", answers: ["ف", "ب", "ت", "ث"], correct: "ف"},
-            {word: "م_حاة", answers: ["م", "ن", "ب", "ت"], correct: "م"}, {word: "م_جد", answers: ["س", "ش", "ص", "ض"], correct: "س"},
-            {word: "ص_اة", answers: ["ل", "ر", "م", "ن"], correct: "ل"}, {word: "ن_ر", answers: ["ه", "و", "ي", "ا"], correct: "ه"},
-            {word: "ج_ل", answers: ["ب", "د", "ذ", "ر"], correct: "ب"}, {word: "ن_م", answers: ["ج", "ح", "خ", "ع"], correct: "ج"},
-            {word: "س_ارة", answers: ["ي", "ا", "و", "م"], correct: "ي"}, {word: "ط_يق", answers: ["ر", "ز", "س", "ش"], correct: "ر"},
-            {word: "ح_يقة", answers: ["د", "ذ", "ر", "ز"], correct: "د"}, {word: "ك_رة", answers: ["ر", "ر", "س", "ص"], correct: "ر"},
-            {word: "س_اء", answers: ["م", "ن", "ب", "ت"], correct: "م"}, {word: "ن_ر", answers: ["ه", "و", "ي", "ا"], correct: "ه"},
-            {word: "ج_ل", answers: ["ب", "د", "ذ", "ر"], correct: "ب"}, {word: "م_ينة", answers: ["د", "ذ", "ر", "ز"], correct: "د"},
-            {word: "ق_ية", answers: ["ر", "ز", "س", "ش"], correct: "ر"}, {word: "س_عة", answers: ["ا", "و", "ي", "م"], correct: "ا"},
-            {word: "ل_بة", answers: ["ع", "غ", "ق", "ك"], correct: "ع"}, {word: "ك_رة", answers: ["ب", "ت", "ث", "ج"], correct: "ب"}
-        ];
+        const missingWords = [{"word": "ك_اب", "full": "كتاب", "answers": ["ت", "ب", "م", "ن"], "correct": "ت"}, {"word": "ق_م", "full": "قلم", "answers": ["ل", "ب", "ر", "ت"], "correct": "ل"}, {"word": "_اب", "full": "باب", "answers": ["ب", "ك", "م", "ق"], "correct": "ب"}, {"word": "م_ز", "full": "موز", "answers": ["و", "ا", "ي", "ن"], "correct": "و"}, {"word": "ش_س", "full": "شمس", "answers": ["م", "ر", "ب", "ن"], "correct": "م"}, {"word": "ب_ت", "full": "بيت", "answers": ["ي", "ا", "و", "م"], "correct": "ي"}, {"word": "ن_ر", "full": "نور", "answers": ["و", "ا", "ي", "م"], "correct": "و"}, {"word": "_لم", "full": "قلم", "answers": ["ق", "ك", "ب", "ت"], "correct": "ق"}, {"word": "ت_اح", "full": "تفاح", "answers": ["ف", "ب", "م", "ن"], "correct": "ف"}, {"word": "ب_تقال", "full": "برتقال", "answers": ["ر", "ز", "س", "ل"], "correct": "ر"}, {"word": "م_رسة", "full": "مدرسة", "answers": ["د", "ذ", "ر", "ز"], "correct": "د"}, {"word": "ش_رة", "full": "شجرة", "answers": ["ج", "ح", "خ", "ع"], "correct": "ج"}, {"word": "ط_ل", "full": "طفل", "answers": ["ف", "ا", "و", "ب"], "correct": "ف"}, {"word": "ص_يق", "full": "صديق", "answers": ["د", "ذ", "ر", "ز"], "correct": "د"}, {"word": "م_لم", "full": "معلم", "answers": ["ع", "غ", "ق", "ك"], "correct": "ع"}, {"word": "ط_لب", "full": "طالب", "answers": ["ا", "و", "ي", "ر"], "correct": "ا"}, {"word": "ح_يبة", "full": "حقيبة", "answers": ["ق", "ك", "ل", "م"], "correct": "ق"}, {"word": "د_تر", "full": "دفتر", "answers": ["ف", "ب", "ت", "ث"], "correct": "ف"}, {"word": "م_حاة", "full": "ممحاة", "answers": ["م", "ن", "ب", "ت"], "correct": "م"}, {"word": "م_جد", "full": "مسجد", "answers": ["س", "ش", "ص", "ض"], "correct": "س"}, {"word": "ص_اة", "full": "صلاة", "answers": ["ل", "ر", "م", "ن"], "correct": "ل"}, {"word": "ن_ر", "full": "نهر", "answers": ["ه", "و", "ي", "ا"], "correct": "ه"}, {"word": "ج_ل", "full": "جمل", "answers": ["م", "د", "ذ", "ر"], "correct": "م"}, {"word": "ن_م", "full": "نجم", "answers": ["ج", "ح", "خ", "ع"], "correct": "ج"}, {"word": "س_ارة", "full": "سيارة", "answers": ["ي", "ا", "و", "م"], "correct": "ي"}, {"word": "ط_يق", "full": "طريق", "answers": ["ر", "ز", "س", "ش"], "correct": "ر"}, {"word": "ح_يقة", "full": "حديقة", "answers": ["د", "ذ", "ر", "ز"], "correct": "د"}, {"word": "ك_رة", "full": "كرة", "answers": ["ر", "س", "ص", "م"], "correct": "ر"}, {"word": "س_اء", "full": "سماء", "answers": ["م", "ن", "ب", "ت"], "correct": "م"}, {"word": "م_ينة", "full": "مدينة", "answers": ["د", "ذ", "ر", "ز"], "correct": "د"}, {"word": "ق_ية", "full": "قرية", "answers": ["ر", "ز", "س", "ش"], "correct": "ر"}, {"word": "س_عة", "full": "ساعة", "answers": ["ا", "و", "ي", "م"], "correct": "ا"}, {"word": "ل_بة", "full": "لعبة", "answers": ["ع", "غ", "ق", "ك"], "correct": "ع"}, {"word": "ك_رة", "full": "كرة", "answers": ["ر", "ب", "ت", "ث"], "correct": "ر"}, {"word": "_بن", "full": "ابن", "answers": ["ا", "أ", "إ", "و"], "correct": "ا"}, {"word": "_سم", "full": "اسم", "answers": ["ا", "أ", "إ", "و"], "correct": "ا"}, {"word": "_ستعمال", "full": "استعمال", "answers": ["ا", "أ", "إ", "و"], "correct": "ا"}, {"word": "_ستغفار", "full": "استغفار", "answers": ["ا", "أ", "إ", "و"], "correct": "ا"}, {"word": "_نتصار", "full": "انتصار", "answers": ["ا", "أ", "إ", "و"], "correct": "ا"}, {"word": "_جتماع", "full": "اجتماع", "answers": ["ا", "أ", "إ", "و"], "correct": "ا"}, {"word": "_ختبار", "full": "اختبار", "answers": ["ا", "أ", "إ", "و"], "correct": "ا"}, {"word": "_حترام", "full": "احترام", "answers": ["ا", "أ", "إ", "و"], "correct": "ا"}, {"word": "_قتصاد", "full": "اقتصاد", "answers": ["ا", "أ", "إ", "و"], "correct": "ا"}, {"word": "_ستقبال", "full": "استقبال", "answers": ["ا", "أ", "إ", "و"], "correct": "ا"}, {"word": "_سلام", "full": "إسلام", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_يمان", "full": "إيمان", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_حسان", "full": "إحسان", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_كرام", "full": "إكرام", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_نسان", "full": "إنسان", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_كرام", "full": "إكرام", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_جابة", "full": "إجابة", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_دارة", "full": "إدارة", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_ذاعة", "full": "إذاعة", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_شارة", "full": "إشارة", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_علان", "full": "إعلان", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_بداع", "full": "إبداع", "answers": ["إ", "أ", "ا", "آ"], "correct": "إ"}, {"word": "_مانة", "full": "أمانة", "answers": ["أ", "إ", "ا", "آ"], "correct": "أ"}, {"word": "_حمد", "full": "أحمد", "answers": ["أ", "إ", "ا", "آ"], "correct": "أ"}, {"word": "_سد", "full": "أسد", "answers": ["أ", "إ", "ا", "آ"], "correct": "أ"}, {"word": "_ب", "full": "أب", "answers": ["أ", "إ", "ا", "آ"], "correct": "أ"}, {"word": "_خذ", "full": "أخذ", "answers": ["أ", "إ", "ا", "آ"], "correct": "أ"}, {"word": "_كل", "full": "أكل", "answers": ["أ", "إ", "ا", "آ"], "correct": "أ"}];
 
 
-        /* =====================================================
-           SCENARIOS
+
+        /* ===================================================== 
+           SCENARIOS 
         ===================================================== */
 
         const scenarios = [
@@ -1930,8 +3082,9 @@
         ];
 
 
-        /* =====================================================
-           WORDS
+
+        /* ===================================================== 
+           WORDS 
         ===================================================== */
 
         const words = [
@@ -1943,10 +3096,11 @@
         ];
 
 
-        /* =====================================================
-           SURAH ORDER CHALLENGE — 30 سورة قصيرة من جزء عمّ
+
+        /* ===================================================== 
+           SURAH ORDER CHALLENGE — 30 سورة قصيرة من جزء عمّ 
         ===================================================== */
-        const shortSurahs = [{"number": 85, "name": "البروج", "ayahs": ["وَٱلسَّمَآءِ ذَاتِ ٱلْبُرُوجِ", "وَٱلْيَوْمِ ٱلْمَوْعُودِ", "وَشَاهِدٍ وَمَشْهُودٍ", "قُتِلَ أَصْحَـٰبُ ٱلْأُخْدُودِ", "ٱلنَّارِ ذَاتِ ٱلْوَقُودِ", "إِذْ هُمْ عَلَيْهَا قُعُودٌ", "وَهُمْ عَلَىٰ مَا يَفْعَلُونَ بِٱلْمُؤْمِنِينَ شُهُودٌ", "وَمَا نَقَمُوا۟ مِنْهُمْ إِلَّآ أَن يُؤْمِنُوا۟ بِٱللَّهِ ٱلْعَزِيزِ ٱلْحَمِيدِ", "ٱلَّذِى لَهُۥ مُلْكُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۚ وَٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ شَهِيدٌ", "إِنَّ ٱلَّذِينَ فَتَنُوا۟ ٱلْمُؤْمِنِينَ وَٱلْمُؤْمِنَـٰتِ ثُمَّ لَمْ يَتُوبُوا۟ فَلَهُمْ عَذَابُ جَهَنَّمَ وَلَهُمْ عَذَابُ ٱلْحَرِيقِ", "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ لَهُمْ جَنَّـٰتٌ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ ۚ ذَٰلِكَ ٱلْفَوْزُ ٱلْكَبِيرُ", "إِنَّ بَطْشَ رَبِّكَ لَشَدِيدٌ", "إِنَّهُۥ هُوَ يُبْدِئُ وَيُعِيدُ", "وَهُوَ ٱلْغَفُورُ ٱلْوَدُودُ", "ذُو ٱلْعَرْشِ ٱلْمَجِيدُ", "فَعَّالٌ لِّمَا يُرِيدُ", "هَلْ أَتَىٰكَ حَدِيثُ ٱلْجُنُودِ", "فِرْعَوْنَ وَثَمُودَ", "بَلِ ٱلَّذِينَ كَفَرُوا۟ فِى تَكْذِيبٍ", "وَٱللَّهُ مِن وَرَآئِهِم مُّحِيطٌۢ", "بَلْ هُوَ قُرْءَانٌ مَّجِيدٌ", "فِى لَوْحٍ مَّحْفُوظٍۭ"]}, {"number": 86, "name": "الطارق", "ayahs": ["وَٱلسَّمَآءِ وَٱلطَّارِقِ", "وَمَآ أَدْرَىٰكَ مَا ٱلطَّارِقُ", "ٱلنَّجْمُ ٱلثَّاقِبُ", "إِن كُلُّ نَفْسٍ لَّمَّا عَلَيْهَا حَافِظٌ", "فَلْيَنظُرِ ٱلْإِنسَـٰنُ مِمَّ خُلِقَ", "خُلِقَ مِن مَّآءٍ دَافِقٍ", "يَخْرُجُ مِنۢ بَيْنِ ٱلصُّلْبِ وَٱلتَّرَآئِبِ", "إِنَّهُۥ عَلَىٰ رَجْعِهِۦ لَقَادِرٌ", "يَوْمَ تُبْلَى ٱلسَّرَآئِرُ", "فَمَا لَهُۥ مِن قُوَّةٍ وَلَا نَاصِرٍ", "وَٱلسَّمَآءِ ذَاتِ ٱلرَّجْعِ", "وَٱلْأَرْضِ ذَاتِ ٱلصَّدْعِ", "إِنَّهُۥ لَقَوْلٌ فَصْلٌ", "وَمَا هُوَ بِٱلْهَزْلِ", "إِنَّهُمْ يَكِيدُونَ كَيْدًا", "وَأَكِيدُ كَيْدًا", "فَمَهِّلِ ٱلْكَـٰفِرِينَ أَمْهِلْهُمْ رُوَيْدًۢا"]}, {"number": 87, "name": "الأعلى", "ayahs": ["سَبِّحِ ٱسْمَ رَبِّكَ ٱلْأَعْلَى", "ٱلَّذِى خَلَقَ فَسَوَّىٰ", "وَٱلَّذِى قَدَّرَ فَهَدَىٰ", "وَٱلَّذِىٓ أَخْرَجَ ٱلْمَرْعَىٰ", "فَجَعَلَهُۥ غُثَآءً أَحْوَىٰ", "سَنُقْرِئُكَ فَلَا تَنسَىٰٓ", "إِلَّا مَا شَآءَ ٱللَّهُ ۚ إِنَّهُۥ يَعْلَمُ ٱلْجَهْرَ وَمَا يَخْفَىٰ", "وَنُيَسِّرُكَ لِلْيُسْرَىٰ", "فَذَكِّرْ إِن نَّفَعَتِ ٱلذِّكْرَىٰ", "سَيَذَّكَّرُ مَن يَخْشَىٰ", "وَيَتَجَنَّبُهَا ٱلْأَشْقَى", "ٱلَّذِى يَصْلَى ٱلنَّارَ ٱلْكُبْرَىٰ", "ثُمَّ لَا يَمُوتُ فِيهَا وَلَا يَحْيَىٰ", "قَدْ أَفْلَحَ مَن تَزَكَّىٰ", "وَذَكَرَ ٱسْمَ رَبِّهِۦ فَصَلَّىٰ", "بَلْ تُؤْثِرُونَ ٱلْحَيَوٰةَ ٱلدُّنْيَا", "وَٱلْءَاخِرَةُ خَيْرٌ وَأَبْقَىٰٓ", "إِنَّ هَـٰذَا لَفِى ٱلصُّحُفِ ٱلْأُولَىٰ", "صُحُفِ إِبْرَٰهِيمَ وَمُوسَىٰ"]}, {"number": 88, "name": "الغاشية", "ayahs": ["هَلْ أَتَىٰكَ حَدِيثُ ٱلْغَـٰشِيَةِ", "وُجُوهٌ يَوْمَئِذٍ خَـٰشِعَةٌ", "عَامِلَةٌ نَّاصِبَةٌ", "تَصْلَىٰ نَارًا حَامِيَةً", "تُسْقَىٰ مِنْ عَيْنٍ ءَانِيَةٍ", "لَّيْسَ لَهُمْ طَعَامٌ إِلَّا مِن ضَرِيعٍ", "لَّا يُسْمِنُ وَلَا يُغْنِى مِن جُوعٍ", "وُجُوهٌ يَوْمَئِذٍ نَّاعِمَةٌ", "لِّسَعْيِهَا رَاضِيَةٌ", "فِى جَنَّةٍ عَالِيَةٍ", "لَّا تَسْمَعُ فِيهَا لَـٰغِيَةً", "فِيهَا عَيْنٌ جَارِيَةٌ", "فِيهَا سُرُرٌ مَّرْفُوعَةٌ", "وَأَكْوَابٌ مَّوْضُوعَةٌ", "وَنَمَارِقُ مَصْفُوفَةٌ", "وَزَرَابِىُّ مَبْثُوثَةٌ", "أَفَلَا يَنظُرُونَ إِلَى ٱلْإِبِلِ كَيْفَ خُلِقَتْ", "وَإِلَى ٱلسَّمَآءِ كَيْفَ رُفِعَتْ", "وَإِلَى ٱلْجِبَالِ كَيْفَ نُصِبَتْ", "وَإِلَى ٱلْأَرْضِ كَيْفَ سُطِحَتْ", "فَذَكِّرْ إِنَّمَآ أَنتَ مُذَكِّرٌ", "لَّسْتَ عَلَيْهِم بِمُصَيْطِرٍ", "إِلَّا مَن تَوَلَّىٰ وَكَفَرَ", "فَيُعَذِّبُهُ ٱللَّهُ ٱلْعَذَابَ ٱلْأَكْبَرَ", "إِنَّ إِلَيْنَآ إِيَابَهُمْ", "ثُمَّ إِنَّ عَلَيْنَا حِسَابَهُم"]}, {"number": 89, "name": "الفجر", "ayahs": ["وَٱلْفَجْرِ", "وَلَيَالٍ عَشْرٍ", "وَٱلشَّفْعِ وَٱلْوَتْرِ", "وَٱلَّيْلِ إِذَا يَسْرِ", "هَلْ فِى ذَٰلِكَ قَسَمٌ لِّذِى حِجْرٍ", "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ", "إِرَمَ ذَاتِ ٱلْعِمَادِ", "ٱلَّتِى لَمْ يُخْلَقْ مِثْلُهَا فِى ٱلْبِلَـٰدِ", "وَثَمُودَ ٱلَّذِينَ جَابُوا۟ ٱلصَّخْرَ بِٱلْوَادِ", "وَفِرْعَوْنَ ذِى ٱلْأَوْتَادِ", "ٱلَّذِينَ طَغَوْا۟ فِى ٱلْبِلَـٰدِ", "فَأَكْثَرُوا۟ فِيهَا ٱلْفَسَادَ", "فَصَبَّ عَلَيْهِمْ رَبُّكَ سَوْطَ عَذَابٍ", "إِنَّ رَبَّكَ لَبِٱلْمِرْصَادِ", "فَأَمَّا ٱلْإِنسَـٰنُ إِذَا مَا ٱبْتَلَىٰهُ رَبُّهُۥ فَأَكْرَمَهُۥ وَنَعَّمَهُۥ فَيَقُولُ رَبِّىٓ أَكْرَمَنِ", "وَأَمَّآ إِذَا مَا ٱبْتَلَىٰهُ فَقَدَرَ عَلَيْهِ رِزْقَهُۥ فَيَقُولُ رَبِّىٓ أَهَـٰنَنِ", "كَلَّا ۖ بَل لَّا تُكْرِمُونَ ٱلْيَتِيمَ", "وَلَا تَحَـٰٓضُّونَ عَلَىٰ طَعَامِ ٱلْمِسْكِينِ", "وَتَأْكُلُونَ ٱلتُّرَاثَ أَكْلًا لَّمًّا", "وَتُحِبُّونَ ٱلْمَالَ حُبًّا جَمًّا", "كَلَّآ إِذَا دُكَّتِ ٱلْأَرْضُ دَكًّا دَكًّا", "وَجَآءَ رَبُّكَ وَٱلْمَلَكُ صَفًّا صَفًّا", "وَجِا۟ىٓءَ يَوْمَئِذٍۭ بِجَهَنَّمَ ۚ يَوْمَئِذٍ يَتَذَكَّرُ ٱلْإِنسَـٰنُ وَأَنَّىٰ لَهُ ٱلذِّكْرَىٰ", "يَقُولُ يَـٰلَيْتَنِى قَدَّمْتُ لِحَيَاتِى", "فَيَوْمَئِذٍ لَّا يُعَذِّبُ عَذَابَهُۥٓ أَحَدٌ", "وَلَا يُوثِقُ وَثَاقَهُۥٓ أَحَدٌ", "يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ", "ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً", "فَٱدْخُلِى فِى عِبَـٰدِى", "وَٱدْخُلِى جَنَّتِى"]}, {"number": 90, "name": "البلد", "ayahs": ["لَآ أُقْسِمُ بِهَـٰذَا ٱلْبَلَدِ", "وَأَنتَ حِلٌّۢ بِهَـٰذَا ٱلْبَلَدِ", "وَوَالِدٍ وَمَا وَلَدَ", "لَقَدْ خَلَقْنَا ٱلْإِنسَـٰنَ فِى كَبَدٍ", "أَيَحْسَبُ أَن لَّن يَقْدِرَ عَلَيْهِ أَحَدٌ", "يَقُولُ أَهْلَكْتُ مَالًا لُّبَدًا", "أَيَحْسَبُ أَن لَّمْ يَرَهُۥٓ أَحَدٌ", "أَلَمْ نَجْعَل لَّهُۥ عَيْنَيْنِ", "وَلِسَانًا وَشَفَتَيْنِ", "وَهَدَيْنَـٰهُ ٱلنَّجْدَيْنِ", "فَلَا ٱقْتَحَمَ ٱلْعَقَبَةَ", "وَمَآ أَدْرَىٰكَ مَا ٱلْعَقَبَةُ", "فَكُّ رَقَبَةٍ", "أَوْ إِطْعَـٰمٌ فِى يَوْمٍ ذِى مَسْغَبَةٍ", "يَتِيمًا ذَا مَقْرَبَةٍ", "أَوْ مِسْكِينًا ذَا مَتْرَبَةٍ", "ثُمَّ كَانَ مِنَ ٱلَّذِينَ ءَامَنُوا۟ وَتَوَاصَوْا۟ بِٱلصَّبْرِ وَتَوَاصَوْا۟ بِٱلْمَرْحَمَةِ", "أُو۟لَـٰٓئِكَ أَصْحَـٰبُ ٱلْمَيْمَنَةِ", "وَٱلَّذِينَ كَفَرُوا۟ بِـَٔايَـٰتِنَا هُمْ أَصْحَـٰبُ ٱلْمَشْـَٔمَةِ", "عَلَيْهِمْ نَارٌ مُّؤْصَدَةٌۢ"]}, {"number": 91, "name": "الشمس", "ayahs": ["وَٱلشَّمْسِ وَضُحَىٰهَا", "وَٱلْقَمَرِ إِذَا تَلَىٰهَا", "وَٱلنَّهَارِ إِذَا جَلَّىٰهَا", "وَٱلَّيْلِ إِذَا يَغْشَىٰهَا", "وَٱلسَّمَآءِ وَمَا بَنَىٰهَا", "وَٱلْأَرْضِ وَمَا طَحَىٰهَا", "وَنَفْسٍ وَمَا سَوَّىٰهَا", "فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَىٰهَا", "قَدْ أَفْلَحَ مَن زَكَّىٰهَا", "وَقَدْ خَابَ مَن دَسَّىٰهَا", "كَذَّبَتْ ثَمُودُ بِطَغْوَىٰهَآ", "إِذِ ٱنۢبَعَثَ أَشْقَىٰهَا", "فَقَالَ لَهُمْ رَسُولُ ٱللَّهِ نَاقَةَ ٱللَّهِ وَسُقْيَـٰهَا", "فَكَذَّبُوهُ فَعَقَرُوهَا فَدَمْدَمَ عَلَيْهِمْ رَبُّهُم بِذَنۢبِهِمْ فَسَوَّىٰهَا", "وَلَا يَخَافُ عُقْبَـٰهَا"]}, {"number": 92, "name": "الليل", "ayahs": ["وَٱلَّيْلِ إِذَا يَغْشَىٰ", "وَٱلنَّهَارِ إِذَا تَجَلَّىٰ", "وَمَا خَلَقَ ٱلذَّكَرَ وَٱلْأُنثَىٰٓ", "إِنَّ سَعْيَكُمْ لَشَتَّىٰ", "فَأَمَّا مَنْ أَعْطَىٰ وَٱتَّقَىٰ", "وَصَدَّقَ بِٱلْحُسْنَىٰ", "فَسَنُيَسِّرُهُۥ لِلْيُسْرَىٰ", "وَأَمَّا مَنۢ بَخِلَ وَٱسْتَغْنَىٰ", "وَكَذَّبَ بِٱلْحُسْنَىٰ", "فَسَنُيَسِّرُهُۥ لِلْعُسْرَىٰ", "وَمَا يُغْنِى عَنْهُ مَالُهُۥٓ إِذَا تَرَدَّىٰٓ", "إِنَّ عَلَيْنَا لَلْهُدَىٰ", "وَإِنَّ لَنَا لَلْءَاخِرَةَ وَٱلْأُولَىٰ", "فَأَنذَرْتُكُمْ نَارًا تَلَظَّىٰ", "لَا يَصْلَىٰهَآ إِلَّا ٱلْأَشْقَى", "ٱلَّذِى كَذَّبَ وَتَوَلَّىٰ", "وَسَيُجَنَّبُهَا ٱلْأَتْقَى", "ٱلَّذِى يُؤْتِى مَالَهُۥ يَتَزَكَّىٰ", "وَمَا لِأَحَدٍ عِندَهُۥ مِن نِّعْمَةٍ تُجْزَىٰٓ", "إِلَّا ٱبْتِغَآءَ وَجْهِ رَبِّهِ ٱلْأَعْلَىٰ", "وَلَسَوْفَ يَرْضَىٰ"]}, {"number": 93, "name": "الضحى", "ayahs": ["وَٱلضُّحَىٰ", "وَٱلَّيْلِ إِذَا سَجَىٰ", "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ", "وَلَلْءَاخِرَةُ خَيْرٌ لَّكَ مِنَ ٱلْأُولَىٰ", "وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰٓ", "أَلَمْ يَجِدْكَ يَتِيمًا فَـَٔاوَىٰ", "وَوَجَدَكَ ضَآلًّا فَهَدَىٰ", "وَوَجَدَكَ عَآئِلًا فَأَغْنَىٰ", "فَأَمَّا ٱلْيَتِيمَ فَلَا تَقْهَرْ", "وَأَمَّا ٱلسَّآئِلَ فَلَا تَنْهَرْ", "وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ"]}, {"number": 94, "name": "الشرح", "ayahs": ["أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ", "وَوَضَعْنَا عَنكَ وِزْرَكَ", "ٱلَّذِىٓ أَنقَضَ ظَهْرَكَ", "وَرَفَعْنَا لَكَ ذِكْرَكَ", "فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًا", "إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا", "فَإِذَا فَرَغْتَ فَٱنصَبْ", "وَإِلَىٰ رَبِّكَ فَٱرْغَب"]}, {"number": 95, "name": "التين", "ayahs": ["وَٱلتِّينِ وَٱلزَّيْتُونِ", "وَطُورِ سِينِينَ", "وَهَـٰذَا ٱلْبَلَدِ ٱلْأَمِينِ", "لَقَدْ خَلَقْنَا ٱلْإِنسَـٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍ", "ثُمَّ رَدَدْنَـٰهُ أَسْفَلَ سَـٰفِلِينَ", "إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ فَلَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍ", "فَمَا يُكَذِّبُكَ بَعْدُ بِٱلدِّينِ", "أَلَيْسَ ٱللَّهُ بِأَحْكَمِ ٱلْحَـٰكِمِينَ"]}, {"number": 96, "name": "العلق", "ayahs": ["ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ", "خَلَقَ ٱلْإِنسَـٰنَ مِنْ عَلَقٍ", "ٱقْرَأْ وَرَبُّكَ ٱلْأَكْرَمُ", "ٱلَّذِى عَلَّمَ بِٱلْقَلَمِ", "عَلَّمَ ٱلْإِنسَـٰنَ مَا لَمْ يَعْلَمْ", "كَلَّآ إِنَّ ٱلْإِنسَـٰنَ لَيَطْغَىٰٓ", "أَن رَّءَاهُ ٱسْتَغْنَىٰٓ", "إِنَّ إِلَىٰ رَبِّكَ ٱلرُّجْعَىٰٓ", "أَرَءَيْتَ ٱلَّذِى يَنْهَىٰ", "عَبْدًا إِذَا صَلَّىٰٓ", "أَرَءَيْتَ إِن كَانَ عَلَى ٱلْهُدَىٰٓ", "أَوْ أَمَرَ بِٱلتَّقْوَىٰٓ", "أَرَءَيْتَ إِن كَذَّبَ وَتَوَلَّىٰٓ", "أَلَمْ يَعْلَم بِأَنَّ ٱللَّهَ يَرَىٰ", "كَلَّا لَئِن لَّمْ يَنتَهِ لَنَسْفَعًۢا بِٱلنَّاصِيَةِ", "نَاصِيَةٍ كَـٰذِبَةٍ خَاطِئَةٍ", "فَلْيَدْعُ نَادِيَهُۥ", "سَنَدْعُ ٱلزَّبَانِيَةَ", "كَلَّا لَا تُطِعْهُ وَٱسْجُدْ وَٱقْتَرِب ۩"]}, {"number": 97, "name": "القدر", "ayahs": ["إِنَّآ أَنزَلْنَـٰهُ فِى لَيْلَةِ ٱلْقَدْرِ", "وَمَآ أَدْرَىٰكَ مَا لَيْلَةُ ٱلْقَدْرِ", "لَيْلَةُ ٱلْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ", "تَنَزَّلُ ٱلْمَلَـٰٓئِكَةُ وَٱلرُّوحُ فِيهَا بِإِذْنِ رَبِّهِم مِّن كُلِّ أَمْرٍ", "سَلَـٰمٌ هِىَ حَتَّىٰ مَطْلَعِ ٱلْفَجْرِ"]}, {"number": 98, "name": "البينة", "ayahs": ["لَمْ يَكُنِ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ مُنفَكِّينَ حَتَّىٰ تَأْتِيَهُمُ ٱلْبَيِّنَةُ", "رَسُولٌ مِّنَ ٱللَّهِ يَتْلُوا۟ صُحُفًا مُّطَهَّرَةً", "فِيهَا كُتُبٌ قَيِّمَةٌ", "وَمَا تَفَرَّقَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَـٰبَ إِلَّا مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَةُ", "وَمَآ أُمِرُوٓا۟ إِلَّا لِيَعْبُدُوا۟ ٱللَّهَ مُخْلِصِينَ لَهُ ٱلدِّينَ حُنَفَآءَ وَيُقِيمُوا۟ ٱلصَّلَوٰةَ وَيُؤْتُوا۟ ٱلزَّكَوٰةَ ۚ وَذَٰلِكَ دِينُ ٱلْقَيِّمَةِ", "إِنَّ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ فِى نَارِ جَهَنَّمَ خَـٰلِدِينَ فِيهَآ ۚ أُو۟لَـٰٓئِكَ هُمْ شَرُّ ٱلْبَرِيَّةِ", "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ أُو۟لَـٰٓئِكَ هُمْ خَيْرُ ٱلْبَرِيَّةِ", "جَزَآؤُهُمْ عِندَ رَبِّهِمْ جَنَّـٰتُ عَدْنٍ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ خَـٰلِدِينَ فِيهَآ أَبَدًا ۖ رَّضِىَ ٱللَّهُ عَنْهُمْ وَرَضُوا۟ عَنْهُ ۚ ذَٰلِكَ لِمَنْ خَشِىَ رَبَّهُۥ"]}, {"number": 99, "name": "الزلزلة", "ayahs": ["إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا", "وَأَخْرَجَتِ ٱلْأَرْضُ أَثْقَالَهَا", "وَقَالَ ٱلْإِنسَـٰنُ مَا لَهَا", "يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا", "بِأَنَّ رَبَّكَ أَوْحَىٰ لَهَا", "يَوْمَئِذٍ يَصْدُرُ ٱلنَّاسُ أَشْتَاتًا لِّيُرَوْا۟ أَعْمَـٰلَهُمْ", "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُۥ", "وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُۥ"]}, {"number": 100, "name": "العاديات", "ayahs": ["وَٱلْعَـٰدِيَـٰتِ ضَبْحًا", "فَٱلْمُورِيَـٰتِ قَدْحًا", "فَٱلْمُغِيرَٰتِ صُبْحًا", "فَأَثَرْنَ بِهِۦ نَقْعًا", "فَوَسَطْنَ بِهِۦ جَمْعًا", "إِنَّ ٱلْإِنسَـٰنَ لِرَبِّهِۦ لَكَنُودٌ", "وَإِنَّهُۥ عَلَىٰ ذَٰلِكَ لَشَهِيدٌ", "وَإِنَّهُۥ لِحُبِّ ٱلْخَيْرِ لَشَدِيدٌ", "أَفَلَا يَعْلَمُ إِذَا بُعْثِرَ مَا فِى ٱلْقُبُورِ", "وَحُصِّلَ مَا فِى ٱلصُّدُورِ", "إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍ لَّخَبِيرٌۢ"]}, {"number": 101, "name": "القارعة", "ayahs": ["ٱلْقَارِعَةُ", "مَا ٱلْقَارِعَةُ", "وَمَآ أَدْرَىٰكَ مَا ٱلْقَارِعَةُ", "يَوْمَ يَكُونُ ٱلنَّاسُ كَٱلْفَرَاشِ ٱلْمَبْثُوثِ", "وَتَكُونُ ٱلْجِبَالُ كَٱلْعِهْنِ ٱلْمَنفُوشِ", "فَأَمَّا مَن ثَقُلَتْ مَوَٰزِينُهُۥ", "فَهُوَ فِى عِيشَةٍ رَّاضِيَةٍ", "وَأَمَّا مَنْ خَفَّتْ مَوَٰزِينُهُۥ", "فَأُمُّهُۥ هَاوِيَةٌ", "وَمَآ أَدْرَىٰكَ مَا هِيَهْ", "نَارٌ حَامِيَةٌۢ"]}, {"number": 102, "name": "التكاثر", "ayahs": ["أَلْهَىٰكُمُ ٱلتَّكَاثُرُ", "حَتَّىٰ زُرْتُمُ ٱلْمَقَابِرَ", "كَلَّا سَوْفَ تَعْلَمُونَ", "ثُمَّ كَلَّا سَوْفَ تَعْلَمُونَ", "كَلَّا لَوْ تَعْلَمُونَ عِلْمَ ٱلْيَقِينِ", "لَتَرَوُنَّ ٱلْجَحِيمَ", "ثُمَّ لَتَرَوُنَّهَا عَيْنَ ٱلْيَقِينِ", "ثُمَّ لَتُسْـَٔلُنَّ يَوْمَئِذٍ عَنِ ٱلنَّعِيمِ"]}, {"number": 103, "name": "العصر", "ayahs": ["وَٱلْعَصْرِ", "إِنَّ ٱلْإِنسَـٰنَ لَفِى خُسْرٍ", "إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ وَتَوَاصَوْا۟ بِٱلْحَقِّ وَتَوَاصَوْا۟ بِٱلصَّبْرِ"]}, {"number": 104, "name": "الهمزة", "ayahs": ["وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ", "ٱلَّذِى جَمَعَ مَالًا وَعَدَّدَهُۥ", "يَحْسَبُ أَنَّ مَالَهُۥٓ أَخْلَدَهُۥ", "كَلَّا ۖ لَيُنۢبَذَنَّ فِى ٱلْحُطَمَةِ", "وَمَآ أَدْرَىٰكَ مَا ٱلْحُطَمَةُ", "نَارُ ٱللَّهِ ٱلْمُوقَدَةُ", "ٱلَّتِى تَطَّلِعُ عَلَى ٱلْأَفْـِٔدَةِ", "إِنَّهَا عَلَيْهِم مُّؤْصَدَةٌ", "فِى عَمَدٍ مُّمَدَّدَةٍۭ"]}, {"number": 105, "name": "الفيل", "ayahs": ["أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَـٰبِ ٱلْفِيلِ", "أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍ", "وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ", "تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ", "فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍۭ"]}, {"number": 106, "name": "قريش", "ayahs": ["لِإِيلَـٰفِ قُرَيْشٍ", "إِۦلَـٰفِهِمْ رِحْلَةَ ٱلشِّتَآءِ وَٱلصَّيْفِ", "فَلْيَعْبُدُوا۟ رَبَّ هَـٰذَا ٱلْبَيْتِ", "ٱلَّذِىٓ أَطْعَمَهُم مِّن جُوعٍ وَءَامَنَهُم مِّنْ خَوْفٍۭ"]}, {"number": 107, "name": "الماعون", "ayahs": ["أَرَءَيْتَ ٱلَّذِى يُكَذِّبُ بِٱلدِّينِ", "فَذَٰلِكَ ٱلَّذِى يَدُعُّ ٱلْيَتِيمَ", "وَلَا يَحُضُّ عَلَىٰ طَعَامِ ٱلْمِسْكِينِ", "فَوَيْلٌ لِّلْمُصَلِّينَ", "ٱلَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ", "ٱلَّذِينَ هُمْ يُرَآءُونَ", "وَيَمْنَعُونَ ٱلْمَاعُونَ"]}, {"number": 108, "name": "الكوثر", "ayahs": ["إِنَّآ أَعْطَيْنَـٰكَ ٱلْكَوْثَرَ", "فَصَلِّ لِرَبِّكَ وَٱنْحَرْ", "إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ"]}, {"number": 109, "name": "الكافرون", "ayahs": ["قُلْ يَـٰٓأَيُّهَا ٱلْكَـٰفِرُونَ", "لَآ أَعْبُدُ مَا تَعْبُدُونَ", "وَلَآ أَنتُمْ عَـٰبِدُونَ مَآ أَعْبُدُ", "وَلَآ أَنَا۠ عَابِدٌ مَّا عَبَدتُّمْ", "وَلَآ أَنتُمْ عَـٰبِدُونَ مَآ أَعْبُدُ", "لَكُمْ دِينُكُمْ وَلِىَ دِينِ"]}, {"number": 110, "name": "النصر", "ayahs": ["إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ", "وَرَأَيْتَ ٱلنَّاسَ يَدْخُلُونَ فِى دِينِ ٱللَّهِ أَفْوَاجًا", "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ ۚ إِنَّهُۥ كَانَ تَوَّابًۢا"]}, {"number": 111, "name": "المسد", "ayahs": ["تَبَّتْ يَدَآ أَبِى لَهَبٍ وَتَبَّ", "مَآ أَغْنَىٰ عَنْهُ مَالُهُۥ وَمَا كَسَبَ", "سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ", "وَٱمْرَأَتُهُۥ حَمَّالَةَ ٱلْحَطَبِ", "فِى جِيدِهَا حَبْلٌ مِّن مَّسَدٍۭ"]}, {"number": 112, "name": "الإخلاص", "ayahs": ["قُلْ هُوَ ٱللَّهُ أَحَدٌ", "ٱللَّهُ ٱلصَّمَدُ", "لَمْ يَلِدْ وَلَمْ يُولَدْ", "وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ"]}, {"number": 113, "name": "الفلق", "ayahs": ["قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ", "مِن شَرِّ مَا خَلَقَ", "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ", "وَمِن شَرِّ ٱلنَّفَّـٰثَـٰتِ فِى ٱلْعُقَدِ", "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ"]}, {"number": 114, "name": "الناس", "ayahs": ["قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ", "مَلِكِ ٱلنَّاسِ", "إِلَـٰهِ ٱلنَّاسِ", "مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ", "ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ", "مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ"]}];
+        const shortSurahs = [{"number": 85, "name": "البروج", "ayahs": ["وَٱلسَّمَآءِ ذَاتِ ٱلْبُرُوجِ", "وَٱلْيَوْمِ ٱلْمَوْعُودِ", "وَشَاهِدٍ وَمَشْهُودٍ", "قُتِلَ أَصْحَـٰبُ ٱلْأُخْدُودِ", "ٱلنَّارِ ذَاتِ ٱلْوَقُودِ", "إِذْ هُمْ عَلَيْهَا قُعُودٌ", "وَهُمْ عَلَىٰ مَا يَفْعَلُونَ بِٱلْمُؤْمِنِينَ شُهُودٌ", "وَمَا نَقَمُوا۟ مِنْهُمْ إِلَّآ أَن يُؤْمِنُوا۟ بِٱللَّهِ ٱلْعَزِيزِ ٱلْحَمِيدِ", "ٱلَّذِى لَهُۥ مُلْكُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۚ وَٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ شَهِيدٌ", "إِنَّ ٱلَّذِينَ فَتَنُوا۟ ٱلْمُؤْمِنِينَ وَٱلْمُؤْمِنَـٰتِ ثُمَّ لَمْ يَتُوبُوا۟ فَلَهُمْ عَذَابُ جَهَنَّمَ وَلَهُمْ عَذَابُ ٱلْحَرِيقِ", "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ لَهُمْ جَنَّـٰتٌ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ ۚ ذَٰلِكَ ٱلْفَوْزُ ٱلْكَبِيرُ", "إِنَّ بَطْشَ رَبِّكَ لَشَدِيدٌ", "إِنَّهُۥ هُوَ يُبْدِئُ وَيُعِيدُ", "وَهُوَ ٱلْغَفُورُ ٱلْوَدُودُ", "ذُو ٱلْعَرْشِ ٱلْمَجِيدُ", "فَعَّالٌ لِّمَا يُرِيدُ", "هَلْ أَتَىٰكَ حَدِيثُ ٱلْجُنُودِ", "فِرْعَوْنَ وَثَمُودَ", "بَلِ ٱلَّذِينَ كَفَرُوا۟ فِى تَكْذِيبٍ", "وَٱللَّهُ مِن وَرَآئِهِم مُّحِيطٌۢ", "بَلْ هُوَ قُرْءَانٌ مَّجِيدٌ", "فِى لَوْحٍ مَّحْفُوظٍۭ"]}, {"number": 86, "name": "الطارق", "ayahs": ["وَٱلسَّمَآءِ وَٱلطَّارِقِ", "وَمَآ أَدْرَىٰكَ مَا ٱلطَّارِقُ", "ٱلنَّجْمُ ٱلثَّاقِبُ", "إِن كُلُّ نَفْسٍ لَّمَّا عَلَيْهَا حَافِظٌ", "فَلْيَنظُرِ ٱلْإِنسَـٰنُ مِمَّ خُلِقَ", "خُلِقَ مِن مَّآءٍ دَافِقٍ", "يَخْرُجُ مِنۢ بَيْنِ ٱلصُّلْبِ وَٱلتَّرَآئِبِ", "إِنَّهُۥ عَلَىٰ رَجْعِهِۦ لَقَادِرٌ", "يَوْمَ تُبْلَى ٱلسَّرَآئِرُ", "فَمَا لَهُۥ مِن قُوَّةٍ وَلَا نَاصِرٍ", "وَٱلسَّمَآءِ ذَاتِ ٱلرَّجْعِ", "وَٱلْأَرْضِ ذَاتِ ٱلصَّدْعِ", "إِنَّهُۥ لَقَوْلٌ فَصْلٌ", "وَمَا هُوَ بِٱلْهَزْلِ", "إِنَّهُمْ يَكِيدُونَ كَيْدًا", "وَأَكِيدُ كَيْدًا", "فَمَهِّلِ ٱلْكَـٰفِرِينَ أَمْهِلْهُمْ رُوَيْدًۢا"]}, {"number": 87, "name": "الأعلى", "ayahs": ["سَبِّحِ ٱسْمَ رَبِّكَ ٱلْأَعْلَى", "ٱلَّذِى خَلَقَ فَسَوَّىٰ", "وَٱلَّذِى قَدَّرَ فَهَدَىٰ", "وَٱلَّذِىٓ أَخْرَجَ ٱلْمَرْعَىٰ", "فَجَعَلَهُۥ غُثَآءً أَحْوَىٰ", "سَنُقْرِئُكَ فَلَا تَنسَىٰٓ", "إِلَّا مَا شَآءَ ٱللَّهُ ۚ إِنَّهُۥ يَعْلَمُ ٱلْجَهْرَ وَمَا يَخْفَىٰ", "وَنُيَسِّرُكَ لِلْيُسْرَىٰ", "فَذَكِّرْ إِن نَّفَعَتِ ٱلذِّكْرَىٰ", "سَيَذَّكَّرُ مَن يَخْشَىٰ", "وَيَتَجَنَّبُهَا ٱلْأَشْقَى", "ٱلَّذِى يَصْلَى ٱلنَّارَ ٱلْكُبْرَىٰ", "ثُمَّ لَا يَمُوتُ فِيهَا وَلَا يَحْيَىٰ", "قَدْ أَفْلَحَ مَن تَزَكَّىٰ", "وَذَكَرَ ٱسْمَ رَبِّهِۦ فَصَلَّىٰ", "بَلْ تُؤْثِرُونَ ٱلْحَيَوٰةَ ٱلدُّنْيَا", "وَٱلْءَاخِرَةُ خَيْرٌ وَأَبْقَىٰٓ", "إِنَّ هَـٰذَا لَفِى ٱلصُّحُفِ ٱلْأُولَىٰ", "صُحُفِ إِبْرَٰهِيمَ وَمُوسَىٰ"]}, {"number": 88, "name": "الغاشية", "ayahs": ["هَلْ أَتَىٰكَ حَدِيثُ ٱلْغَـٰشِيَةِ", "وُجُوهٌ يَوْمَئِذٍ خَـٰشِعَةٌ", "عَامِلَةٌ نَّاصِبَةٌ", "تَصْلَىٰ نَارًا حَامِيَةً", "تُسْقَىٰ مِنْ عَيْنٍ ءَانِيَةٍ", "لَّيْسَ لَهُمْ طَعَامٌ إِلَّا مِن ضَرِيعٍ", "لَّا يُسْمِنُ وَلَا يُغْنِى مِن جُوعٍ", "وُجُوهٌ يَوْمَئِذٍ نَّاعِمَةٌ", "لِّسَعْيِهَا رَاضِيَةٌ", "فِى جَنَّةٍ عَالِيَةٍ", "لَّا تَسْمَعُ فِيهَا لَـٰغِيَةً", "فِيهَا عَيْنٌ جَارِيَةٌ", "فِيهَا سُرُرٌ مَّرْفُوعَةٌ", "وَأَكْوَابٌ مَّوْضُوعَةٌ", "وَنَمَارِقُ مَصْفُوفَةٌ", "وَزَرَابِىُّ مَبْثُوثَةٌ", "أَفَلَا يَنظُرُونَ إِلَى ٱلْإِبِلِ كَيْفَ خُلِقَتْ", "وَإِلَى ٱلسَّمَآءِ كَيْفَ رُفِعَتْ", "وَإِلَى ٱلْجِبَالِ كَيْفَ نُصِبَتْ", "وَإِلَى ٱلْأَرْضِ كَيْفَ سُطِحَتْ", "فَذَكِّرْ إِنَّمَآ أَنتَ مُذَكِّرٌ", "لَّسْتَ عَلَيْهِم بِمُصَيْطِرٍ", "إِلَّا مَن تَوَلَّىٰ وَكَفَرَ", "فَيُعَذِّبُهُ ٱللَّهُ ٱلْعَذَابَ ٱلْأَكْبَرَ", "إِنَّ إِلَيْنَآ إِيَابَهُمْ", "ثُمَّ إِنَّ عَلَيْنَا حِسَابَهُم"]}, {"number": 89, "name": "الفجر", "ayahs": ["وَٱلْفَجْرِ", "وَلَيَالٍ عَشْرٍ", "وَٱلشَّفْعِ وَٱلْوَتْرِ", "وَٱلَّيْلِ إِذَا يَسْرِ", "هَلْ فِى ذَٰلِكَ قَسَمٌ لِّذِى حِجْرٍ", "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ", "إِرَمَ ذَاتِ ٱلْعِمَادِ", "ٱلَّتِى لَمْ يُخْلَقْ مِثْلُهَا فِى ٱلْبِلَـٰدِ", "وَثَمُودَ ٱلَّذِينَ جَابُوا۟ ٱلصَّخْرَ بِٱلْوَادِ", "وَفِرْعَوْنَ ذِى ٱلْأَوْتَادِ", "ٱلَّذِينَ طَغَوْا۟ فِى ٱلْبِلَـٰدِ", "فَأَكْثَرُوا۟ فِيهَا ٱلْفَسَادَ", "فَصَبَّ عَلَيْهِمْ رَبُّكَ سَوْطَ عَذَابٍ", "إِنَّ رَبَّكَ لَبِٱلْمِرْصَادِ", "فَأَمَّا ٱلْإِنسَـٰنُ إِذَا مَا ٱبْتَلَىٰهُ رَبُّهُۥ فَأَكْرَمَهُۥ وَنَعَّمَهُۥ فَيَقُولُ رَبِّىٓ أَكْرَمَنِ", "وَأَمَّآ إِذَا مَا ٱبْتَلَىٰهُ فَقَدَرَ عَلَيْهِ رِزْقَهُۥ فَيَقُولُ رَبِّىٓ أَهَـٰنَنِ", "كَلَّا ۖ بَل لَّا تُكْرِمُونَ ٱلْيَتِيمَ", "وَلَا تَحَـٰٓضُّونَ عَلَىٰ طَعَامِ ٱلْمِسْكِينِ", "وَتَأْكُلُونَ ٱلتُّرَاثَ أَكْلًا لَّمًّا", "وَتُحِبُّونَ ٱلْمَالَ حُبًّا جَمًّا", "كَلَّآ إِذَا دُكَّتِ ٱلْأَرْضُ دَكًّا دَكًّا", "وَجَآءَ رَبُّكَ وَٱلْمَلَكُ صَفًّا صَفًّا", "وَجِا۟ىٓءَ يَوْمَئِذٍۭ بِجَهَنَّمَ ۚ يَوْمَئِذٍ يَتَذَكَّرُ ٱلْإِنسَـٰنُ وَأَنَّىٰ لَهُ ٱلذِّكْرَىٰ", "يَقُولُ يَـٰلَيْتَنِى قَدَّمْتُ لِحَيَاتِى", "فَيَوْمَئِذٍ لَّا يُعَذِّبُ عَذَابَهُۥٓ أَحَدٌ", "وَلَا يُوثِقُ وَثَاقَهُۥٓ أَحَدٌ", "يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ", "ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً", "فَٱدْخُلِى فِى عِبَـٰدِى", "وَٱدْخُلِى جَنَّتِى"]}, {"number": 90, "name": "البلد", "ayahs": ["لَآ أُقْسِمُ بِهَـٰذَا ٱلْبَلَدِ", "وَأَنتَ حِلٌّۢ بِهَـٰذَا ٱلْبَلَدِ", "وَوَالِدٍ وَمَا وَلَدَ", "لَقَدْ خَلَقْنَا ٱلْإِنسَـٰنَ فِى كَبَدٍ", "أَيَحْسَبُ أَن لَّن يَقْدِرَ عَلَيْهِ أَحَدٌ", "يَقُولُ أَهْلَكْتُ مَالًا لُّبَدًا", "أَيَحْسَبُ أَن لَّمْ يَرَهُۥٓ أَحَدٌ", "أَلَمْ نَجْعَل لَّهُۥ عَيْنَيْنِ", "وَلِسَانًا وَشَفَتَيْنِ", "وَهَدَيْنَـٰهُ ٱلنَّجْدَيْنِ", "فَلَا ٱقْتَحَمَ ٱلْعَقَبَةَ", "وَمَآ أَدْرَىٰكَ مَا ٱلْعَقَبَةُ", "فَكُّ رَقَبَةٍ", "أَوْ إِطْعَـٰمٌ فِى يَوْمٍ ذِى مَسْغَبَةٍ", "يَتِيمًا ذَا مَقْرَبَةٍ", "أَوْ مِسْكِينًا ذَا مَتْرَبَةٍ", "ثُمَّ كَانَ مِنَ ٱلَّذِينَ ءَامَنُوا۟ وَتَوَاصَوْا۟ بِٱلصَّبْرِ وَتَوَاصَوْا۟ بِٱلْمَرْحَمَةِ", "أُو۟لَـٰٓئِكَ أَصْحَـٰبُ ٱلْمَيْمَنَةِ", "وَٱلَّذِينَ كَفَرُوا۟ بِـَٔايَـٰتِنَا هُمْ أَصْحَـٰبُ ٱلْمَشْـَٔمَةِ", "عَلَيْهِمْ نَارٌ مُّؤْصَدَةٌۢ"]}, {"number": 91, "name": "الشمس", "ayahs": ["وَٱلشَّمْسِ وَضُحَىٰهَا", "وَٱلْقَمَرِ إِذَا تَلَىٰهَا", "وَٱلنَّهَارِ إِذَا جَلَّىٰهَا", "وَٱلَّيْلِ إِذَا يَغْشَىٰهَا", "وَٱلسَّمَآءِ وَمَا بَنَىٰهَا", "وَٱلْأَرْضِ وَمَا طَحَىٰهَا", "وَنَفْسٍ وَمَا سَوَّىٰهَا", "فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَىٰهَا", "قَدْ أَفْلَحَ مَن زَكَّىٰهَا", "وَقَدْ خَابَ مَن دَسَّىٰهَا", "كَذَّبَتْ ثَمُودُ بِطَغْوَىٰهَآ", "إِذِ ٱنۢبَعَثَ أَشْقَىٰهَا", "فَقَالَ لَهُمْ رَسُولُ ٱللَّهِ نَاقَةَ ٱللَّهِ وَسُقْيَـٰهَا", "فَكَذَّبُوهُ فَعَقَرُوهَا فَدَمْدَمَ عَلَيْهِمْ رَبُّهُم بِذَنۢبِهِمْ فَسَوَّىٰهَا", "وَلَا يَخَافُ عُقْبَـٰهَا"]}, {"number": 92, "name": "الليل", "ayahs": ["وَٱلَّيْلِ إِذَا يَغْشَىٰ", "وَٱلنَّهَارِ إِذَا تَجَلَّىٰ", "وَمَا خَلَقَ ٱلذَّكَرَ وَٱلْأُنثَىٰٓ", "إِنَّ سَعْيَكُمْ لَشَتَّىٰ", "فَأَمَّا مَنْ أَعْطَىٰ وَٱتَّقَىٰ", "وَصَدَّقَ بِٱلْحُسْنَىٰ", "فَسَنُيَسِّرُهُۥ لِلْيُسْرَىٰ", "وَأَمَّا مَنۢ بَخِلَ وَٱسْتَغْنَىٰ", "وَكَذَّبَ بِٱلْحُسْنَىٰ", "فَسَنُيَسِّرُهُۥ لِلْعُسْرَىٰ", "وَمَا يُغْنِى عَنْهُ مَالُهُۥٓ إِذَا تَرَدَّىٰٓ", "إِنَّ عَلَيْنَا لَلْهُدَىٰ", "وَإِنَّ لَنَا لَلْءَاخِرَةَ وَٱلْأُولَىٰ", "فَأَنذَرْتُكُمْ نَارًا تَلَظَّىٰ", "لَا يَصْلَىٰهَآ إِلَّا ٱلْأَشْقَى", "ٱلَّذِى كَذَّبَ وَتَوَلَّىٰ", "وَسَيُجَنَّبُهَا ٱلْأَتْقَى", "ٱلَّذِى يُؤْتِى مَالَهُۥ يَتَزَكَّىٰ", "وَمَا لِأَحَدٍ عِندَهُۥ مِن نِّعْمَةٍ تُجْزَىٰٓ", "إِلَّا ٱبْتِغَآءَ وَجْهِ رَبِّهِ ٱلْأَعْلَىٰ", "وَلَسَوْفَ يَرْضَىٰ"]}, {"number": 93, "name": "الضحى", "ayahs": ["وَٱلضُّحَىٰ", "وَٱلَّيْلِ إِذَا سَجَىٰ", "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ", "وَلَلْءَاخِرَةُ خَيْرٌ لَّكَ مِنَ ٱلْأُولَىٰ", "وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰٓ", "أَلَمْ يَجِدْكَ يَتِيمًا فَـَٔاوَىٰ", "وَوَجَدَكَ ضَآلًّا فَهَدَىٰ", "وَوَجَدَكَ عَآئِلًا فَأَغْنَىٰ", "فَأَمَّا ٱلْيَتِيمَ فَلَا تَقْهَرْ", "وَأَمَّا ٱلسَّآئِلَ فَلَا تَنْهَرْ", "وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ"]}, {"number": 94, "name": "الشرح", "ayahs": ["أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ", "وَوَضَعْنَا عَنكَ وِزْرَكَ", "ٱلَّذِىٓ أَنقَضَ ظَهْرَكَ", "وَرَفَعْنَا لَكَ ذِكْرَكَ", "فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًا", "إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا", "فَإِذَا فَرَغْتَ فَٱنصَبْ", "وَإِلَىٰ رَبِّكَ فَٱرْغَب"]}, {"number": 95, "name": "التين", "ayahs": ["وَٱلتِّينِ وَٱلزَّيْتُونِ", "وَطُورِ سِينِينَ", "وَهَـٰذَا ٱلْبَلَدِ ٱلْأَمِينِ", "لَقَدْ خَلَقْنَا ٱلْإِنسَـٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍ", "ثُمَّ رَدَدْنَـٰهُ أَسْفَلَ سَـٰفِلِينَ", "إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ فَلَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍ", "فَمَا يُكَذِّبُكَ بَعْدُ بِٱلدِّينِ", "أَلَيْسَ ٱللَّهُ بِأَحْكَمِ ٱلْحَـٰكِمِينَ"]}, {"number": 96, "name": "العلق", "ayahs": ["ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ", "خَلَقَ ٱلْإِنسَـٰنَ مِنْ عَلَقٍ", "ٱقْرَأْ وَرَبُّكَ ٱلْأَكْرَمُ", "ٱلَّذِى عَلَّمَ بِٱلْقَلَمِ", "عَلَّمَ ٱلْإِنسَـٰنَ مَا لَمْ يَعْلَمْ", "كَلَّآ إِنَّ ٱلْإِنسَـٰنَ لَيَطْغَىٰٓ", "أَن رَّءَاهُ ٱسْتَغْنَىٰٓ", "إِنَّ إِلَىٰ رَبِّكَ ٱلرُّجْعَىٰٓ", "أَرَءَيْتَ ٱلَّذِى يَنْهَىٰ", "عَبْدًا إِذَا صَلَّىٰٓ", "أَرَءَيْتَ إِن كَانَ عَلَى ٱلْهُدَىٰٓ", "أَوْ أَمَرَ بِٱلتَّقْوَىٰٓ", "أَرَءَيْتَ إِن كَذَّبَ وَتَوَلَّىٰٓ", "أَلَمْ يَعْلَم بِأَنَّ ٱللَّهَ يَرَىٰ", "كَلَّا لَئِن لَّمْ يَنتَهِ لَنَسْفَعًۢا بِٱلنَّاصِيَةِ", "نَاصِيَةٍ كَـٰذِبَةٍ خَاطِئَةٍ", "فَلْيَدْعُ نَادِيَهُۥ", "سَنَدْعُ ٱلزَّبَانِيَةَ", "كَلَّا لَا تُطِعْهُ وَٱسْجُدْ وَٱقْتَرِب ۩"]}, {"number": 97, "name": "القدر", "ayahs": ["إِنَّآ أَنزَلْنَـٰهُ فِى لَيْلَةِ ٱلْقَدْرِ", "وَمَآ أَدْرَىٰكَ مَا لَيْلَةُ ٱلْقَدْرِ", "لَيْلَةُ ٱلْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ", "تَنَزَّلُ ٱلْمَلَـٰٓئِكَةُ وَٱلرُّوحُ فِيهَا بِإِذْنِ رَبِّهِم مِّن كُلِّ أَمْرٍ", "سَلَـٰمٌ هِىَ حَتَّىٰ مَطْلَعِ ٱلْفَجْرِ"]}, {"number": 98, "name": "البينة", "ayahs": ["لَمْ يَكُنِ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ مُنفَكِّينَ حَتَّىٰ تَأْتِيَهُمُ ٱلْبَيِّنَةُ", "رَسُولٌ مِّنَ ٱللَّهِ يَتْلُوا۟ صُحُفًا مُّطَهَّرَةً", "فِيهَا كُتُبٌ قَيِّمَةٌ", "وَمَا تَفَرَّقَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَـٰبَ إِلَّا مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَةُ", "وَمَآ أُمِرُوٓا۟ إِلَّا لِيَعْبُدُوا۟ ٱللَّهَ مُخْلِصِينَ لَهُ ٱلدِّينَ حُنَفَآءَ وَيُقِيمُوا۟ ٱلصَّلَوٰةَ وَيُؤْتُوا۟ ٱلزَّكَوٰةَ ۚ وَذَٰلِكَ دِينُ ٱلْقَيِّمَةِ", "إِنَّ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَـٰبِ وَٱلْمُشْرِكِينَ فِى نَارِ جَهَنَّمَ خَـٰلِدِينَ فِيهَآ ۚ أُو۟لَـٰٓئِكَ هُمْ شَرُّ ٱلْبَرِيَّةِ", "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ أُو۟لَـٰٓئِكَ هُمْ خَيْرُ ٱلْبَرِيَّةِ", "جَزَآؤُهُمْ عِندَ رَبِّهِمْ جَنَّـٰتُ عَدْنٍ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ خَـٰلِدِينَ فِيهَآ أَبَدًا ۖ رَّضِىَ ٱللَّهُ عَنْهُمْ وَرَضُوا۟ عَنْهُ ۚ ذَٰلِكَ لِمَنْ خَشِىَ رَبَّهُۥ"]}, {"number": 99, "name": "الزلزلة", "ayahs": ["إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا", "وَأَخْرَجَتِ ٱلْأَرْضُ أَثْقَالَهَا", "وَقَالَ ٱلْإِنسَـٰنُ مَا لَهَا", "يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا", "بِأَنَّ رَبَّكَ أَوْحَىٰ لَهَا", "يَوْمَئِذٍ يَصْدُرُ ٱلنَّاسُ أَشْتَاتًا لِّيُرَوْا۟ أَعْمَـٰلَهُمْ", "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُۥ", "وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُۥ"]}, {"number": 100, "name": "العاديات", "ayahs": ["وَٱلْعَـٰدِيَـٰتِ ضَبْحًا", "فَٱلْمُورِيَـٰتِ قَدْحًا", "فَٱلْمُغِيرَٰتِ صُبْحًا", "فَأَثَرْنَ بِهِۦ نَقْعًا", "فَوَسَطْنَ بِهِۦ جَمْعًا", "إِنَّ ٱلْإِنسَـٰنَ لِرَبِّهِۦ لَكَنُودٌ", "وَإِنَّهُۥ عَلَىٰ ذَٰلِكَ لَشَهِيدٌ", "وَإِنَّهُۥ لِحُبِّ ٱلْخَيْرِ لَشَدِيدٌ", "أَفَلَا يَعْلَمُ إِذَا بُعْثِرَ مَا فِى ٱلْقُبُورِ", "وَحُصِّلَ مَا فِى ٱلصُّدُورِ", "إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍ لَّخَبِيرٌۢ"]}, {"number": 101, "name": "القارعة", "ayahs": ["ٱلْقَارِعَةُ", "مَا ٱلْقَارِعَةُ", "وَمَآ أَدْرَىٰكَ مَا ٱلْقَارِعَةُ", "يَوْمَ يَكُونُ ٱلنَّاسُ كَٱلْفَرَاشِ ٱلْمَبْثُوثِ", "وَتَكُونُ ٱلْجِبَالُ كَٱلْعِهْنِ ٱلْمَنفُوشِ", "فَأَمَّا مَن ثَقُلَتْ مَوَٰزِينُهُۥ", "فَهُوَ فِى عِيشَةٍ رَّاضِيَةٍ", "وَأَمَّا مَنْ خَفَّتْ مَوَٰزِينُهُۥ", "فَأُمُّهُۥ هَاوِيَةٌ", "وَمَآ أَدْرَىٰكَ مَا هِيَهْ", "نَارٌ حَامِيَةٌۢ"]}, {"number": 102, "name": "التكاثر", "ayahs": ["أَلْهَىٰكُمُ ٱلتَّكَاثُرُ", "حَتَّىٰ زُرْتُمُ ٱلْمَقَابِرَ", "كَلَّا سَوْفَ تَعْلَمُونَ", "ثُمَّ كَلَّا سَوْفَ تَعْلَمُونَ", "كَلَّا لَوْ تَعْلَمُونَ عِلْمَ ٱلْيَقِينِ", "لَتَرَوُنَّ ٱلْجَحِيمَ", "ثُمَّ لَتَرَوُنَّهَا عَيْنَ ٱلْيَقِينِ", "ثُمَّ لَتُسْـَٔلُنَّ يَوْمَئِذٍ عَنِ ٱلنَّعِيمِ"]}, {"number": 103, "name": "العصر", "ayahs": ["وَٱلْعَصْرِ", "إِنَّ ٱلْإِنسَـٰنَ لَفِى خُسْرٍ", "إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ وَتَوَاصَوْا۟ بِٱلْحَقِّ وَتَوَاصَوْا۟ بِٱلصَّبْرِ"]}, {"number": 104, "name": "الهمزة", "ayahs": ["وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ", "ٱلَّذِى جَمَعَ مَالًا وَعَدَّدَهُۥ", "يَحْسَبُ أَنَّ مَالَهُۥٓ أَخْلَدَهُۥ", "كَلَّا ۖ لَيُنۢبَذَنَّ فِى ٱلْحُطَمَةِ", "وَمَآ أَدْرَىٰكَ مَا ٱلْحُطَمَةُ", "نَارُ ٱللَّهِ ٱلْمُوقَدَةُ", "ٱلَّتِى تَطَّلِعُ عَلَى ٱلْأَفْـِٔدَةِ", "إِنَّهَا عَلَيْهِم مُّؤْصَدَةٌ", "فِى عَمَدٍ مُّمَدَّدَةٍۭ"]}, {"number": 105, "name": "الفيل", "ayahs": ["أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَـٰبِ ٱلْفِيلِ", "أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍ", "وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ", "تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ", "فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍۭ"]}, {"number": 106, "name": "قريش", "ayahs": ["لِإِيلَـٰفِ قُرَيْشٍ", "إِۦلَـٰفِهِمْ رِحْلَةَ ٱلشِّتَآءِ وَٱلصَّيْفِ", "فَلْيَعْبُدُوا۟ رَبَّ هَـٰذَا ٱلْبَيْتِ", "ٱلَّذِىٓ أَطْعَمَهُم مِّن جُوعٍ وَءَامَنَهُم مِّنْ خَوْفٍۭ"]}, {"number": 107, "name": "الماعون", "ayahs": ["أَرَءَيْتَ ٱلَّذِى يُكَذِّبُ بِٱلدِّينِ", "فَذَٰلِكَ ٱلَّذِى يَدُعُّ ٱلْيَتِيمَ", "وَلَا يَحُضُّ عَلَىٰ طَعَامِ ٱلْمِسْكِينِ", "فَوَيْلٌ لِّلْمُصَلِّينَ", "ٱلَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ", "ٱلَّذِينَ هُمْ يُرَآءُونَ", "وَيَمْنَعُونَ ٱلْمَاعُونَ"]}, {"number": 108, "name": "الكوثر", "ayahs": ["إِنَّآ أَعْطَيْنَـٰكَ ٱلْكَوْثَرَ", "فَصَلِّ لِرَبِّكَ وَٱنْحَرْ", "إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ"]}, {"number": 109, "name": "الكافرون", "ayahs": ["قُلْ يَـٰٓأَيُّهَا ٱلْكَـٰفِرُونَ", "لَآ أَعْبُدُ مَا تَعْبُدُونَ", "وَلَآ أَنتُمْ عَـٰبِدُونَ مَآ أَعْبُدُ", "وَلَآ أَنَا۠ عَابِدٌ مَّا عَبَدتُّمْ", "وَلَآ أَنتُمْ عَـٰبِدُونَ مَآ أَعْبُدُ", "لَكُمْ دِينُكُمْ وَلِىَ دِينِ"]}, {"number": 110, "name": "النصر", "ayahs": ["إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ", "وَرَأَيْتَ ٱلنَّاسَ يَدْخُلُونَ فِى دِينِ ٱللَّهِ أَفْوَاجًا", "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ ۚ إِنَّهُۥ كَانَ تَوَّابًۢا"]}, {"number": 111, "name": "المسد", "ayahs": ["تَبَّتْ يَدَآ أَبِى لَهَبٍ وَتَبَّ", "مَآ أَغْنَىٰ عَنْهُ مَالُهُۥ وَمَا كَسَبَ", "سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ", "وَٱمْرَأَتُهُۥ حَمَّالَةَ ٱلْحَطَبِ", "فِى جِيدِهَا حَبْلٌ مِّن مَّسَدٍۭ"]}, {"number": 112, "name": "الإخلاص", "ayahs": ["قُلْ هُوَ ٱللَّهُ أَحَدٌ", "ٱللَّهُ ٱلصَّمَدُ", "لَمْ يَلِدْ وَلَمْ يُولَدْ", "وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ"]}, {"number": 113, "name": "الفلق", "ayahs": ["قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ", "مِن شَرِّ مَا خَلَقَ", "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ", "وَمِن شَرِّ ٱلنَّفَّـٰثَـٰتِ فِى ٱلْعُقَدِ", "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ"]}, {"number": 114, "name": "الناس", "ayahs": ["قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ", "مَلِكِ ٱلنَّاسِ", "إِلَـٰهِ ٱلنَّاسِ", "مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ", "ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ", "مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ"]}];
 
         function mushafAyah(text) {
             return `<span class="quran-text">${text}</span>`;
@@ -1982,7 +3136,7 @@
             {q: "اختر الكلمة المضبوطة بالشكل الصحيح:", a: ["مِمْحَاة", "مَمْحَاة", "مُمَحَاة", "مِمَحَاة"], correct: 0},
             {q: "اختر الكلمة المضبوطة بالشكل الصحيح:", a: ["مَسْجِد", "مُسْجَد", "مِسْجَد", "مَسَجِد"], correct: 0},
             {q: "اختر الكلمة المضبوطة بالشكل الصحيح:", a: ["صَلَاة", "صُلَاة", "صِلَاة", "صَلَات"], correct: 0},
-            {q: "اختر الكلمة المضبوطة بالشكل الصحيح:", a: ["مُعَلِّم", "مَعَلِّم", "مُعَلَم", "مِعَلِّم"], correct: 0}
+            {q: "اختر الكلمة المضبوطة بالشكل الصحيح:", a: ["مُعَلِّم", "مَعَلِّم", "مُعَلَم", "مِعَلِّم"], correct: 0}
         ];
 
         const trueFalseQuestions = [
@@ -2011,13 +3165,18 @@
             [13, 8, 20, 5], [28, 16, 9, 23], [17, 4, 26, 11], [32, 18, 7, 25], [19, 31, 14, 8]
         ];
 
-        /* =====================================================
-           GAME STATE
+        /* ===================================================== 
+           GAME STATE 
         ===================================================== */
 
         let currentGame = null;
         let currentQuestion = null;
         let currentIndex = 0;
+        const QUESTIONS_PER_CHALLENGE = 50;
+        let challengeQuestionNumber = 0;
+        let challengeCorrectAtStart = 0;
+        let selectedSurah = null;
+
 
         let stars = Number(localStorage.getItem("stars") || 0);
         let combo = 0;
@@ -2039,12 +3198,17 @@
             word: new Set(),
             different: new Set(),
             pattern: new Set(),
-            listen: new Set()
+            listen: new Set(),
+            math: new Set(),
+            opposites: new Set(),
+            riddles: new Set(),
+            xo: new Set()
         };
 
 
-        /* =====================================================
-           AUDIO — أصوات التصفيق والخبط فقط
+
+        /* ===================================================== 
+           AUDIO — أصوات التصفيق والخبط فقط 
         ===================================================== */
 
         let audioContext;
@@ -2102,25 +3266,9 @@
             const ctx = getAudio();
             if (ctx.state === "suspended") ctx.resume();
             const now = ctx.currentTime;
-            // تصفيق أطول + نغمة صعودية قصيرة ليكون النجاح واضحًا وحماسيًا.
-            for (let i = 0; i < 18; i++) {
-                const start = now + i * 0.075;
-                const bufferSize = Math.floor(ctx.sampleRate * 0.07);
-                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-                const data = buffer.getChannelData(0);
-                for (let j = 0; j < bufferSize; j++) {
-                    const envelope = Math.pow(1 - j / bufferSize, 1.7);
-                    data[j] = (Math.random() * 2 - 1) * envelope;
-                }
-                const source = ctx.createBufferSource();
-                const gain = ctx.createGain();
-                source.buffer = buffer;
-                gain.gain.setValueAtTime(0.19, start);
-                gain.gain.exponentialRampToValueAtTime(0.001, start + 0.07);
-                source.connect(gain); gain.connect(ctx.destination); source.start(start);
-            }
+            // نغمة صعودية قصيرة ليكون النجاح واضحًا وحماسيًا (بدون تصفيق). 
             [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
-                const osc = ctx.createOscillator(); const gain = ctx.createGain(); const t = now + 0.45 + i * 0.12;
+                const osc = ctx.createOscillator(); const gain = ctx.createGain(); const t = now + i * 0.12;
                 osc.type = "sine"; osc.frequency.setValueAtTime(freq, t);
                 gain.gain.setValueAtTime(0.0001, t); gain.gain.exponentialRampToValueAtTime(0.10, t + 0.03); gain.gain.exponentialRampToValueAtTime(0.001, t + 0.28);
                 osc.connect(gain); gain.connect(ctx.destination); osc.start(t); osc.stop(t + 0.3);
@@ -2132,7 +3280,7 @@
             const ctx = getAudio();
             if (ctx.state === "suspended") ctx.resume();
             const now = ctx.currentTime;
-            // خبطتان واضحتان تشبهان العصا على السبورة، من دون صوت كلام.
+            // خبطتان واضحتان تشبهان العصا على السبورة، من دون صوت كلام. 
             [0, 0.22].forEach((offset, i) => {
                 const t = now + offset;
                 const osc = ctx.createOscillator(); const gain = ctx.createGain();
@@ -2148,7 +3296,7 @@
             click.connect(cg); cg.connect(ctx.destination); click.start(now + 0.03); click.stop(now + 0.14);
         }
 
-        // الكومبو يستخدم تصفيقًا متتابعًا بدل النغمات الموسيقية
+        // الكومبو يستخدم تصفيقًا متتابعًا بدل النغمات الموسيقية 
         function playCombo() {
             if (!soundEnabled) return;
 
@@ -2158,8 +3306,9 @@
         }
 
 
-        /* =====================================================
-           SOUND TOGGLE
+
+        /* ===================================================== 
+           SOUND TOGGLE 
         ===================================================== */
 
         function toggleSound() {
@@ -2173,8 +3322,9 @@
         }
 
 
-        /* =====================================================
-           SHUFFLE
+
+        /* ===================================================== 
+           SHUFFLE 
         ===================================================== */
 
         function shuffle(array) {
@@ -2204,8 +3354,9 @@
         }
 
 
-        /* =====================================================
-           UNIQUE QUESTION
+
+        /* ===================================================== 
+           UNIQUE QUESTION 
         ===================================================== */
 
         function getUniqueQuestion(
@@ -2241,8 +3392,9 @@
         }
 
 
-        /* =====================================================
-           START GAME
+
+        /* ===================================================== 
+           START GAME 
         ===================================================== */
 
         function startGame(type) {
@@ -2252,6 +3404,12 @@
             }
 
             currentGame = type;
+
+            if (type !== "surahOrder") {
+                challengeQuestionNumber = 0;
+                challengeCorrectAtStart = correctAnswers;
+            }
+
 
             const game =
                 document.getElementById("game");
@@ -2276,7 +3434,8 @@
                     "surahOrder",
                     "harakat",
                     "truefalse",
-                    "numberOrder"
+                    "numberOrder",
+                    "math", "opposites", "riddles"
                 ];
 
                 type =
@@ -2293,8 +3452,9 @@
         }
 
 
-        /* =====================================================
-           RENDER GAME
+
+        /* ===================================================== 
+           RENDER GAME 
         ===================================================== */
 
         function renderGame(type) {
@@ -2371,12 +3531,17 @@
             else if (type === "numberOrder") {
                 renderNumberOrder();
             }
+            else if (type === "xo") {renderXO();}
+            else if (type === "math") {renderMathChallenge();}
+            else if (type === "opposites") {renderOpposites();}
+            else if (type === "riddles") {renderRiddles();}
 
         }
 
 
-        /* =====================================================
-           MCQ
+
+        /* ===================================================== 
+           MCQ 
         ===================================================== */
 
         function renderMCQ(
@@ -2412,40 +3577,41 @@
                     "gameContent"
                 );
 
-            content.innerHTML = `
+            content.innerHTML = ` 
 
-        <div class="question">
-            <span>${currentQuestion.q}</span>
-        </div>
+        <div class="question"> 
+            <span>${currentQuestion.q}</span> 
+        </div> 
 
-        <div class="answers">
+        <div class="answers"> 
 
             ${shuffled.map(
-                (item, index) => `
+                (item, index) => ` 
 
-                    <button
-                        class="answer"
-                        data-correct="${item.correct}"
-                        onclick="answerMCQ(
-                            this,
-                            ${item.correct}
-                        )"
-                    >
-                        ${item.text.length === 1 && /[ء-ي]/.test(item.text) ? vocalizeLetter(item.text) : vocalizeText(item.text)}
-                    </button>
+                    <button 
+                        class="answer" 
+                        data-correct="${item.correct}" 
+                        onclick="answerMCQ( 
+                            this, 
+                            ${item.correct} 
+                        )" 
+                    > 
+                        ${item.text.length === 1 && /[ء-ي]/.test(item.text) ? vocalizeLetter(item.text) : vocalizeText(item.text)} 
+                    </button> 
 
                     `
             ).join("")
-                }
+                } 
 
-        </div>
+        </div> 
 
     `;
         }
 
 
-        /* =====================================================
-           ANSWER MCQ
+
+        /* ===================================================== 
+           ANSWER MCQ 
         ===================================================== */
 
         function answerMCQ(
@@ -2463,6 +3629,7 @@
             );
 
             totalAnswered++;
+            challengeQuestionNumber++;
 
             if (isCorrect) {
 
@@ -2500,7 +3667,7 @@
 
                 button.classList.add("wrong");
 
-                // تم التعديل: تقليل الكومبو بدل التصفير لعدم إحباط الطفل
+                // تم التعديل: تقليل الكومبو بدل التصفير لعدم إحباط الطفل 
                 combo = Math.max(0, combo - 1);
 
                 playWrong();
@@ -2527,8 +3694,9 @@
         }
 
 
-        /* =====================================================
-           CHARACTER ANIMATION
+
+        /* ===================================================== 
+           CHARACTER ANIMATION 
         ===================================================== */
 
         function characterCorrect() {
@@ -2572,122 +3740,57 @@
         }
 
 
-        /* =====================================================
-           MISSING LETTER
+
+        /* ===================================================== 
+           MISSING LETTER 
         ===================================================== */
 
         function renderMissing() {
-
-            document.getElementById(
-                "gameTitle"
-            ).textContent =
-                "🧩 الحرف الناقص";
-
-            const item =
-                getUniqueQuestion(
-                    missingWords,
-                    "missing"
-                );
-
+            document.getElementById("gameTitle").textContent = "🧩 الحرف الناقص";
+            const item = getUniqueQuestion(missingWords, "missing");
             currentQuestion = item;
-
-            const content =
-                document.getElementById(
-                    "gameContent"
-                );
-
-            content.innerHTML = `
-
-        <div class="question" style="flex-direction: column;">
-            <div>
-                أكمل الكلمة:
-            </div>
-            <strong style="font-size:45px">
-                ${vocalizeText(item.word)}
-            </strong>
-        </div>
-
-        <div class="answers">
-
-            ${shuffle(item.answers).map(
-                answer => `
-
-                    <button
-                        class="answer"
-                        onclick="
-                        answerMissing(
-                            this,
-                            '${answer}'
-                        )"
-                    >
-                        ${vocalizeLetter(answer)}
-                    </button>
-
-                    `
-            ).join("")
-                }
-
-        </div>
-    `;
+            const content = document.getElementById("gameContent");
+            content.innerHTML = ` 
+                <div class="question" style="flex-direction: column;">
+                    <div>أكمل الكلمة:</div>
+                    <strong style="font-size:45px;font-family:'Amiri Quran','Amiri',serif;">${item.word}</strong>
+                </div>
+                <div class="answers">
+                    ${shuffle(item.answers).map(answer => `
+                        <button class="answer" onclick="answerMissing(this, '${answer}')">${answer}</button>
+                    `).join("")}
+                </div>`;
         }
 
-        function answerMissing(
-            button,
-            answer
-        ) {
-
-            const buttons =
-                document.querySelectorAll(
-                    ".answer"
-                );
-
-            buttons.forEach(
-                b => b.disabled = true
-            );
-
+        function answerMissing(button, answer) {
+            const buttons = document.querySelectorAll(".answer");
+            buttons.forEach(b => b.disabled = true);
             totalAnswered++;
+            challengeQuestionNumber++;
 
             if (answer === currentQuestion.correct) {
-
                 button.classList.add("correct");
-
                 correctAnswers++;
                 combo++;
-
-                addStars(
-                    combo >= 3 ? 2 : 1
-                );
-
+                addStars(combo >= 3 ? 2 : 1);
                 playSuccess();
                 characterCorrect();
-
-                showFeedback(
-                    true,
-                    "ممتاز! كملت الكلمة صح 👏"
-                );
-
+                showFeedback(true, `ممتاز! الكلمة الصحيحة هي: ${currentQuestion.full} 👏`);
             } else {
-
                 button.classList.add("wrong");
-
-                // تم التعديل
                 combo = Math.max(0, combo - 1);
-
+                buttons.forEach(b => {
+                    if (b.textContent.trim() === currentQuestion.correct) b.classList.add("correct");
+                });
                 playWrong();
                 characterWrong();
-
-                showFeedback(
-                    false,
-                    "ولا يهمك، حاول تركز في الحروف 💪"
-                );
+                showFeedback(false, `الإجابة الصحيحة: ${currentQuestion.full} 💡`);
             }
-
             updateStats();
         }
 
-
-        /* =====================================================
-           MEMORY
+        /* ===================================================== 
+           MEMORY 
         ===================================================== */
 
         let memoryFirst = null;
@@ -2714,32 +3817,32 @@
 
             document.getElementById(
                 "gameContent"
-            ).innerHTML = `
+            ).innerHTML = ` 
 
-        <div class="question" style="font-size:20px; margin-bottom:20px;">
-            <span>افتح الكروت وحاول تلاقي كل زوج! 🧠</span>
-        </div>
+        <div class="question" style="font-size:20px; margin-bottom:20px;"> 
+            <span>افتح الكروت وحاول تلاقي كل زوج! 🧠</span> 
+        </div> 
 
-        <div class="memory-grid">
+        <div class="memory-grid"> 
 
             ${symbols.map(
-                (symbol, index) => `
+                (symbol, index) => ` 
 
-                    <button
-                        class="memory-card"
-                        data-symbol="${symbol}"
-                        onclick="
-                        memoryClick(this)
-                        "
-                    >
-                        ❓
-                    </button>
+                    <button 
+                        class="memory-card" 
+                        data-symbol="${symbol}" 
+                        onclick=" 
+                        memoryClick(this) 
+                        " 
+                    > 
+                        ❓ 
+                    </button> 
 
                     `
             ).join("")
-                }
+                } 
 
-        </div>
+        </div> 
 
     `;
         }
@@ -2828,8 +3931,9 @@
         }
 
 
-        /* =====================================================
-           DIFFERENT
+
+        /* ===================================================== 
+           DIFFERENT 
         ===================================================== */
 
         function renderDifferent() {
@@ -2871,36 +3975,36 @@
 
             document.getElementById(
                 "gameContent"
-            ).innerHTML = `
+            ).innerHTML = ` 
 
-        <div class="question">
-            <span>اختار العنصر المختلف 👀</span>
-        </div>
+        <div class="question"> 
+            <span>اختار العنصر المختلف 👀</span> 
+        </div> 
 
-        <div class="answers">
+        <div class="answers"> 
 
             ${group.items.map(
-                item => `
+                item => ` 
 
-                    <button
-                        class="answer"
-                        onclick="
-                        answerDifferent(
-                            this,
-                            '${item}',
-                            '${group.correct}'
-                        )
-                        "
-                        style="font-size:40px"
-                    >
-                        ${item}
-                    </button>
+                    <button 
+                        class="answer" 
+                        onclick=" 
+                        answerDifferent( 
+                            this, 
+                            '${item}', 
+                            '${group.correct}' 
+                        ) 
+                        " 
+                        style="font-size:40px" 
+                    > 
+                        ${item} 
+                    </button> 
 
                     `
             ).join("")
-                }
+                } 
 
-        </div>
+        </div> 
     `;
         }
 
@@ -2920,6 +4024,7 @@
             );
 
             totalAnswered++;
+            challengeQuestionNumber++;
 
             if (answer === correct) {
 
@@ -2944,7 +4049,7 @@
 
                 button.classList.add("wrong");
 
-                // تم التعديل
+                // تم التعديل 
                 combo = Math.max(0, combo - 1);
 
                 playWrong();
@@ -2959,8 +4064,9 @@
         }
 
 
-        /* =====================================================
-           REACTION
+
+        /* ===================================================== 
+           REACTION 
         ===================================================== */
 
         let reactionTimer;
@@ -2975,26 +4081,26 @@
 
             document.getElementById(
                 "gameContent"
-            ).innerHTML = `
+            ).innerHTML = ` 
 
-        <div class="question">
-            <span>استنى النجمة تظهر واضغط عليها بسرعة! ⭐</span>
-        </div>
+        <div class="question"> 
+            <span>استنى النجمة تظهر واضغط عليها بسرعة! ⭐</span> 
+        </div> 
 
-        <div
-            class="reaction-box"
-            id="reactionBox"
-        >
+        <div 
+            class="reaction-box" 
+            id="reactionBox" 
+        > 
 
-            <div
-                class="reaction-star"
-                id="reactionStar"
-                onclick="hitReaction()"
-            >
-                ⭐
-            </div>
+            <div 
+                class="reaction-star" 
+                id="reactionStar" 
+                onclick="hitReaction()" 
+            > 
+                ⭐ 
+            </div> 
 
-        </div>
+        </div> 
 
     `;
 
@@ -3040,6 +4146,7 @@
                 );
 
             totalAnswered++;
+            challengeQuestionNumber++;
 
             let earned = 1;
 
@@ -3058,7 +4165,7 @@
             }
 
             else {
-                // تم التعديل
+                // تم التعديل 
                 combo = Math.max(0, combo - 1);
                 playWrong();
             }
@@ -3078,8 +4185,9 @@
         }
 
 
-        /* =====================================================
-           WORD ORDER
+
+        /* ===================================================== 
+           WORD ORDER 
         ===================================================== */
 
         function renderWord() {
@@ -3100,56 +4208,56 @@
 
             document.getElementById(
                 "gameContent"
-            ).innerHTML = `
+            ).innerHTML = ` 
 
-        <div class="question">
-            <span>رتب الحروف لتكوين الكلمة الصحيحة</span>
-        </div>
+        <div class="question"> 
+            <span>رتب الحروف لتكوين الكلمة الصحيحة</span> 
+        </div> 
 
-        <div
-            id="wordResult"
-            style="
-            text-align:center;
-            font-size:30px;
-            min-height:50px;
-            margin:20px
-            "
-        >
-        </div>
+        <div 
+            id="wordResult" 
+            style=" 
+            text-align:center; 
+            font-size:30px; 
+            min-height:50px; 
+            margin:20px 
+            " 
+        > 
+        </div> 
 
-        <div class="word-box">
+        <div class="word-box"> 
 
             ${letters.map(
-                (letter, index) => `
+                (letter, index) => ` 
 
-                    <button
-                        class="word-piece"
-                        onclick="
-                        chooseLetter(
-                            this,
-                            '${letter}'
-                        )
-                        "
-                    >
-                        ${vocalizeLetter(letter)}
-                    </button>
+                    <button 
+                        class="word-piece" 
+                        onclick=" 
+                        chooseLetter( 
+                            this, 
+                            '${letter}' 
+                        ) 
+                        " 
+                    > 
+                        ${vocalizeLetter(letter)} 
+                    </button> 
 
                     `
             ).join("")
-                }
+                } 
 
-        </div>
+        </div> 
 
-        <div style="text-align:center">
+        <div style="text-align:center"> 
 
-            <button
-                class="next-btn"
-                onclick="checkWord('${word}')"
-            >
-                تحقق ✓
-            </button>
+            <button 
+                class="next-btn" 
+                onclick="checkWord('${word}')" 
+            > 
+                تحقق ✓ 
+            </button> 
 
-        </div>
+        </div> 
 
     `;
         }
@@ -3177,6 +4285,7 @@
                 selectedLetters.join("");
 
             totalAnswered++;
+            challengeQuestionNumber++;
 
             if (result === correctWord) {
 
@@ -3197,7 +4306,7 @@
 
             } else {
 
-                // تم التعديل
+                // تم التعديل 
                 combo = Math.max(0, combo - 1);
 
                 playWrong();
@@ -3214,8 +4323,9 @@
         }
 
 
-        /* =====================================================
-           NUMBER MEMORY
+
+        /* ===================================================== 
+           NUMBER MEMORY 
         ===================================================== */
 
         let secretNumber = "";
@@ -3237,25 +4347,25 @@
 
             document.getElementById(
                 "gameContent"
-            ).innerHTML = `
+            ).innerHTML = ` 
 
-        <div
-            class="question"
-            id="numberDisplay"
-            style="flex-direction: column;"
-        >
-            <div>
-                احفظ الرقم:
-            </div>
-            <strong
-                style="
-                font-size:55px;
-                color:#6c5ce7
-                "
-            >
-                ${secretNumber}
-            </strong>
-        </div>
+        <div 
+            class="question" 
+            id="numberDisplay" 
+            style="flex-direction: column;" 
+        > 
+            <div> 
+                احفظ الرقم: 
+            </div> 
+            <strong 
+                style=" 
+                font-size:55px; 
+                color:#6c5ce7 
+                " 
+            > 
+                ${secretNumber} 
+            </strong> 
+        </div> 
 
     `;
 
@@ -3263,37 +4373,37 @@
                 () => {
                     document.getElementById(
                         "gameContent"
-                    ).innerHTML = `
+                    ).innerHTML = ` 
 
-                <div class="question">
-                    <span>اكتب الرقم الذي حفظته 🔢</span>
-                </div>
+                <div class="question"> 
+                    <span>اكتب الرقم الذي حفظته 🔢</span> 
+                </div> 
 
-                <div style="text-align:center">
+                <div style="text-align:center"> 
 
-                    <input
-                        id="numberInput"
-                        type="number"
-                        style="
-                        padding:15px;
-                        border-radius:15px;
-                        border:2px solid #ddd;
-                        font-size:25px;
-                        text-align:center;
-                        width:220px
-                        "
-                    >
+                    <input 
+                        id="numberInput" 
+                        type="number" 
+                        style=" 
+                        padding:15px; 
+                        border-radius:15px; 
+                        border:2px solid #ddd; 
+                        font-size:25px; 
+                        text-align:center; 
+                        width:220px 
+                        " 
+                    > 
 
-                    <br>
+                    <br> 
 
-                    <button
-                        class="next-btn"
-                        onclick="checkNumber()"
-                    >
-                        تحقق ✓
-                    </button>
+                    <button 
+                        class="next-btn" 
+                        onclick="checkNumber()" 
+                    > 
+                        تحقق ✓ 
+                    </button> 
 
-                </div>
+                </div> 
 
             `;
                 },
@@ -3309,6 +4419,7 @@
                 ).value;
 
             totalAnswered++;
+            challengeQuestionNumber++;
 
             if (input === secretNumber) {
 
@@ -3329,7 +4440,7 @@
 
             } else {
 
-                // تم التعديل
+                // تم التعديل 
                 combo = Math.max(0, combo - 1);
 
                 playWrong();
@@ -3344,8 +4455,9 @@
         }
 
 
-        /* =====================================================
-           PATTERN
+
+        /* ===================================================== 
+           PATTERN 
         ===================================================== */
 
         function renderPattern() {
@@ -3382,46 +4494,46 @@
 
             document.getElementById(
                 "gameContent"
-            ).innerHTML = `
+            ).innerHTML = ` 
 
-        <div class="question">
-            <span>أكمل النمط</span>
-        </div>
+        <div class="question"> 
+            <span>أكمل النمط</span> 
+        </div> 
 
-        <div style="
-            display:flex;
-            justify-content:center;
-            gap:15px;
-            font-size:50px;
-            margin:30px
-        ">
-            ${pattern.sequence.join(" ")}
-        </div>
+        <div style=" 
+            display:flex; 
+            justify-content:center; 
+            gap:15px; 
+            font-size:50px; 
+            margin:30px 
+        "> 
+            ${pattern.sequence.join(" ")} 
+        </div> 
 
-        <div class="answers">
+        <div class="answers"> 
 
             ${pattern.answers.map(
-                answer => `
+                answer => ` 
 
-                    <button
-                        class="answer"
-                        onclick="
-                        answerPattern(
-                            this,
-                            '${answer}',
-                            '${pattern.correct}'
-                        )
-                        "
-                        style="font-size:35px"
-                    >
-                        ${answer}
-                    </button>
+                    <button 
+                        class="answer" 
+                        onclick=" 
+                        answerPattern( 
+                            this, 
+                            '${answer}', 
+                            '${pattern.correct}' 
+                        ) 
+                        " 
+                        style="font-size:35px" 
+                    > 
+                        ${answer} 
+                    </button> 
 
                     `
             ).join("")
-                }
+                } 
 
-        </div>
+        </div> 
     `;
         }
 
@@ -3441,6 +4553,7 @@
             );
 
             totalAnswered++;
+            challengeQuestionNumber++;
 
             if (answer === correct) {
 
@@ -3463,7 +4576,7 @@
 
                 button.classList.add("wrong");
 
-                // تم التعديل
+                // تم التعديل 
                 combo = Math.max(0, combo - 1);
 
                 playWrong();
@@ -3478,8 +4591,9 @@
         }
 
 
-        /* =====================================================
-           LISTEN
+
+        /* ===================================================== 
+           LISTEN 
         ===================================================== */
 
         function renderListen() {
@@ -3503,7 +4617,7 @@
                 words[Math.floor(Math.random() * words.length)]
             ]);
 
-            // منع تكرار الاختيارات
+            // منع تكرار الاختيارات 
             options = [...new Set(options)];
             while (options.length < 4) {
                 const extra = words[Math.floor(Math.random() * words.length)];
@@ -3513,44 +4627,44 @@
 
             document.getElementById(
                 "gameContent"
-            ).innerHTML = `
+            ).innerHTML = ` 
 
-        <div class="question">
-            <span>اختار الكلمة المطلوبة 👀</span>
-        </div>
+        <div class="question"> 
+            <span>اختار الكلمة المطلوبة 👀</span> 
+        </div> 
 
-        <div style="
-            text-align:center;
-            font-size:22px;
-            margin:20px 0;
-            color:#6c5ce7;
-            font-weight:bold;
-        ">
-            الكلمة التي تبدأ بحرف «${vocalizeLetter(word[0])}»
-        </div>
+        <div style=" 
+            text-align:center; 
+            font-size:22px; 
+            margin:20px 0; 
+            color:#6c5ce7; 
+            font-weight:bold; 
+        "> 
+            الكلمة التي تبدأ بحرف «${vocalizeLetter(word[0])}» 
+        </div> 
 
-        <div class="answers">
+        <div class="answers"> 
 
             ${options.map(
-                option => `
+                option => ` 
 
-                    <button
-                        class="answer"
-                        onclick="
-                        answerListen(
-                            this,
-                            '${option}',
-                            '${word}'
-                        )"
-                    >
-                        ${vocalizeText(option)}
-                    </button>
+                    <button 
+                        class="answer" 
+                        onclick=" 
+                        answerListen( 
+                            this, 
+                            '${option}', 
+                            '${word}' 
+                        )" 
+                    > 
+                        ${vocalizeText(option)} 
+                    </button> 
 
                     `
             ).join("")
-                }
+                } 
 
-        </div>
+        </div> 
 
     `;
         }
@@ -3571,6 +4685,7 @@
             );
 
             totalAnswered++;
+            challengeQuestionNumber++;
 
             if (answer === correct) {
 
@@ -3607,34 +4722,77 @@
         }
 
 
-        /* =====================================================
-           SURAH ORDER
+
+        /* ===================================================== 
+           SURAH ORDER 
         ===================================================== */
         let surahOrderState = [];
-        function renderSurahOrder() {
-            document.getElementById("gameTitle").textContent = "📖 رتّب آيات السورة";
-            if (usedQuestions.surahOrder.size >= shortSurahs.length) usedQuestions.surahOrder.clear();
-            let surahIndex;
-            do {surahIndex = Math.floor(Math.random() * shortSurahs.length);} while (usedQuestions.surahOrder.has(surahIndex));
-            usedQuestions.surahOrder.add(surahIndex);
-            const surah = shortSurahs[surahIndex];
-            surahOrderState = shuffle(surah.ayahs.map((text, i) => ({text, original: i})));
+        let surahQuestionNumber = 0;
+
+        function renderSurahSelection() {
+            document.getElementById("gameTitle").textContent = "📖 اختر السورة أولًا";
             const content = document.getElementById("gameContent");
             content.innerHTML = `
-                <div class="question"><span>رتّب آيات سورة <strong>${surah.name}</strong> من البداية إلى النهاية 📖</span></div>
-                <div class="challenge-hint">اضغط على الآيات بالترتيب الصحيح. أول آية ثم الثانية ثم الثالثة…</div>
+                <div class="question"><span>اختار السورة التي تريد ترتيب آياتها 📖</span></div>
+                <div class="challenge-hint">
+                    بعد اختيار السورة ستظهر آياتها غير مرتبة، وعليك ترتيبها من البداية إلى النهاية.
+                    
+                </div>
+                <div class="option-grid-3">
+                    ${shortSurahs.map((surah, index) => `
+                        <button class="big-option" onclick="selectSurahForOrder(${index})">
+                            سورة ${surah.name}
+                            <small style="display:block;font-size:13px;margin-top:7px;">${surah.ayahs.length} آية</small>
+                        </button>
+                    `).join("")}
+                </div>`;
+        }
+
+        function selectSurahForOrder(index) {
+            selectedSurah = shortSurahs[index];
+            surahQuestionNumber = 0;
+            challengeQuestionNumber = 0;
+            challengeCorrectAtStart = correctAnswers;
+            renderSurahOrder();
+        }
+
+        function renderSurahOrder() {
+            if (!selectedSurah) {
+                renderSurahSelection();
+                return;
+            }
+
+            document.getElementById("gameTitle").textContent =
+                `📖 ترتيب آيات سورة ${selectedSurah.name}`;
+
+            surahOrderState = shuffle(selectedSurah.ayahs.map((text, i) => ({text, original: i})));
+
+            const content = document.getElementById("gameContent");
+            content.innerHTML = `
+                <div class="question">
+                    <span>رتّب آيات سورة <strong>${selectedSurah.name}</strong> من البداية إلى النهاية 📖</span>
+                </div>
+                <div class="challenge-hint">
+                    اضغط الآيات بالترتيب الصحيح
+                </div>
                 <div class="surah-order-list" id="surahOrderList">
-                    ${surahOrderState.map((item, i) => `<button class="ayah-card quran-ayah" data-index="${i}" onclick="chooseAyah(this)">${mushafAyah(item.text)}</button>`).join("")}
+                    ${surahOrderState.map((item, i) => `
+                        <button class="ayah-card quran-ayah" data-index="${i}" onclick="chooseAyah(this)">
+                            ${mushafAyah(item.text)}
+                        </button>
+                    `).join("")}
                 </div>
                 <div id="chosenAyahs" style="text-align:center;font-size:18px;font-weight:bold;min-height:42px"></div>
                 <div class="order-actions">
                     <button class="mini-btn" onclick="renderSurahOrder()">🔀 خلط من جديد</button>
+                    <button class="mini-btn" onclick="renderSurahSelection()">📖 تغيير السورة</button>
                     <button class="next-btn" onclick="checkSurahOrder()">تحقق ✓</button>
                 </div>`;
-            currentQuestion = {surah};
-            window.surahExpected = surah;
+            currentQuestion = {surah: selectedSurah};
+            window.surahExpected = selectedSurah;
             window.surahChosen = [];
         }
+
         function chooseAyah(button) {
             if (button.classList.contains("selected")) return;
             const idx = Number(button.dataset.index);
@@ -3642,66 +4800,85 @@
             button.classList.add("selected");
             button.disabled = true;
             window.surahChosen.push(item.original);
-            document.getElementById("chosenAyahs").innerHTML = `عدد الآيات التي رتبتها: <strong>${window.surahChosen.length}</strong> 📖`;
+            document.getElementById("chosenAyahs").innerHTML =
+                `عدد الآيات التي رتبتها: <strong>${window.surahChosen.length}</strong> 📖`;
         }
+
         function checkSurahOrder() {
+            if (window.surahChosen.length !== window.surahExpected.ayahs.length) {
+                showFeedback(false, "رتّب كل آيات السورة أولًا ثم اضغط تحقق 💡");
+                return;
+            }
+
             totalAnswered++;
+            challengeQuestionNumber++;
+            surahQuestionNumber++;
+
             const expected = window.surahExpected.ayahs.map((_, i) => i).join(",");
             const got = window.surahChosen.join(",");
             const ok = expected === got;
+
             if (ok) {
-                correctAnswers++; combo++; addStars(combo >= 3 ? 3 : 2); playCombo(); characterCorrect();
-                showFeedback(true, `ممتاز! رتّبت سورة ${window.surahExpected.name} كاملة بالترتيب الصحيح! 📖🔥`);
+                correctAnswers++;
+                combo++;
+                addStars(combo >= 3 ? 3 : 2);
+                playCombo();
+                characterCorrect();
+                showFeedback(true, `ممتاز! ترتيب سورة ${window.surahExpected.name} صحيح 👏📖`);
             } else {
-                combo = Math.max(0, combo - 1); playWrong(); characterWrong();
-                showFeedback(false, "قربت! تذكّر أن تبدأ بالآية الأولى ثم التي بعدها بهدوء 💪");
+                combo = Math.max(0, combo - 1);
+                playWrong();
+                characterWrong();
+                showFeedback(false, "الترتيب غير صحيح، ركّز في تسلسل الآيات وحاول مرة أخرى 💪");
             }
             updateStats();
         }
 
-        /* =====================================================
-           HARAKAT CHALLENGE
+        /* ===================================================== 
+           HARAKAT CHALLENGE 
         ===================================================== */
         function renderHarakat() {
             document.getElementById("gameTitle").textContent = "🔤 تحدي الحركات";
             currentQuestion = getUniqueQuestion(harakatQuestions, "harakat");
             const shuffled = shuffle(currentQuestion.a.map((text, index) => ({text, correct: index === currentQuestion.correct})));
-            document.getElementById("gameContent").innerHTML = `
-                <div class="question"><span>${currentQuestion.q}</span></div>
-                <div class="challenge-hint">ركز على الفتحة والضمة والكسرة والسكون 👀</div>
+            document.getElementById("gameContent").innerHTML = ` 
+                <div class="question"><span>${currentQuestion.q}</span></div> 
+                <div class="challenge-hint">ركز على الفتحة والضمة والكسرة والسكون 👀</div> 
                 <div class="answers">${shuffled.map(item => `<button class="answer choice-word" data-correct="${item.correct}" onclick="answerHarakat(this, ${item.correct})">${item.text}</button>`).join("")}</div>`;
         }
         function answerHarakat(button, ok) {
             document.querySelectorAll(".answer").forEach(b => b.disabled = true); totalAnswered++;
+            challengeQuestionNumber++;
             if (ok) {button.classList.add("correct"); correctAnswers++; combo++; addStars(combo >= 3 ? 3 : 2); playSuccess(); characterCorrect(); showFeedback(true, "عاش! عينك على الحركات ممتازة 👏🔤");}
             else {button.classList.add("wrong"); combo = Math.max(0, combo - 1); playWrong(); characterWrong(); document.querySelectorAll(".answer").forEach(b => {if (b.dataset.correct === "true") b.classList.add("correct")}); showFeedback(false, "ركز على الحركة فوق الحرف أو تحته وحاول مرة أخرى 💪");}
             updateStats();
         }
 
-        /* =====================================================
-           TRUE / FALSE
+        /* ===================================================== 
+           TRUE / FALSE 
         ===================================================== */
         function renderTrueFalse() {
             document.getElementById("gameTitle").textContent = "✅ صح أم خطأ؟";
             currentQuestion = getUniqueQuestion(trueFalseQuestions, "truefalse");
-            document.getElementById("gameContent").innerHTML = `
-                <div class="question"><span>${currentQuestion.q}</span></div>
-                <div class="challenge-hint">فكّر بهدوء، ثم اختر الإجابة التي تراها صحيحة.</div>
-                <div class="tf-card">
-                    <button class="big-option" onclick="answerTrueFalse(this,true)">✅ صح</button>
-                    <button class="big-option" onclick="answerTrueFalse(this,false)">❌ خطأ</button>
+            document.getElementById("gameContent").innerHTML = ` 
+                <div class="question"><span>${currentQuestion.q}</span></div> 
+                <div class="challenge-hint">فكّر بهدوء، ثم اختر الإجابة التي تراها صحيحة.</div> 
+                <div class="tf-card"> 
+                    <button class="big-option" onclick="answerTrueFalse(this,true)">✅ صح</button> 
+                    <button class="big-option" onclick="answerTrueFalse(this,false)">❌ خطأ</button> 
                 </div>`;
         }
         function answerTrueFalse(button, answer) {
             document.querySelectorAll(".big-option").forEach(b => b.disabled = true); totalAnswered++;
+            challengeQuestionNumber++;
             const ok = answer === currentQuestion.correct;
             if (ok) {button.classList.add("correct"); correctAnswers++; combo++; addStars(combo >= 3 ? 2 : 1); playSuccess(); characterCorrect(); showFeedback(true, "إجابة صحيحة! ممتاز يا بطل 🏆");}
             else {button.classList.add("wrong"); combo = Math.max(0, combo - 1); playWrong(); characterWrong(); showFeedback(false, "ليست مشكلة! تعلّم من المحاولة وجرب السؤال التالي 💪");}
             updateStats();
         }
 
-        /* =====================================================
-           NUMBER ORDER
+        /* ===================================================== 
+           NUMBER ORDER 
         ===================================================== */
         let numberOrderCurrent = [];
         let numberOrderSelected = [];
@@ -3709,23 +4886,239 @@
             document.getElementById("gameTitle").textContent = "🔢 رتّب الأرقام";
             numberOrderCurrent = shuffle(numberOrderSets[Math.floor(Math.random() * numberOrderSets.length)]);
             numberOrderSelected = [];
-            document.getElementById("gameContent").innerHTML = `
-                <div class="question"><span>رتّب الأرقام من الأصغر إلى الأكبر 🔢</span></div>
-                <div class="challenge-hint">اضغط الأرقام بالترتيب: الأصغر أولًا.</div>
-                <div class="option-grid-3" id="numberOrderGrid">${numberOrderCurrent.map((n, i) => `<button class="big-option" data-n="${n}" onclick="chooseOrderNumber(this)">${n}</button>`).join("")}</div>
-                <div id="numberOrderResult" style="text-align:center;font-size:25px;font-weight:bold;margin:20px;min-height:38px"></div>
+            document.getElementById("gameContent").innerHTML = ` 
+                <div class="question"><span>رتّب الأرقام من الأصغر إلى الأكبر 🔢</span></div> 
+                <div class="challenge-hint">اضغط الأرقام بالترتيب: الأصغر أولًا.</div> 
+                <div class="option-grid-3" id="numberOrderGrid">${numberOrderCurrent.map((n, i) => `<button class="big-option" data-n="${n}" onclick="chooseOrderNumber(this)">${n}</button>`).join("")}</div> 
+                <div id="numberOrderResult" style="text-align:center;font-size:25px;font-weight:bold;margin:20px;min-height:38px"></div> 
                 <div style="text-align:center"><button class="next-btn" onclick="checkNumberOrder()">تحقق ✓</button></div>`;
         }
         function chooseOrderNumber(button) {if (button.disabled) return; button.disabled = true; numberOrderSelected.push(Number(button.dataset.n)); document.getElementById("numberOrderResult").textContent = numberOrderSelected.join(" ← ");}
         function checkNumberOrder() {
-            totalAnswered++; const expected = [...numberOrderCurrent].sort((a, b) => a - b); const ok = expected.join(",") === numberOrderSelected.join(",");
+            totalAnswered++;
+            challengeQuestionNumber++; const expected = [...numberOrderCurrent].sort((a, b) => a - b); const ok = expected.join(",") === numberOrderSelected.join(",");
             if (ok) {correctAnswers++; combo++; addStars(combo >= 3 ? 2 : 1); playSuccess(); characterCorrect(); showFeedback(true, "ترتيب ممتاز! 🔢🌟");}
             else {combo = Math.max(0, combo - 1); playWrong(); characterWrong(); showFeedback(false, `الترتيب الصحيح: ${expected.join(" ← ")}`);}
             updateStats();
         }
 
         /* =====================================================
-           STARS & BADGES
+           NEW CHALLENGES — 50+ QUESTIONS EACH
+        ===================================================== */
+
+        const mathChallengeQuestions = Array.from({length: 60}, (_, i) => {const a = i + 2, b = i % 9 + 1; if (i % 3 === 0) return {q: `ما ناتج ${a} + ${b} ؟`, a: [a + b, a + b + 1, a + b - 1, a + b + 2], correct: 0}; if (i % 3 === 1) return {q: `ما ناتج ${a + b} - ${b} ؟`, a: [a, a + 1, a - 1, a + 2], correct: 0}; return {q: `ما ناتج ${b} × 2 ؟`, a: [b * 2, b + 1, b * 2 + 1, b], correct: 0};});
+
+        const oppositePairs = [["كبير", "صغير"], ["طويل", "قصير"], ["سريع", "بطيء"], ["جميل", "قبيح"], ["قريب", "بعيد"], ["فوق", "تحت"], ["داخل", "خارج"], ["جديد", "قديم"], ["قوي", "ضعيف"], ["نظيف", "متسخ"], ["سهل", "صعب"], ["حار", "بارد"], ["نهار", "ليل"], ["ضحك", "بكاء"], ["حب", "كره"], ["صدق", "كذب"], ["خير", "شر"], ["أبيض", "أسود"], ["بداية", "نهاية"], ["أول", "آخر"], ["يمين", "يسار"], ["أمام", "خلف"], ["صعود", "هبوط"], ["فتح", "إغلاق"], ["حضور", "غياب"], ["فوز", "خسارة"], ["نجاح", "فشل"], ["فرح", "حزن"], ["سعادة", "شقاء"], ["كثير", "قليل"], ["واسع", "ضيق"], ["ثقيل", "خفيف"], ["مرتفع", "منخفض"], ["مضيء", "مظلم"], ["هادئ", "صاخب"], ["غني", "فقير"], ["شجاع", "جبان"], ["كريم", "بخيل"], ["ممتلئ", "فارغ"], ["صيف", "شتاء"], ["سؤال", "جواب"], ["أعطى", "أخذ"], ["ذكر", "نسي"], ["بدأ", "انتهى"], ["وصل", "غادر"], ["نام", "استيقظ"], ["صعد", "نزل"], ["عطش", "ارتوى"], ["جائع", "شبعان"], ["حي", "ميت"], ["حقيقي", "مزيف"], ["ممتاز", "سيئ"], ["سليم", "مريض"], ["آمن", "خطر"], ["مبكر", "متأخر"]];
+        const oppositesWordPool = Array.from(new Set(oppositePairs.flat()));
+        const oppositesQuestions = oppositePairs.map(([word, opposite]) => {const decoyPool = oppositesWordPool.filter(w => w !== word && w !== opposite); const decoys = shuffle(decoyPool).slice(0, 2); const a = shuffle([opposite, word, ...decoys]); return {q: `ما عكس كلمة ${word}؟`, a, correct: a.indexOf(opposite)};});
+
+        const riddlePairs = [["شيء نكتب به ونستخدمه في المدرسة، ما هو؟", "القلم"], ["شيء نقرأ فيه القصص والدروس، ما هو؟", "الكتاب"], ["شيء يضيء لنا في النهار، ما هو؟", "الشمس"], ["شيء يظهر في السماء ليلًا ويضيء، ما هو؟", "القمر"], ["حيوان يقول مواء، ما هو؟", "القطة"], ["حيوان يقول نباحًا، ما هو؟", "الكلب"], ["مكان نتعلم فيه مع المعلم، ما هو؟", "المدرسة"], ["شيء نستخدمه لمعرفة الوقت، ما هو؟", "الساعة"], ["شيء نشربه عندما نشعر بالعطش، ما هو؟", "الماء"], ["شيء نستخدمه لفتح الباب، ما هو؟", "المفتاح"], ["فاكهة صفراء مشهورة، ما هي؟", "الموز"], ["فاكهة حمراء أو خضراء مشهورة، ما هي؟", "التفاح"], ["شيء نرتديه في القدم، ما هو؟", "الحذاء"], ["شيء نرتديه على الرأس، ما هو؟", "القبعة"], ["شيء نجلس عليه، ما هو؟", "الكرسي"], ["مكان فيه أشجار وزهور، ما هو؟", "الحديقة"], ["وسيلة نستخدمها للسفر على الطريق، ما هي؟", "السيارة"], ["شيء له أجنحة ويطير في السماء، ما هو؟", "الطائر"], ["شيء يعيش في الماء، ما هو؟", "السمكة"], ["شيء نمسح به الكتابة بالقلم الرصاص، ما هو؟", "الممحاة"], ["شيء له أربع أرجل ولا يمشي، ما هو؟", "الطاولة"], ["شيء له أسنان ولا يعض، ما هو؟", "المشط"], ["شيء له أوراق وليس شجرة، ما هو؟", "الكتاب"], ["شيء نراه ولا نستطيع لمسه، ما هو؟", "الظل"], ["شيء كلما زاد نقص، ما هو؟", "العمر"], ["شيء له عين ولا يرى، ما هو؟", "الإبرة"], ["شيء نسمعه ولا نراه، ما هو؟", "الصوت"], ["شيء يمشي بلا أرجل، ما هو؟", "الوقت"], ["مكان تحفظ فيه الكتب، ما هو؟", "المكتبة"], ["شيء يحمينا من المطر، ما هو؟", "المظلة"], ["شيء نستخدمه لقياس الطول، ما هو؟", "المسطرة"], ["شيء ننام عليه، ما هو؟", "السرير"], ["شيء نضع فيه الملابس، ما هو؟", "الخزانة"], ["شيء يطير وله محرك، ما هو؟", "الطائرة"], ["وسيلة تسير على قضبان، ما هي؟", "القطار"], ["مكان نشتري منه الطعام، ما هو؟", "السوق"], ["شيء نستخدمه لحماية العينين من الشمس، ما هو؟", "النظارة"], ["شيء نستخدمه لقص الورق، ما هو؟", "المقص"], ["شيء نستخدمه لتنظيف الأسنان، ما هو؟", "فرشاة الأسنان"], ["شيء نستخدمه لتناول الطعام، ما هو؟", "الملعقة"], ["شيء نستخدمه للاتصال بالآخرين، ما هو؟", "الهاتف"], ["شيء له لون أخضر وينمو في الأرض، ما هو؟", "النبات"], ["شيء يسقط من السماء، ما هو؟", "المطر"], ["شيء مرتفع من الأرض وله قمة، ما هو؟", "الجبل"], ["شيء يجري ولا يمشي، ما هو؟", "النهر"], ["مكان نطبخ فيه الطعام، ما هو؟", "المطبخ"], ["شيء يحفظ الماء، ما هو؟", "الزجاجة"], ["حيوان كبير له خرطوم، ما هو؟", "الفيل"], ["حيوان طويل الرقبة، ما هو؟", "الزرافة"], ["حيوان يعيش في الصحراء وله سنام، ما هو؟", "الجمل"], ["طائر لا يطير ويجري بسرعة، ما هو؟", "النعامة"]];
+        const riddlesQuestions = riddlePairs.map(([q, correct]) => {const a = shuffle([correct, "الكتاب", "الكرسي", "الشجرة"]); return {q, a, correct: a.indexOf(correct)};});
+
+        /* =====================================================
+           X O — لعبة مستقلة ضد الكمبيوتر
+           الطالب = X | الكمبيوتر = O
+           مستوى الكمبيوتر يرتفع تدريجيا من مرحلة لأخرى
+           ===================================================== */
+        let xoBoard = Array(9).fill("");
+        let xoStage = 1;
+        let xoPlayerWins = 0;
+        let xoComputerWins = 0;
+        let xoDraws = 0;
+        let xoThinking = false;
+
+        const XO_MAX_STAGE = 5;
+
+        function xoHasWinner(mark) {
+            return [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+                .some(line => line.every(i => xoBoard[i] === mark));
+        }
+
+        function xoEmptyCells() {
+            return xoBoard.map((v, i) => v ? -1 : i).filter(i => i !== -1);
+        }
+
+        function xoWinningMove(mark) {
+            for (const i of xoEmptyCells()) {
+                xoBoard[i] = mark;
+                const win = xoHasWinner(mark);
+                xoBoard[i] = "";
+                if (win) return i;
+            }
+            return -1;
+        }
+
+        function xoRandomMove() {
+            const empty = xoEmptyCells();
+            return empty.length ? empty[Math.floor(Math.random() * empty.length)] : -1;
+        }
+
+        function xoFindFork(mark) {
+            for (const i of xoEmptyCells()) {
+                xoBoard[i] = mark;
+                let threats = 0;
+                for (const j of xoEmptyCells()) {
+                    xoBoard[j] = mark;
+                    if (xoHasWinner(mark)) threats++;
+                    xoBoard[j] = "";
+                    if (threats >= 2) break;
+                }
+                xoBoard[i] = "";
+                if (threats >= 2) return i;
+            }
+            return -1;
+        }
+
+        function xoHeuristicMove() {
+            const win = xoWinningMove("O");
+            if (win !== -1) return win;
+            const block = xoWinningMove("X");
+            if (block !== -1) return block;
+
+            if (xoStage >= 4) {
+                const fork = xoFindFork("O");
+                if (fork !== -1) return fork;
+                const playerFork = xoFindFork("X");
+                if (playerFork !== -1) return playerFork;
+            }
+
+            if (!xoBoard[4]) return 4;
+            const corners = [0, 2, 6, 8].filter(i => !xoBoard[i]);
+            if (corners.length) return corners[Math.floor(Math.random() * corners.length)];
+            const sides = [1, 3, 5, 7].filter(i => !xoBoard[i]);
+            return sides.length ? sides[Math.floor(Math.random() * sides.length)] : -1;
+        }
+
+        function xoMinimax(board, maximizing, depth, maxDepth) {
+            const winner = (mark) => [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+                .some(line => line.every(i => board[i] === mark));
+            const empty = board.map((v, i) => v ? -1 : i).filter(i => i !== -1);
+            if (winner("O")) return {score: 10 - depth};
+            if (winner("X")) return {score: depth - 10};
+            if (!empty.length || depth >= maxDepth) return {score: 0};
+
+            let best = maximizing ? {score: -Infinity, index: -1} : {score: Infinity, index: -1};
+            for (const i of empty) {
+                board[i] = maximizing ? "O" : "X";
+                const result = xoMinimax(board, !maximizing, depth + 1, maxDepth);
+                board[i] = "";
+                if (maximizing && result.score > best.score) best = {score: result.score, index: i};
+                if (!maximizing && result.score < best.score) best = {score: result.score, index: i};
+            }
+            return best;
+        }
+
+        function xoComputerMove() {
+            const empty = xoEmptyCells();
+            if (!empty.length) return;
+
+            let move = -1;
+            if (xoStage === 1) {
+                move = xoRandomMove();
+            } else if (xoStage === 2) {
+                move = xoWinningMove("O");
+                if (move === -1) move = xoWinningMove("X");
+                if (move === -1) move = xoRandomMove();
+            } else if (xoStage === 3) {
+                move = xoHeuristicMove();
+            } else if (xoStage === 4) {
+                move = xoHeuristicMove();
+                if (move === -1) move = xoMinimax([...xoBoard], true, 0, 3).index;
+            } else {
+                move = xoMinimax([...xoBoard], true, 0, 9).index;
+            }
+
+            if (move !== -1 && !xoBoard[move]) xoBoard[move] = "O";
+        }
+
+        function xoStageText() {
+            const names = ["مبتدئ", "سهل", "متوسط", "صعب", "خبير"];
+            return names[xoStage - 1] || names[names.length - 1];
+        }
+
+        function renderXO() {
+            document.getElementById("gameTitle").textContent = "⭕❌ لعبة X O";
+            document.getElementById("gameContent").innerHTML = `
+                <div class="challenge-hint" style="margin-bottom:12px">
+                    أنت <b>X</b> والكمبيوتر <b>O</b> — المرحلة ${xoStage} من ${XO_MAX_STAGE} (${xoStageText()})
+                </div>
+                <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:8px 0 14px;font-size:18px;font-weight:800">
+                    <span>🏆 فوزك: ${xoPlayerWins}</span>
+                    <span>🤖 فوز الكمبيوتر: ${xoComputerWins}</span>
+                    <span>🤝 تعادل: ${xoDraws}</span>
+                </div>
+                <div class="challenge-inline-status" id="xoStatus">دورك — اختر خانة لوضع X</div>
+                <div class="xo-board" id="xoBoard">${xoBoard.map((v, i) => `<button class="xo-cell ${v.toLowerCase()}" ${v || xoThinking ? 'disabled' : ''} onclick="placeXO(${i})">${v}</button>`).join("")}</div>
+                <div style="text-align:center;margin-top:12px">
+                    <button class="next-btn" onclick="xoNewRound()">🔄 جولة جديدة</button>
+                </div>`;
+        }
+
+        function xoUpdateBoard() {
+            const board = document.getElementById("xoBoard");
+            if (board) board.innerHTML = xoBoard.map((v, i) => `<button class="xo-cell ${v.toLowerCase()}" ${v || xoThinking ? 'disabled' : ''} onclick="placeXO(${i})">${v}</button>`).join("");
+        }
+
+        function xoFinish(result) {
+            xoThinking = false;
+            if (result === "X") {
+                xoPlayerWins++;
+                if (xoStage < XO_MAX_STAGE) xoStage++;
+                addStars(3);
+                playSuccess();
+                characterCorrect();
+                document.getElementById("xoStatus").textContent = xoStage === XO_MAX_STAGE
+                    ? "فزت! وصلت لأقوى مستوى للكمبيوتر 🏆"
+                    : `فزت! انتقلت إلى المرحلة ${xoStage} — الكمبيوتر أصبح أقوى 🔥`;
+            } else if (result === "O") {
+                xoComputerWins++;
+                playWrong();
+                characterWrong();
+                document.getElementById("xoStatus").textContent = `الكمبيوتر فاز 🤖 حاول مرة أخرى في المرحلة ${xoStage}`;
+            } else {
+                xoDraws++;
+                document.getElementById("xoStatus").textContent = "تعادل 🤝 جولة أخرى؟";
+            }
+            xoUpdateBoard();
+        }
+
+        function placeXO(index) {
+            if (xoThinking || xoBoard[index]) return;
+            xoBoard[index] = "X";
+            xoUpdateBoard();
+
+            if (xoHasWinner("X")) {xoFinish("X"); return;}
+            if (xoBoard.every(Boolean)) {xoFinish("draw"); return;}
+
+            xoThinking = true;
+            const status = document.getElementById("xoStatus");
+            if (status) status.textContent = "الكمبيوتر يفكر... 🤖";
+            xoUpdateBoard();
+
+            setTimeout(() => {
+                xoComputerMove();
+                xoThinking = false;
+                xoUpdateBoard();
+                if (xoHasWinner("O")) {xoFinish("O"); return;}
+                if (xoBoard.every(Boolean)) {xoFinish("draw"); return;}
+                const s = document.getElementById("xoStatus");
+                if (s) s.textContent = `دورك — المرحلة ${xoStage} (${xoStageText()})`;
+            }, 450 + Math.min(xoStage * 80, 300));
+        }
+
+        function xoNewRound() {
+            xoBoard = Array(9).fill("");
+            xoThinking = false;
+            renderXO();
+        }
+
+        function renderMathChallenge() {document.getElementById("gameTitle").textContent = "➕ تحدي الحساب السريع"; currentQuestion = getUniqueQuestion(mathChallengeQuestions, "math"); document.getElementById("gameContent").innerHTML = `<div class="question"><span>${currentQuestion.q}</span></div><div class="challenge-hint">اختر الإجابة الصحيحة</div><div class="answers">${shuffle(currentQuestion.a.map((x, i) => ({text: x, correct: i === currentQuestion.correct}))).map(x => `<button class="answer" data-correct="${x.correct}" onclick="answerNewMCQ(this,${x.correct})">${x.text}</button>`).join("")}</div>`;}
+        function renderOpposites() {document.getElementById("gameTitle").textContent = "🔄 الكلمة وعكسها"; currentQuestion = getUniqueQuestion(oppositesQuestions, "opposites"); document.getElementById("gameContent").innerHTML = `<div class="question"><span>${currentQuestion.q}</span></div><div class="challenge-hint">اختر الإجابة الصحيحة</div><div class="answers">${shuffle(currentQuestion.a.map((x, i) => ({text: x, correct: i === currentQuestion.correct}))).map(x => `<button class="answer" data-correct="${x.correct}" onclick="answerNewMCQ(this,${x.correct})">${x.text}</button>`).join("")}</div>`;}
+        function renderRiddles() {document.getElementById("gameTitle").textContent = "🧩 من أنا؟"; currentQuestion = getUniqueQuestion(riddlesQuestions, "riddles"); document.getElementById("gameContent").innerHTML = `<div class="question"><span>${currentQuestion.q}</span></div><div class="challenge-hint">اختر الإجابة الصحيحة</div><div class="answers">${shuffle(currentQuestion.a.map((x, i) => ({text: x, correct: i === currentQuestion.correct}))).map(x => `<button class="answer" data-correct="${x.correct}" onclick="answerNewMCQ(this,${x.correct})">${x.text}</button>`).join("")}</div>`;}
+        function answerNewMCQ(button, isCorrect) {document.querySelectorAll("#gameContent .answer").forEach(b => b.disabled = true); totalAnswered++; challengeQuestionNumber++; if (isCorrect) {button.classList.add("correct"); correctAnswers++; combo++; addStars(combo >= 3 ? 2 : 1); playSuccess(); characterCorrect(); showFeedback(true, "إجابة صحيحة! ممتاز 👏");} else {button.classList.add("wrong"); combo = Math.max(0, combo - 1); playWrong(); characterWrong(); document.querySelectorAll("#gameContent .answer").forEach(b => {if (b.dataset.correct === "true") b.classList.add("correct")}); showFeedback(false, "قربت! الإجابة الصحيحة موضحة باللون الصحيح 💪");} updateStats();}
+
+        /* ===================================================== 
+           STARS & BADGES 
         ===================================================== */
 
         function addStars(amount) {
@@ -3773,8 +5166,9 @@
         }
 
 
-        /* =====================================================
-           UPDATE STATS
+
+        /* ===================================================== 
+           UPDATE STATS 
         ===================================================== */
 
         function updateStats() {
@@ -3807,7 +5201,7 @@
             ).textContent =
                 Math.round(progress) + "%";
 
-            // نظام الشارات (Badges) الجديد المضاف
+            // نظام الشارات (Badges) الجديد المضاف 
             let badgesHTML = "";
             if (level >= 2) badgesHTML += "🥉 ";
             if (level >= 5) badgesHTML += "🥈 ";
@@ -3819,14 +5213,15 @@
         }
 
 
-        /* =====================================================
-           RESET PROGRESS
+
+        /* ===================================================== 
+           RESET PROGRESS 
         ===================================================== */
 
         function resetProgress() {
 
             const confirmed = confirm(
-                "هل تريد تصفير التقدم والنجوم والمستوى والبدء من جديد؟"
+                "هل تريد تصفير التقييم والنجوم والمستوى والبدء باسم طالب جديد؟"
             );
 
             if (!confirmed) return;
@@ -3839,20 +5234,20 @@
 
             localStorage.removeItem("stars");
             localStorage.removeItem("level");
+            localStorage.removeItem("studentName");
+            localStorage.removeItem("studentCharacterId");
+            studentName = "";
+            studentCharacterId = "";
             Object.values(usedQuestions).forEach(set => set.clear());
-
             updateStats();
-
-            // رسالة بسيطة للطفل بعد إعادة البداية
-            const characterMessage = document.getElementById("characterMessage");
-            if (characterMessage) {
-                characterMessage.textContent = "بدأنا من جديد! هيا يا بطل! 🚀";
-            }
+            updateStudentNameUI();
+            openNameModal(true);
         }
 
 
-        /* =====================================================
-           FEEDBACK
+
+        /* ===================================================== 
+           FEEDBACK 
         ===================================================== */
 
         function showFeedback(
@@ -3890,19 +5285,40 @@
         }
 
         function closeFeedback() {
+            document.getElementById("feedback").classList.remove("show");
+            if (!currentGame) return;
 
-            document.getElementById(
-                "feedback"
-            ).classList.remove("show");
+            if (challengeQuestionNumber >= QUESTIONS_PER_CHALLENGE) {
+                const gainedCorrect = correctAnswers - challengeCorrectAtStart;
+                const pct = Math.round((gainedCorrect / QUESTIONS_PER_CHALLENGE) * 100);
+                document.getElementById("gameTitle").textContent = "🏆 انتهى التحدي";
+                document.getElementById("gameContent").innerHTML = `
+                    <div class="final-score">
+                        <h2>أحسنت! أكملت ${QUESTIONS_PER_CHALLENGE} سؤالًا 🎉</h2>
+                        <div class="score-number">${gainedCorrect} / ${QUESTIONS_PER_CHALLENGE}</div>
+                        <p style="font-size:20px;margin-top:10px;">نسبة الإجابات الصحيحة: ${pct}%</p>
+                        <button class="next-btn" onclick="restartCurrentChallenge()">🔄 ابدأ التحدي من جديد</button>
+                    </div>`;
+                return;
+            }
 
-            if (currentGame) {
-                renderGame(currentGame);
+            if (currentGame === "surahOrder") renderSurahOrder();
+            else renderGame(currentGame);
+        }
+
+        function restartCurrentChallenge() {
+            if (currentGame === "surahOrder") {
+                challengeQuestionNumber = 0;
+                challengeCorrectAtStart = correctAnswers;
+                surahQuestionNumber = 0;
+                renderSurahOrder();
+            } else {
+                startGame(currentGame);
             }
         }
 
-
-        /* =====================================================
-           CONFETTI
+        /* ===================================================== 
+           CONFETTI 
         ===================================================== */
 
         function createConfetti() {
@@ -3946,8 +5362,9 @@
         }
 
 
-        /* =====================================================
-           RANDOM CHALLENGE
+
+        /* ===================================================== 
+           RANDOM CHALLENGE 
         ===================================================== */
 
         function startRandomChallenge() {
@@ -3968,7 +5385,8 @@
                 "surahOrder",
                 "harakat",
                 "truefalse",
-                "numberOrder"
+                "numberOrder",
+                "math", "opposites", "riddles"
 
             ];
 
@@ -3983,8 +5401,9 @@
         }
 
 
-        /* =====================================================
-           CLOSE
+
+        /* ===================================================== 
+           CLOSE 
         ===================================================== */
 
         function closeGame() {
@@ -3997,13 +5416,52 @@
         }
 
 
+
+        function toggleExtraChallenges() {
+            const cards = document.querySelectorAll('.extra-challenge');
+            const btn = document.getElementById('moreChallengesBtn');
+            const open = Array.from(cards).some(c => c.style.display === 'grid');
+            cards.forEach(c => c.style.display = open ? 'none' : 'grid');
+            if (btn) btn.textContent = open ? '📚 باقي التحديات' : '🔽 إخفاء باقي التحديات';
+        }
+
         /* =====================================================
-           INITIALIZE
+           STUDENT NAME / SCORE SESSION
+        ===================================================== */
+        let studentName = localStorage.getItem("studentName") || "";
+        function updateStudentNameUI() {const el = document.getElementById("studentNameHeader"); if (el) el.textContent = studentName || "الطالب";}
+        function openNameModal(isReset = false) {
+            const overlay = document.getElementById("nameOverlay"), input = document.getElementById("studentNameInput"), title = document.getElementById("nameModalTitle"), text = document.getElementById("nameModalText"), error = document.getElementById("nameError");
+            if (!overlay) return; overlay.style.display = "flex";
+            title.textContent = isReset ? "نبدأ من جديد يا بطل! 🎯" : "اهلا بك في مغامرة الطالب الذكي!";
+            text.textContent = isReset ? "اكتب اسم الطالب عشان نبدأ سكور جديد من الصفر" : "اكتب اسمك عشان نبدأ المغامرة ونحسب سكورك";
+            input.value = isReset ? "" : studentName; if (error) error.textContent = "";
+            setTimeout(() => input && input.focus(), 120);
+        }
+        function saveStudentName() {
+            const input = document.getElementById("studentNameInput"), error = document.getElementById("nameError"), value = (input?.value || "").trim();
+            if (!value) {if (error) error.textContent = "اكتب اسمك الاول عشان نبدأ 😊"; input?.focus(); return;}
+            studentName = value; localStorage.setItem("studentName", studentName); updateStudentNameUI(); document.getElementById("nameOverlay").style.display = "none";
+            if (!studentCharacterId) {
+                assignRandomCharacterForStudent();
+                const msg = document.getElementById("characterMessage"); if (msg) msg.textContent = `اهلا يا ${studentName}! شخصيتك هي ${currentCharacter.name} ${currentCharacter.emoji}`;
+            } else {
+                const msg = document.getElementById("characterMessage"); if (msg) msg.textContent = `اهلا بعودتك يا ${studentName}! مستعد للمغامرة؟ 🚀`;
+            }
+        }
+        document.addEventListener("keydown", e => {const o = document.getElementById("nameOverlay"); if (o && o.style.display !== "none" && e.key === "Enter") saveStudentName();});
+
+        /* ===================================================== 
+           INITIALIZE 
         ===================================================== */
 
-        randomCharacter();
-
+        if (!loadAssignedCharacter()) {
+            randomCharacter();
+        }
         updateStats();
+        updateStudentNameUI();
+        if (!studentName) openNameModal(false);
+        else document.getElementById("nameOverlay").style.display = "none";
 
     </script>
 
