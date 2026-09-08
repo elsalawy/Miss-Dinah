@@ -2086,6 +2086,574 @@
         .site-footer a:hover {
             color: #fff;
         }
+        /* ================= NEW LEARNING GAMES ================= */
+        .connect-letters, .week-options, .color-palette, .color-targets {display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin:22px auto;}
+        .letter-tile, .week-day, .color-dot, .color-target {border:3px solid #e6e2ff; background:#fff; color:var(--dark); border-radius:18px; min-height:62px; min-width:62px; padding:10px 16px; font-size:22px; font-weight:800; cursor:pointer; transition:.2s;}
+        .letter-tile:hover, .week-day:hover, .color-target:hover {transform:translateY(-3px); border-color:var(--primary);}
+        .letter-tile.used, .week-day.used {opacity:.42; cursor:not-allowed; transform:none;}
+        .word-answer {min-height:65px; display:flex; justify-content:center; align-items:center; gap:10px; direction:rtl; margin:20px auto;}
+        .word-answer span {display:grid; place-items:center; width:54px; height:58px; border-radius:14px; border-bottom:4px solid var(--primary); background:#f7f5ff; font-size:27px; font-weight:900;}
+        .color-dot {border-radius:50%; padding:0; width:75px; height:75px; box-shadow:inset 0 -7px 0 rgba(0,0,0,.14);}
+        .color-dot.selected {outline:4px solid var(--dark); outline-offset:4px;}
+        .color-target {min-width:115px; border-style:dashed; font-size:17px;}
+        .color-target.filled {border-style:solid; color:white; text-shadow:0 1px 2px #0008;}
+        .wheel-stage {position:relative; width:min(310px,80vw); aspect-ratio:1; margin:22px auto;}
+        .wheel-disc {width:100%; height:100%; border-radius:50%; border:8px solid white; background:conic-gradient(#fd79a8 0 60deg,#fdcb6e 60deg 120deg,#74b9ff 120deg 180deg,#a29bfe 180deg 240deg,#55efc4 240deg 300deg,#fab1a0 300deg); box-shadow:0 5px 0 #d8d5ef,0 12px 25px #2d343633; transition:transform 2.7s cubic-bezier(.12,.8,.18,1);}
+        .wheel-pointer {position:absolute; top:-22px; right:calc(50% - 18px); z-index:1; font-size:38px; transform:rotate(180deg);}
+        .wheel-message {font-weight:800; min-height:30px; text-align:center;}
+        .header-character-line {font-size:13px; color:#6c5ce7; font-weight:800; margin-bottom:3px;}
+        /* Header refresh: identity and progress stay readable at every size. */
+        header {background:linear-gradient(120deg,rgba(255,255,255,.97),rgba(244,241,255,.94)); border:1px solid rgba(255,255,255,.9); padding:13px 20px;}
+        .header-center-title {text-align:center; flex:1;}
+        .header-student {background:#fff; border-radius:18px; padding:8px 11px; box-shadow:0 5px 14px rgba(108,92,231,.1);}
+        .header-character-line {background:#f3efff; border-radius:9px; padding:4px 8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:205px;}
+        .header-student .student-line {font-size:15px; font-weight:900; padding:3px 2px;}
+        .wheel-label {position:absolute; z-index:2; width:72px; text-align:center; font-size:12px; font-weight:900; line-height:1.15; color:#27314e; pointer-events:none;}
+        .wheel-label:nth-child(1){top:13%;right:38%;}.wheel-label:nth-child(2){top:30%;right:8%;}.wheel-label:nth-child(3){bottom:17%;right:8%;}.wheel-label:nth-child(4){bottom:11%;left:35%;}.wheel-label:nth-child(5){bottom:30%;left:6%;}.wheel-label:nth-child(6){top:24%;left:8%;}
+        .letter-match-board {display:grid; grid-template-columns:1fr 54px 1fr; gap:10px; align-items:center; max-width:620px; margin:22px auto; direction:ltr;}
+        .letter-match-column {display:grid; gap:10px;}.letter-match-column .letter-tile {width:100%; direction:rtl;}.match-divider {display:grid; gap:10px;}.match-divider span {height:62px; display:grid; place-items:center; color:#c9c3e9; font-size:22px;}.match-divider span.matched {color:#00b894;}.letter-tile.pick {outline:4px solid #fdcb6e; outline-offset:2px;}.letter-tile.matched {background:#dfffea; border-color:#00b894; opacity:.8;}
+        @media(max-width:600px) {.letter-tile,.week-day{min-width:52px; min-height:55px; padding:8px 11px; font-size:18px}.color-target{min-width:94px;font-size:14px}.word-answer span{width:43px;height:51px}.header-character-line{font-size:11px}}
+        @media(max-width:600px) {header{width:96%;margin:10px auto;padding:10px;display:grid;grid-template-columns:auto 1fr;gap:8px}.header-center-title{grid-column:2;text-align:right}.header-student{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:7px;padding:7px 9px}.header-student .stats{gap:5px}.header-student .stat{padding:6px 8px;font-size:12px}.header-reset-btn{font-size:11px;padding:6px}.letter-match-board{grid-template-columns:1fr 35px 1fr;gap:6px}.match-divider span{height:55px;font-size:17px}.wheel-label{font-size:10px;width:60px}}
+        /* High-contrast headers and a readable prize wheel. */
+        header {background:linear-gradient(120deg,#27245d,#6253c8 54%,#3ba9bc); border:0; box-shadow:0 13px 30px rgba(31,28,88,.28);}
+        .logo-title,.logo-subtitle {color:white!important; text-shadow:none;}.logo-subtitle{opacity:.82}.header-student{background:#fff;}.game-header{background:linear-gradient(120deg,#312c76,#705de2); border-radius:20px; padding:14px 18px; margin:-4px -4px 26px; box-shadow:0 8px 18px rgba(65,53,150,.22)}.game-title{color:#fff!important;font-size:24px;text-shadow:none}.close-btn{background:#fff;color:#433894;width:42px;height:42px;font-weight:900}.wheel-stage{filter:drop-shadow(0 14px 17px rgba(48,43,116,.22));}.wheel-disc{background:none!important;border:0!important;box-shadow:none!important;overflow:visible}.wheel-disc text{font-family:"Trebuchet MS",Arial,sans-serif;font-weight:900;fill:#fff;paint-order:stroke;stroke:rgba(27,26,62,.3);stroke-width:2px}.wheel-disc .wheel-center{fill:#fff;stroke:#312c76;stroke-width:5px}.wheel-disc .wheel-center-text{fill:#312c76;stroke:none;font-size:17px}.wheel-message{background:#f2efff;border-radius:14px;padding:10px 14px;max-width:620px;margin:15px auto;color:#38306f}.wheel-label{display:none}
+        @media(max-width:600px){.game{padding:16px}.game-header{border-radius:16px;padding:11px 13px;margin:0 0 18px}.game-title{font-size:19px}.wheel-disc text{font-size:14px}.wheel-disc .wheel-center-text{font-size:15px}}
+        /* Student card and contact footer. */
+        .header-student{min-width:220px;padding:11px 13px;border:1px solid rgba(255,255,255,.72)}
+        .student-profile{display:flex;align-items:center;gap:9px;margin-bottom:8px}.student-badge{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,#6c5ce7,#4eb8cc);color:#fff;font-size:20px}.student-copy{min-width:0}.student-copy small{display:block;font-size:11px;color:#667085;font-weight:700}.header-student .student-line{padding:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#24215a}.header-character-line{max-width:100%;font-size:12px;margin:0;padding:3px 7px}.header-student .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.header-student .stat{padding:6px 4px;text-align:center;font-size:12px;background:#f7f8ff;box-shadow:none;border-radius:10px}.header-reset-btn{width:100%;margin-top:7px;border:0;border-radius:10px;padding:6px;background:#fff0f2;color:#c23c55;font-weight:800;cursor:pointer}.site-footer{width:min(1200px,94%);margin:34px auto 18px;padding:0!important;overflow:hidden;border-radius:28px;background:linear-gradient(115deg,#262258,#5545ad 55%,#318fa9);color:#fff;box-shadow:0 14px 30px rgba(40,34,101,.26);position:relative}.site-footer:before{content:"";position:absolute;width:270px;height:270px;left:-90px;top:-155px;border-radius:50%;background:rgba(255,255,255,.09)}.footer-inner{position:relative;display:grid;grid-template-columns:1.25fr 1fr;gap:25px;padding:28px 32px;align-items:center}.footer-brand{display:flex;gap:13px;align-items:center}.footer-logo{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.17);font-size:28px;border:1px solid rgba(255,255,255,.25)}.footer-brand h3{font-size:21px;margin:0 0 5px}.footer-brand p{margin:0;color:#eeefff;line-height:1.7}.footer-contact h4{margin:0 0 12px;font-size:17px}.footer-links{display:flex;flex-wrap:wrap;gap:9px}.footer-link{display:flex;align-items:center;gap:6px;padding:8px 11px;border-radius:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;font-weight:800;font-size:13px;transition:.2s;direction:ltr}.footer-link:hover{background:#fff;color:#403585;transform:translateY(-2px)}.footer-note{border-top:1px solid rgba(255,255,255,.18);padding:11px 32px;color:#e8e6ff;font-size:12px;position:relative}@media(max-width:600px){.header-student{min-width:0}.student-profile{margin-bottom:4px}.header-student .stats{display:flex;gap:4px}.header-student .stat{flex:1}.footer-inner{grid-template-columns:1fr;padding:23px 20px;gap:18px}.footer-brand h3{font-size:18px}.footer-links{display:grid;grid-template-columns:1fr 1fr}.footer-link{font-size:11px;padding:8px}.footer-note{padding:10px 20px}.site-footer{width:96%;margin:24px auto 12px}}
+        /* Compact footer inspired by the provided reference. */
+        .site-footer{background:linear-gradient(105deg,#171954 0%,#293e96 47%,#008f91 100%);border:1px solid rgba(255,255,255,.26);border-radius:20px}.site-footer:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 13% -70%,rgba(255,255,255,.16),transparent 35%),radial-gradient(circle at 88% 10%,rgba(255,255,255,.08),transparent 24%);pointer-events:none}.footer-inner{display:flex;direction:rtl;justify-content:space-between;gap:22px;padding:18px 28px;min-height:92px}.footer-brand{gap:10px;min-width:235px}.footer-logo{background:rgba(255,255,255,.12);border-radius:14px;width:52px;height:52px;padding:4px;overflow:hidden}.footer-logo img{display:block;width:100%;height:100%;object-fit:contain;border-radius:10px}.footer-brand h3{font-size:17px}.footer-brand p{font-size:11px;white-space:nowrap}.footer-contact{display:flex;align-items:center;gap:13px;flex:1;justify-content:center}.footer-contact h4{font-size:14px;margin:0;white-space:nowrap}.footer-links{flex-wrap:nowrap;gap:7px}.footer-link{white-space:nowrap;padding:7px 9px;font-size:11px;background:rgba(255,255,255,.12)}.footer-note{text-align:center;padding:8px 20px;font-size:11px;background:rgba(0,0,0,.16)}@media(max-width:860px){.footer-inner{flex-wrap:wrap;justify-content:center}.footer-brand,.footer-contact{justify-content:center}.footer-links{flex-wrap:wrap;justify-content:center}}@media(max-width:520px){.footer-inner{padding:17px 13px}.footer-contact{flex-direction:column;gap:8px}.footer-brand{min-width:0}.footer-brand p{white-space:normal}.footer-links{display:flex}.footer-link{font-size:10px;padding:6px}}
+        /* Header refresh — keeps the original logo untouched on the left. */
+        header{direction:ltr;display:grid;grid-template-columns:150px 1fr 230px;min-height:124px;padding:14px 18px;position:relative;overflow:hidden;background-color:#12194d;background-image:radial-gradient(circle at 35% 28%,rgba(255,255,255,.25) 0 1px,transparent 2px),radial-gradient(circle at 67% 72%,rgba(255,255,255,.16) 0 1px,transparent 2px),linear-gradient(135deg,transparent 0 47%,rgba(111,125,202,.12) 47% 49%,transparent 49% 100%);background-size:33px 33px,47px 47px,26px 26px;border:1px solid rgba(162,184,255,.45);border-radius:20px;box-shadow:0 16px 32px rgba(16,20,65,.34)}header:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 28%,rgba(8,11,44,.22) 100%);pointer-events:none}header>*{position:relative;z-index:1}.header-brand{display:flex;align-items:center;justify-content:flex-start}.logo-circle{width:82px;height:82px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.34);box-shadow:0 5px 16px rgba(0,0,0,.3);padding:5px;overflow:hidden}.logo-circle img{width:100%;height:100%;object-fit:contain}.header-center-title{align-self:center;text-align:center;direction:rtl}.logo-title{color:#fff!important;font-size:clamp(24px,3vw,35px);font-weight:900;letter-spacing:.1px;text-shadow:0 3px 8px rgba(0,0,0,.35)}.logo-subtitle{color:#f7de8a!important;font-size:14px;font-weight:800;margin-top:5px;opacity:1}.header-student{direction:rtl;align-self:center;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(231,237,255,.96));border:1px solid rgba(255,255,255,.9);border-radius:16px;min-width:0;padding:9px 11px;box-shadow:0 8px 18px rgba(0,0,0,.27)}.student-profile{margin-bottom:5px}.student-badge{width:34px;height:34px}.header-student .stats{gap:4px}.header-student .stat{font-size:11px;padding:5px 3px;background:#eef0fb}.header-reset-btn{margin-top:5px;padding:5px}.header-character-line{background:#e9e5ff;color:#42388d}@media(max-width:700px){header{direction:rtl;display:grid;grid-template-columns:auto 1fr;min-height:0;padding:10px}.header-brand{grid-column:1;grid-row:1;justify-content:flex-start}.logo-circle{width:58px;height:58px}.header-center-title{grid-column:2;grid-row:1;text-align:center}.logo-title{font-size:20px}.logo-subtitle{font-size:10px}.header-student{grid-column:1/-1;grid-row:2;width:100%;margin-top:4px}.student-profile{justify-content:center}.header-student .stats{max-width:340px;margin:auto}}
+        /* Final header alignment and high-contrast score chips. */
+        header .header-student{grid-column:3;justify-self:end;align-self:center;width:230px;margin-left:0!important;margin-right:0!important;align-items:stretch}
+        header .header-student .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;width:100%}
+        header .header-student .stat{background:linear-gradient(145deg,#272466,#3b3589);color:#fff!important;border:1px solid rgba(255,255,255,.16);font-size:12px;font-weight:900;padding:7px 3px;box-shadow:inset 0 1px rgba(255,255,255,.16)}
+        header .header-student .stat span{color:#ffe270!important;font-size:14px;font-weight:900;margin-right:2px}
+        @media(max-width:700px){header .header-student{grid-column:1/-1;grid-row:2;justify-self:stretch;width:100%;margin-top:4px}}
+        /* Pastel compact header to match the supplied reference. */
+        header{grid-template-columns:74px 1fr 132px;min-height:82px;padding:7px 10px;background:linear-gradient(100deg,#f6aec8 0%,#d7baff 43%,#a7e5c3 100%);border:0;border-radius:0;box-shadow:0 5px 13px rgba(89,71,154,.18);background-image:linear-gradient(100deg,#f6aec8 0%,#d7baff 43%,#a7e5c3 100%)}
+        header:before{display:none}.logo-circle{width:49px;height:49px;padding:3px;border-color:rgba(54,40,96,.4);background:#fff;box-shadow:0 3px 8px rgba(66,47,115,.22)}.header-center-title{transform:none!important;position:relative!important;left:auto!important;top:auto!important}.logo-title{color:#191649!important;font-size:18px;text-shadow:none}.logo-subtitle{color:#403468!important;font-size:9px;margin-top:3px;font-weight:800}.header-center-title .logo-title{font-size:18px;color:#191649!important;text-shadow:none}.header-center-title .logo-subtitle{font-size:9px;color:#403468!important;margin-top:3px}.header-student{width:132px!important;padding:6px 7px!important;border-radius:11px!important;background:linear-gradient(145deg,#fffdf8,#fff5e9)!important;box-shadow:0 4px 10px rgba(76,52,122,.2)!important}.student-profile{gap:5px;margin-bottom:3px}.student-badge{width:25px;height:25px;border-radius:9px;font-size:13px}.student-copy small{font-size:8px}.header-student .student-line{font-size:10px}.header-character-line{font-size:8px;padding:2px 4px;border-radius:5px;max-width:92px}.header-student .stats{gap:3px!important}.header-student .stat{font-size:8px!important;padding:5px 1px!important;border-radius:6px!important}.header-student .stat span{font-size:10px!important}.header-reset-btn{font-size:8px;padding:4px;margin-top:3px;border-radius:6px}@media(max-width:700px){header{grid-template-columns:55px 1fr 115px;min-height:68px;padding:6px}.logo-circle{width:40px;height:40px}.logo-title,.header-center-title .logo-title{font-size:14px}.logo-subtitle,.header-center-title .logo-subtitle{font-size:7px}.header .header-student{grid-column:3;grid-row:1;width:115px!important;margin:0!important}.student-profile{justify-content:flex-start}.header-student .stats{max-width:none}.header-reset-btn{display:none}}
+        /* Unified page header: one calm visual language with the activity cards. */
+        header{width:min(1160px,92%);min-height:112px;margin:16px auto 25px;padding:14px 18px;display:block!important;position:relative!important;overflow:hidden;direction:ltr;background:linear-gradient(120deg,rgba(255,255,255,.98),rgba(247,245,255,.96) 55%,rgba(241,252,249,.96));border:1px solid rgba(255,255,255,.95);border-radius:25px;box-shadow:0 13px 28px rgba(65,79,150,.18)}
+        header:before{content:"";display:block;position:absolute;inset:auto 0 0 0;height:5px;background:linear-gradient(90deg,#f3a8c7,#a99bef 52%,#73d5c5);pointer-events:none}header:after{display:none}.header-brand{position:absolute!important;left:18px!important;right:auto!important;top:50%!important;transform:translateY(-50%)!important;display:flex!important;align-items:center!important;justify-content:center!important}.logo-circle{width:74px;height:74px;padding:5px;background:#fff;border:2px solid #eee8ff;box-shadow:0 7px 14px rgba(85,75,158,.16)}
+        .header-center-title{position:absolute!important;left:50%!important;right:auto!important;top:50%!important;transform:translate(-50%,-50%)!important;width:max-content!important;text-align:center!important;direction:rtl!important;margin:0!important}.logo-title,.header-center-title .logo-title{color:#433994!important;font-size:30px!important;font-weight:900!important;line-height:1.15!important;text-shadow:none!important}.logo-subtitle,.header-center-title .logo-subtitle{color:#427b7d!important;font-size:13px!important;font-weight:800!important;margin-top:5px!important;opacity:1!important}
+        header .header-student{position:absolute!important;right:15px!important;left:auto!important;top:50%!important;transform:translateY(-50%)!important;grid-column:auto!important;width:194px!important;margin:0!important;padding:9px 10px!important;direction:rtl;background:#fff!important;border:1px solid #e8e5f6!important;border-radius:17px!important;box-shadow:0 7px 16px rgba(77,65,145,.13)!important}.student-profile{margin-bottom:5px!important}.student-badge{width:32px;height:32px;background:linear-gradient(135deg,#7668de,#77cfc3);font-size:16px}.student-copy small{color:#77718e}.header-student .student-line{font-size:13px!important;color:#332d6f!important}.header-character-line{background:#f2efff!important;color:#5a4ab1!important;font-size:10px!important}.header-student .stats{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:4px!important;width:100%!important}.header-student .stat{background:#f4f2ff!important;color:#4a3c9a!important;border:0!important;border-radius:8px!important;padding:5px 2px!important;font-size:10px!important;box-shadow:none!important}.header-student .stat span{color:#e18a26!important;font-size:12px!important}.header-reset-btn{background:#fff1f3!important;color:#bd4d6e!important;font-size:9px!important;padding:4px!important}
+        @media(max-width:700px){header{width:94%;min-height:145px;margin:10px auto 18px;padding:10px;border-radius:19px}.header-brand{left:12px!important;top:32px!important}.logo-circle{width:49px;height:49px}.header-center-title{top:33px!important;left:54%!important}.logo-title,.header-center-title .logo-title{font-size:18px!important}.logo-subtitle,.header-center-title .logo-subtitle{font-size:9px!important}.header .header-student{top:auto!important;bottom:9px!important;right:10px!important;left:10px!important;transform:none!important;width:auto!important;display:flex!important;align-items:center!important;gap:8px}.student-profile{margin:0!important;flex:1}.header-student .stats{max-width:150px!important}.header-reset-btn{width:auto!important;margin:0!important}}
+        /* Final clean header: deliberately simple to complement the colourful game cards. */
+        header{width:min(1160px,92%);height:108px;min-height:108px;margin:18px auto 26px;padding:12px 16px;display:block!important;position:relative!important;overflow:visible;background:rgba(255,255,255,.96)!important;background-image:none!important;border:1px solid rgba(255,255,255,.9)!important;border-radius:24px!important;box-shadow:0 14px 30px rgba(51,57,128,.18)!important;direction:ltr!important}
+        header:before{content:""!important;display:block!important;position:absolute!important;right:0!important;left:0!important;top:0!important;bottom:auto!important;height:5px!important;border-radius:24px 24px 0 0!important;background:linear-gradient(90deg,#6c5ce7 0%,#a29bfe 48%,#00cec9 100%)!important}header:after{content:""!important;display:block!important;position:absolute!important;width:160px!important;height:160px!important;left:-86px!important;bottom:-112px!important;border-radius:50%!important;background:rgba(108,92,231,.06)!important;pointer-events:none!important}
+        .header-brand{position:absolute!important;left:18px!important;top:50%!important;transform:translateY(-50%)!important;z-index:2!important;display:flex!important;align-items:center!important}.logo-circle{width:70px!important;height:70px!important;padding:5px!important;background:#fff!important;border:2px solid #ece9ff!important;border-radius:21px!important;box-shadow:0 7px 14px rgba(83,71,159,.13)!important}.logo-circle img{object-fit:contain!important}
+        .header-center-title{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2!important;width:max-content!important;direction:rtl!important;text-align:center!important;margin:0!important}.logo-title,.header-center-title .logo-title{color:#383078!important;font-size:31px!important;font-weight:900!important;letter-spacing:-.3px!important;line-height:1.1!important;text-shadow:none!important}.logo-subtitle,.header-center-title .logo-subtitle{color:#6c7891!important;font-size:13px!important;font-weight:700!important;letter-spacing:.2px!important;margin-top:6px!important;opacity:1!important}
+        header .header-student{position:absolute!important;right:16px!important;top:50%!important;transform:translateY(-50%)!important;z-index:2!important;width:185px!important;margin:0!important;padding:8px 9px!important;direction:rtl!important;background:#f8f8ff!important;border:1px solid #e5e2fa!important;border-radius:17px!important;box-shadow:none!important}.student-profile{margin-bottom:5px!important;gap:7px!important}.student-badge{width:32px!important;height:32px!important;border-radius:11px!important;background:linear-gradient(135deg,#725fda,#4ec9c4)!important;font-size:16px!important}.student-copy small{font-size:9px!important;color:#77819b!important}.header-student .student-line{font-size:13px!important;color:#343071!important}.header-character-line{background:transparent!important;color:#746b9c!important;padding:1px 0!important;font-size:9px!important;max-width:118px!important}.header-student .stats{display:flex!important;gap:4px!important;width:100%!important}.header-student .stat{flex:1!important;background:#fff!important;color:#514995!important;border:1px solid #e9e7f8!important;border-radius:8px!important;padding:5px 1px!important;font-size:9px!important;box-shadow:none!important}.header-student .stat span{color:#f19a37!important;font-size:12px!important}.header-reset-btn{display:none!important}
+        @media(max-width:700px){header{width:94%;height:142px;min-height:142px;margin:10px auto 19px;border-radius:20px!important}.header-brand{left:12px!important;top:37px!important}.logo-circle{width:53px!important;height:53px!important;border-radius:16px!important}.header-center-title{top:38px!important;left:55%!important}.logo-title,.header-center-title .logo-title{font-size:19px!important}.logo-subtitle,.header-center-title .logo-subtitle{font-size:9px!important;margin-top:4px!important}.header .header-student{right:10px!important;left:10px!important;top:auto!important;bottom:10px!important;transform:none!important;width:auto!important;display:flex!important;align-items:center!important;gap:10px!important}.student-profile{margin:0!important;flex:1}.header-student .stats{max-width:145px!important}.header-student .stat{padding:5px 1px!important}}
+        /* Header palette matches the footer, with enough room for the student card. */
+        header{height:132px!important;min-height:132px!important;padding:14px 18px!important;background:linear-gradient(105deg,#171954 0%,#293e96 48%,#008f91 100%)!important;border:1px solid rgba(255,255,255,.2)!important;box-shadow:0 15px 29px rgba(21,25,84,.3)!important;overflow:hidden!important}
+        header:before{height:4px!important;background:linear-gradient(90deg,#8f7eff,#65ded2)!important}header:after{content:""!important;display:block!important;position:absolute!important;left:-55px!important;bottom:-90px!important;width:230px!important;height:230px!important;border-radius:50%!important;background:rgba(255,255,255,.07)!important}.logo-circle{width:73px!important;height:73px!important;background:#fff!important;border-color:rgba(255,255,255,.5)!important}.logo-title,.header-center-title .logo-title{color:#fff!important;font-size:31px!important;text-shadow:0 2px 7px rgba(8,13,55,.34)!important}.logo-subtitle,.header-center-title .logo-subtitle{color:#d9f7f2!important;font-size:13px!important}.header-center-title{top:50%!important}.header-brand{top:50%!important}
+        header .header-student{width:198px!important;padding:9px 10px!important;background:linear-gradient(145deg,#fff,#f5f4ff)!important;border-color:rgba(255,255,255,.9)!important;box-shadow:0 7px 16px rgba(5,15,64,.28)!important}.student-profile{margin-bottom:6px!important}.header-student .stat{background:#eeeaff!important;color:#45348e!important;padding:6px 2px!important}.header-reset-btn{display:block!important}
+        @media(max-width:700px){header{height:153px!important;min-height:153px!important;padding:10px!important}.logo-title,.header-center-title .logo-title{font-size:19px!important}.logo-subtitle,.header-center-title .logo-subtitle{font-size:9px!important}.header .header-student{bottom:10px!important;width:auto!important}.header-reset-btn{display:none!important}}
+        /* Header layout — clear hierarchy and balanced dimensions. */
+        header {
+            width: min(1160px, 92%) !important;
+            height: auto !important;
+            min-height: 118px !important;
+            margin: 18px auto 26px !important;
+            padding: 14px 20px !important;
+            display: grid !important;
+            grid-template-columns: 160px minmax(280px, 1fr) 214px;
+            align-items: center;
+            gap: 18px;
+            direction: ltr !important;
+            background: linear-gradient(115deg, #171954 0%, #303e99 52%, #008f91 100%) !important;
+            border: 1px solid rgba(255,255,255,.22) !important;
+            border-radius: 24px !important;
+            box-shadow: 0 15px 30px rgba(21,25,84,.28) !important;
+        }
+
+        header:before {
+            height: 4px !important;
+            background: linear-gradient(90deg, #9b88ff, #75e0d2) !important;
+        }
+
+        .header-brand,
+        .header-center-title,
+        header .header-student {
+            position: static !important;
+            transform: none !important;
+            margin: 0 !important;
+        }
+
+        .header-brand { justify-self: start; }
+
+        .logo-circle {
+            width: 76px !important;
+            height: 76px !important;
+            border-radius: 20px !important;
+        }
+
+        .header-center-title {
+            width: auto !important;
+            text-align: center !important;
+            direction: rtl !important;
+        }
+
+        .logo-title,
+        .header-center-title .logo-title {
+            color: #fff !important;
+            font-size: clamp(25px, 2.7vw, 34px) !important;
+        }
+
+        .logo-subtitle,
+        .header-center-title .logo-subtitle {
+            color: #d9f7f2 !important;
+            font-size: 13px !important;
+        }
+
+        header .header-student {
+            justify-self: end;
+            width: 214px !important;
+            padding: 9px 10px !important;
+            border-radius: 16px !important;
+        }
+
+        @media (max-width: 760px) {
+            header {
+                width: 94% !important;
+                min-height: 0 !important;
+                padding: 12px !important;
+                grid-template-columns: auto minmax(0, 1fr);
+                gap: 10px 12px;
+            }
+
+            .header-brand { grid-column: 1; grid-row: 1; }
+            .logo-circle { width: 54px !important; height: 54px !important; border-radius: 16px !important; }
+            .header-center-title { grid-column: 2; grid-row: 1; }
+            .logo-title, .header-center-title .logo-title { font-size: 20px !important; }
+            .logo-subtitle, .header-center-title .logo-subtitle { font-size: 10px !important; margin-top: 3px !important; }
+
+            header .header-student {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                justify-self: stretch;
+                width: 100% !important;
+                display: grid !important;
+                grid-template-columns: minmax(0, 1fr) 150px;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .student-profile { margin: 0 !important; }
+            .header-student .stats { max-width: none !important; }
+            .header-reset-btn { display: none !important; }
+        }
+
+        @media (max-width: 420px) {
+            header { padding: 10px !important; gap: 8px; }
+            .logo-circle { width: 46px !important; height: 46px !important; }
+            .logo-title, .header-center-title .logo-title { font-size: 17px !important; }
+            .logo-subtitle, .header-center-title .logo-subtitle { display: none !important; }
+            header .header-student { grid-template-columns: 1fr 136px; padding: 8px !important; }
+            .student-badge { width: 28px !important; height: 28px !important; }
+            .header-student .student-line { font-size: 11px !important; }
+            .header-character-line { font-size: 8px !important; }
+        }
+        /* Header position and student-card contrast refinement. */
+        header {
+            margin: 0 auto 26px !important;
+        }
+
+        header .header-student {
+            width: 224px !important;
+            padding: 11px 12px !important;
+            background: #ffffff !important;
+            border: 2px solid #d9d4ff !important;
+            box-shadow: 0 9px 20px rgba(7, 20, 83, .32) !important;
+        }
+
+        .student-copy small {
+            color: #5d5a76 !important;
+            font-size: 11px !important;
+            font-weight: 800 !important;
+        }
+
+        .header-student .student-line {
+            color: #211b62 !important;
+            font-size: 14px !important;
+            font-weight: 900 !important;
+        }
+
+        .header-character-line {
+            max-width: none !important;
+            margin-top: 3px !important;
+            padding: 3px 6px !important;
+            color: #42358d !important;
+            background: #eeeaff !important;
+            border-radius: 7px !important;
+            font-size: 10px !important;
+            font-weight: 800 !important;
+        }
+
+        .header-student .stat {
+            background: #eeeaff !important;
+            color: #2d2677 !important;
+            border: 1px solid #dcd5ff !important;
+            font-size: 10px !important;
+            font-weight: 900 !important;
+        }
+
+        .header-student .stat span {
+            color: #b25a00 !important;
+            font-size: 13px !important;
+        }
+
+        .header-reset-btn {
+            display: block !important;
+            width: 100% !important;
+            margin-top: 7px !important;
+            padding: 6px !important;
+            background: #fff0f2 !important;
+            color: #ae2548 !important;
+            border: 1px solid #ffc9d3 !important;
+            border-radius: 9px !important;
+            font-size: 10px !important;
+            font-weight: 900 !important;
+        }
+
+        @media (max-width: 760px) {
+            header { margin: 0 auto 20px !important; }
+            header .header-student { width: 100% !important; }
+            .header-reset-btn { display: none !important; }
+        }
+        /* Final header cleanup: remove the stray top line and strengthen the student card. */
+        header:before {
+            content: none !important;
+            display: none !important;
+        }
+
+        header {
+            grid-template-columns: 130px minmax(280px, 1fr) 246px !important;
+        }
+
+        header .header-student {
+            width: 246px !important;
+            padding: 12px !important;
+            background: linear-gradient(145deg, #ffffff 0%, #f4f1ff 100%) !important;
+            border: 2px solid #c9c0ff !important;
+            box-shadow: 0 10px 22px rgba(8, 18, 74, .35) !important;
+            color: #21195d !important;
+        }
+
+        .header-student .student-profile {
+            padding-bottom: 7px !important;
+            border-bottom: 1px solid #dcd6ff !important;
+        }
+
+        .student-copy small,
+        .header-student .student-line,
+        .header-student .header-character-line {
+            opacity: 1 !important;
+        }
+
+        .student-copy small {
+            color: #514b76 !important;
+            font-size: 12px !important;
+        }
+
+        .header-student .student-line {
+            color: #181252 !important;
+            font-size: 15px !important;
+            line-height: 1.35 !important;
+        }
+
+        .header-character-line {
+            color: #30257d !important;
+            background: #e7e2ff !important;
+            font-size: 11px !important;
+            line-height: 1.3 !important;
+        }
+
+        .header-student .stats {
+            gap: 6px !important;
+            margin-top: 8px !important;
+        }
+
+        .header-student .stat {
+            min-height: 38px;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            background: #dcd6ff !important;
+            color: #21195d !important;
+            border: 1px solid #beb4f5 !important;
+            font-size: 11px !important;
+        }
+
+        .header-student .stat span {
+            color: #742c00 !important;
+            font-size: 15px !important;
+        }
+
+        .header-reset-btn {
+            color: #961c42 !important;
+            background: #ffe8ee !important;
+            border-color: #f6aabc !important;
+            font-size: 11px !important;
+        }
+
+        @media (max-width: 760px) {
+            header { grid-template-columns: auto minmax(0, 1fr) !important; }
+            header .header-student { width: 100% !important; }
+        }
+        /* Compact header variant. */
+        header {
+            min-height: 94px !important;
+            padding: 9px 16px !important;
+            grid-template-columns: 105px minmax(260px, 1fr) 210px !important;
+            gap: 12px !important;
+        }
+
+        .logo-circle {
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 17px !important;
+        }
+
+        .logo-title,
+        .header-center-title .logo-title {
+            font-size: clamp(23px, 2.4vw, 29px) !important;
+        }
+
+        .logo-subtitle,
+        .header-center-title .logo-subtitle {
+            font-size: 11px !important;
+            margin-top: 3px !important;
+        }
+
+        header .header-student {
+            width: 210px !important;
+            padding: 7px 9px !important;
+            border-radius: 13px !important;
+        }
+
+        .header-student .student-profile {
+            padding-bottom: 4px !important;
+        }
+
+        .student-badge {
+            width: 28px !important;
+            height: 28px !important;
+            font-size: 14px !important;
+        }
+
+        .student-copy small { font-size: 10px !important; }
+        .header-student .student-line { font-size: 12px !important; }
+        .header-character-line { margin-top: 1px !important; padding: 2px 4px !important; font-size: 9px !important; }
+
+        .header-student .stats { gap: 4px !important; margin-top: 5px !important; }
+        .header-student .stat { min-height: 29px !important; font-size: 9px !important; }
+        .header-student .stat span { font-size: 12px !important; }
+        .header-reset-btn { margin-top: 5px !important; padding: 4px !important; font-size: 9px !important; }
+
+        @media (max-width: 760px) {
+            header { min-height: 0 !important; grid-template-columns: auto minmax(0, 1fr) !important; }
+        }
+        /* Slightly wider header and high-contrast student card. */
+        header {
+            width: min(1164px, calc(92% + 4px)) !important;
+        }
+
+        header .header-student {
+            background: #fffdf7 !important;
+            border: 2px solid #ffffff !important;
+            box-shadow: 0 8px 18px rgba(5, 12, 61, .38) !important;
+            color: #181542 !important;
+        }
+
+        .header-student .student-profile {
+            border-bottom-color: #c9c3ed !important;
+        }
+
+        .header-student .student-copy small,
+        .header-student .student-copy .student-line {
+            color: #181542 !important;
+            opacity: 1 !important;
+        }
+
+        .header-student .student-copy small { font-weight: 900 !important; }
+
+        .header-student .header-character-line {
+            background: #dcd7ff !important;
+            color: #211b65 !important;
+            font-weight: 900 !important;
+        }
+
+        .header-student .stat {
+            background: #4b3fa0 !important;
+            border: 1px solid #393080 !important;
+            color: #ffffff !important;
+        }
+
+        .header-student .stat span {
+            color: #ffe27b !important;
+            font-weight: 900 !important;
+        }
+
+        .header-reset-btn {
+            background: #ffe0e7 !important;
+            color: #8d173b !important;
+            border-color: #ef9fb1 !important;
+        }
+
+        @media (max-width: 760px) {
+            header { width: calc(94% + 4px) !important; }
+        }
+        /* Small, clean header with no visual effect below it. */
+        header {
+            width: min(1040px, 86%) !important;
+            min-height: 92px !important;
+            height: 92px !important;
+            margin: 0 auto 18px !important;
+            padding: 8px 14px !important;
+            grid-template-columns: 86px minmax(230px, 1fr) 198px !important;
+            gap: 10px !important;
+            overflow: hidden !important;
+            box-shadow: none !important;
+            filter: none !important;
+        }
+
+        header:after {
+            content: none !important;
+            display: none !important;
+        }
+
+        .logo-circle {
+            width: 52px !important;
+            height: 52px !important;
+            border-radius: 15px !important;
+            box-shadow: none !important;
+        }
+
+        .logo-title,
+        .header-center-title .logo-title {
+            font-size: 24px !important;
+        }
+
+        .logo-subtitle,
+        .header-center-title .logo-subtitle {
+            font-size: 10px !important;
+        }
+
+        header .header-student {
+            width: 198px !important;
+            padding: 6px 8px !important;
+            border-radius: 12px !important;
+            box-shadow: none !important;
+        }
+
+        .header-student .student-profile {
+            padding-bottom: 3px !important;
+        }
+
+        .student-badge {
+            width: 25px !important;
+            height: 25px !important;
+            font-size: 12px !important;
+        }
+
+        .student-copy small { font-size: 9px !important; }
+        .header-student .student-line { font-size: 11px !important; }
+        .header-character-line { font-size: 8px !important; padding: 1px 3px !important; }
+        .header-student .stats { margin-top: 4px !important; }
+        .header-student .stat { min-height: 25px !important; font-size: 8px !important; }
+        .header-student .stat span { font-size: 10px !important; }
+        .header-reset-btn { display: none !important; }
+
+        @media (max-width: 760px) {
+            header {
+                width: 92% !important;
+                height: auto !important;
+                min-height: 0 !important;
+                grid-template-columns: auto minmax(0, 1fr) !important;
+                padding: 9px 10px !important;
+            }
+
+            header .header-student { width: 100% !important; }
+        }
+        /* Keep the compact shape without clipping the student card. */
+        header {
+            height: auto !important;
+            min-height: 126px !important;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            overflow: hidden !important;
+        }
+
+        header .header-student {
+            align-self: center !important;
+        }
+        /* Give the header a small, deliberate gap from the top edge. */
+        header {
+            margin: 10px auto 18px !important;
+        }
+        /* Unified header colour and restored reset control. */
+        header {
+            min-height: 144px !important;
+            background: #252a78 !important;
+            background-image: none !important;
+            border: 0 !important;
+        }
+
+        .header-reset-btn {
+            display: block !important;
+            width: 100% !important;
+        }
+
+        @media (max-width: 760px) {
+            header { min-height: 0 !important; }
+            .header-reset-btn { display: block !important; }
+        }
+        /* Match the footer palette exactly. */
+        header {
+            background: linear-gradient(105deg, #171954 0%, #293e96 47%, #008f91 100%) !important;
+            background-image: linear-gradient(105deg, #171954 0%, #293e96 47%, #008f91 100%) !important;
+        }
+        /* Footer refinement. */
+        .site-footer {
+            width: min(1040px, 86%) !important;
+            margin: 28px auto 14px !important;
+            border-radius: 18px !important;
+        }
+
+        .footer-note a {
+            color: #ffe27b !important;
+            font-weight: 900;
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+        }
+
+        .footer-note a:hover { color: #ffffff !important; }
+
+        @media (max-width: 760px) {
+            .site-footer { width: 92% !important; }
+        }
+        /* Copyright-only footer. */
+        .site-footer {
+            min-height: 0 !important;
+            overflow: hidden;
+        }
+
+        .site-footer:before,
+        .site-footer:after {
+            content: none !important;
+            display: none !important;
+        }
+
+        .site-footer .footer-note {
+            border-top: 0 !important;
+            padding: 14px 20px !important;
+            background: transparent !important;
+            font-size: 12px !important;
+        }
     </style>
 </head>
 
@@ -2119,7 +2687,14 @@
         </div>
 
         <div class="header-student">
-            <div class="student-line">👤 <span id="studentNameHeader">الطالب</span></div>
+            <div class="student-profile">
+                <div class="student-badge">🎓</div>
+                <div class="student-copy">
+                    <small>ملف الطالب</small>
+                    <div class="student-line">👤 <span id="studentNameHeader">الطالب</span></div>
+                    <div class="header-character-line">🎭 <span id="studentCharacterHeader">شخصيتك الكرتونية</span></div>
+                </div>
+            </div>
             <div class="stats">
                 <div class="stat">⭐ <span id="stars">0</span></div>
                 <div class="stat">🔥 <span id="combo">0</span></div>
@@ -2245,6 +2820,23 @@
                     <h3>لعبة X O</h3>
                     <p>واجه الكمبيوتر وكن الأفضل</p>
                 </div>
+            </button>
+
+            <button class="activity" onclick="startGame('connectLetters')">
+                <div class="icon">🔗</div>
+                <div class="activity-text"><h3>وصّل الحروف</h3><p>رتّب الحروف لتكوين كلمة</p></div>
+            </button>
+            <button class="activity" onclick="startGame('colors')">
+                <div class="icon">🎨</div>
+                <div class="activity-text"><h3>الألوان في مكانها</h3><p>ضع كل لون في اسمه الصحيح</p></div>
+            </button>
+            <button class="activity" onclick="startGame('week')">
+                <div class="icon">📅</div>
+                <div class="activity-text"><h3>أيام الأسبوع</h3><p>رتّب الأيام بالترتيب الصحيح</p></div>
+            </button>
+            <button class="activity" onclick="startGame('wheel')">
+                <div class="icon">🎡</div>
+                <div class="activity-text"><h3>عجلة المفاجآت</h3><p>أدر العجلة وأجب عن التحدي</p></div>
             </button>
 
             <!-- باقي التحديات القديمة محفوظة كما هي -->
@@ -2393,8 +2985,7 @@
     </main>
 
     <footer class="site-footer">
-        تم الصناعة بواسطة المهندس
-        <a href="https://www.instagram.com/hussein____elsalawy/" target="_blank" rel="noopener">حسين السلاوي</a>
+        <div class="footer-note">© All rights reserved to <a href="https://www.instagram.com/hussein____elsalawy/" target="_blank" rel="noopener">Eng. Hussein Elsalawy</a></div>
     </footer>
 
 
@@ -2675,6 +3266,9 @@
 
             document.getElementById("characterName").textContent =
                 currentCharacter.name;
+
+            const headerCharacter = document.getElementById("studentCharacterHeader");
+            if (headerCharacter) headerCharacter.textContent = `${currentCharacter.name} ${currentCharacter.emoji}`;
 
             const messages =
                 currentCharacter.messages;
@@ -3435,7 +4029,7 @@
                     "harakat",
                     "truefalse",
                     "numberOrder",
-                    "math", "opposites", "riddles"
+                    "math", "opposites", "riddles", "connectLetters", "colors", "week", "wheel"
                 ];
 
                 type =
@@ -3535,6 +4129,10 @@
             else if (type === "math") {renderMathChallenge();}
             else if (type === "opposites") {renderOpposites();}
             else if (type === "riddles") {renderRiddles();}
+            else if (type === "connectLetters") {renderConnectLetters();}
+            else if (type === "colors") {renderColors();}
+            else if (type === "week") {renderWeek();}
+            else if (type === "wheel") {renderWheel();}
 
         }
 
@@ -3983,7 +4581,7 @@
 
         <div class="answers"> 
 
-            ${group.items.map(
+            ${shuffle(group.items).map(
                 item => ` 
 
                     <button 
@@ -5117,13 +5715,58 @@
         function renderRiddles() {document.getElementById("gameTitle").textContent = "🧩 من أنا؟"; currentQuestion = getUniqueQuestion(riddlesQuestions, "riddles"); document.getElementById("gameContent").innerHTML = `<div class="question"><span>${currentQuestion.q}</span></div><div class="challenge-hint">اختر الإجابة الصحيحة</div><div class="answers">${shuffle(currentQuestion.a.map((x, i) => ({text: x, correct: i === currentQuestion.correct}))).map(x => `<button class="answer" data-correct="${x.correct}" onclick="answerNewMCQ(this,${x.correct})">${x.text}</button>`).join("")}</div>`;}
         function answerNewMCQ(button, isCorrect) {document.querySelectorAll("#gameContent .answer").forEach(b => b.disabled = true); totalAnswered++; challengeQuestionNumber++; if (isCorrect) {button.classList.add("correct"); correctAnswers++; combo++; addStars(combo >= 3 ? 2 : 1); playSuccess(); characterCorrect(); showFeedback(true, "إجابة صحيحة! ممتاز 👏");} else {button.classList.add("wrong"); combo = Math.max(0, combo - 1); playWrong(); characterWrong(); document.querySelectorAll("#gameContent .answer").forEach(b => {if (b.dataset.correct === "true") b.classList.add("correct")}); showFeedback(false, "قربت! الإجابة الصحيحة موضحة باللون الصحيح 💪");} updateStats();}
 
+        /* =====================================================
+           NEW GAMES — each completed correct challenge = one star
+        ===================================================== */
+        const letterSets = [
+            ["أ", "ب", "ت", "ث"], ["ج", "ح", "خ", "د"], ["ر", "ز", "س", "ش"],
+            ["ص", "ض", "ط", "ظ"], ["ع", "غ", "ف", "ق"], ["ك", "ل", "م", "ن"]
+        ];
+        const wheelQuestions = [
+            {q:"ما لون السماء في النهار؟", a:["أزرق","أحمر","أخضر","أصفر"], correct:0},
+            {q:"كم عدد أيام الأسبوع؟", a:["٧","٥","٦","٨"], correct:0},
+            {q:"أي حيوان يقول مواء؟", a:["القطة","الحصان","الكلب","الأسد"], correct:0},
+            {q:"ما أول يوم في الأسبوع؟", a:["السبت","الأحد","الخميس","الجمعة"], correct:0}
+        ];
+        function finishNewGame(ok, success, failure) {
+            totalAnswered++; challengeQuestionNumber++;
+            if (ok) {correctAnswers++; combo++; addStars(1); playSuccess(); characterCorrect(); showFeedback(true, success);}
+            else {combo=Math.max(0, combo-1); playWrong(); characterWrong(); showFeedback(false, failure);}
+            updateStats();
+        }
+        function renderConnectLetters() {
+            const letters=letterSets[Math.floor(Math.random()*letterSets.length)], left=shuffle(letters), right=shuffle(letters); let chosen=null, matches=0;
+            document.getElementById("gameTitle").textContent="🔗 وصّل الحروف";
+            document.getElementById("gameContent").innerHTML=`<div class="question"><span>وصّل كل حرف بمثله</span></div><div class="challenge-hint">اختر حرفًا من المجموعة الأولى، ثم اختر الحرف المطابق له من المجموعة الثانية.</div><div class="letter-match-board"><div class="letter-match-column" id="letterLeft">${left.map((l,i)=>`<button class="letter-tile" data-letter="${l}" data-side="left" data-row="${i}">${l}</button>`).join('')}</div><div class="match-divider" id="matchDivider">${letters.map(()=>'<span>—</span>').join('')}</div><div class="letter-match-column" id="letterRight">${right.map((l,i)=>`<button class="letter-tile" data-letter="${l}" data-side="right" data-row="${i}">${l}</button>`).join('')}</div></div>`;
+            document.querySelectorAll(".letter-tile").forEach(btn=>btn.onclick=()=>{if(btn.disabled)return;if(btn.dataset.side==="left"){document.querySelectorAll('#letterLeft .letter-tile').forEach(x=>x.classList.remove('pick'));chosen=btn;btn.classList.add('pick');return;}if(!chosen)return;if(btn.dataset.letter!==chosen.dataset.letter){btn.classList.add('wrong');setTimeout(()=>btn.classList.remove('wrong'),400);return;}chosen.disabled=true;btn.disabled=true;chosen.classList.remove('pick');chosen.classList.add('matched');btn.classList.add('matched');const connector=document.querySelectorAll('#matchDivider span')[Number(chosen.dataset.row)];if(connector){connector.textContent='🔗';connector.classList.add('matched');}chosen=null;matches++;if(matches===letters.length)finishNewGame(true,'رائع! وصلت كل الحروف بشكل صحيح ⭐','');});
+        }
+        function renderColors() {
+            const colors=shuffle([{name:"أحمر",hex:"#ef5350"},{name:"أزرق",hex:"#42a5f5"},{name:"أصفر",hex:"#fbc02d"}]); let selected=null, placed=0;
+            document.getElementById("gameTitle").textContent="🎨 الألوان في مكانها";
+            document.getElementById("gameContent").innerHTML=`<div class="question"><span>اختر اللون ثم اضغط على اسمه</span></div><div class="challenge-hint">ضع كل لون في المكان المخصص له</div><div class="color-palette">${shuffle(colors).map(c=>`<button class="color-dot" data-name="${c.name}" style="background:${c.hex}" aria-label="${c.name}"></button>`).join('')}</div><div class="color-targets">${shuffle(colors).map(c=>`<button class="color-target" data-name="${c.name}">${c.name}</button>`).join('')}</div>`;
+            document.querySelectorAll(".color-dot").forEach(dot=>dot.onclick=()=>{if(dot.disabled)return; document.querySelectorAll(".color-dot").forEach(x=>x.classList.remove("selected")); dot.classList.add("selected"); selected=dot;});
+            document.querySelectorAll(".color-target").forEach(target=>target.onclick=()=>{if(!selected||target.classList.contains("filled"))return; if(target.dataset.name!==selected.dataset.name){target.classList.add("wrong"); setTimeout(()=>target.classList.remove("wrong"),400); return;} target.classList.add("filled"); target.style.background=selected.style.background; selected.disabled=true; selected.classList.remove("selected"); selected=null; placed++; if(placed===3) finishNewGame(true,"رائع! وضعت الألوان كلها في أماكنها ⭐","");});
+        }
+        function renderWeek() {
+            const days=["السبت","الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة"], chosen=[];
+            document.getElementById("gameTitle").textContent="📅 أيام الأسبوع";
+            document.getElementById("gameContent").innerHTML=`<div class="question"><span>رتّب أيام الأسبوع بالترتيب الصحيح</span></div><div class="challenge-hint">ابدأ بيوم السبت</div><div class="word-answer" id="weekAnswer" style="flex-wrap:wrap;height:auto">${days.map(()=>'<span style="width:auto;padding:0 9px;font-size:15px"></span>').join('')}</div><div class="week-options">${shuffle(days).map(d=>`<button class="week-day" data-day="${d}">${d}</button>`).join('')}</div>`;
+            document.querySelectorAll(".week-day").forEach(btn=>btn.onclick=()=>{if(btn.disabled)return; const correct=days[chosen.length]; if(btn.dataset.day!==correct){btn.classList.add("wrong"); setTimeout(()=>btn.classList.remove("wrong"),400); return;} btn.disabled=true; btn.classList.add("used","correct"); chosen.push(correct); document.querySelectorAll("#weekAnswer span")[chosen.length-1].textContent=correct; if(chosen.length===days.length) finishNewGame(true,"ممتاز! رتبت أيام الأسبوع كلها ⭐","");});
+        }
+        function renderWheel() {
+            const question=wheelQuestions[Math.floor(Math.random()*wheelQuestions.length)];
+            document.getElementById("gameTitle").textContent="🎡 عجلة المفاجآت";
+            document.getElementById("gameContent").innerHTML=`<div class="wheel-stage"><div class="wheel-pointer">🔻</div><svg class="wheel-disc" id="wheelDisc" viewBox="0 0 300 300" role="img" aria-label="عجلة تحديات: حساب وألوان وحروف وأيام وحيوانات ومفاجأة"><path fill="#ef5b91" d="M150 150 L150 10 A140 140 0 0 1 271.24 80 Z"/><path fill="#f5b946" d="M150 150 L271.24 80 A140 140 0 0 1 271.24 220 Z"/><path fill="#4ba4ec" d="M150 150 L271.24 220 A140 140 0 0 1 150 290 Z"/><path fill="#7669db" d="M150 150 L150 290 A140 140 0 0 1 28.76 220 Z"/><path fill="#35c99a" d="M150 150 L28.76 220 A140 140 0 0 1 28.76 80 Z"/><path fill="#f28c72" d="M150 150 L28.76 80 A140 140 0 0 1 150 10 Z"/><text x="220" y="65" text-anchor="middle"><tspan x="220">حساب</tspan><tspan x="220" dy="19">➕</tspan></text><text x="259" y="149" text-anchor="middle"><tspan x="259">ألوان</tspan><tspan x="259" dy="19">🎨</tspan></text><text x="219" y="232" text-anchor="middle"><tspan x="219">حروف</tspan><tspan x="219" dy="19">🔤</tspan></text><text x="81" y="232" text-anchor="middle"><tspan x="81">أيام</tspan><tspan x="81" dy="19">📅</tspan></text><text x="40" y="149" text-anchor="middle"><tspan x="40">حيوانات</tspan><tspan x="40" dy="19">🐾</tspan></text><text x="81" y="65" text-anchor="middle"><tspan x="81">مفاجأة</tspan><tspan x="81" dy="19">✨</tspan></text><circle class="wheel-center" cx="150" cy="150" r="41"/><text class="wheel-center-text" x="150" y="145" text-anchor="middle">أدر</text><text class="wheel-center-text" x="150" y="166" text-anchor="middle">العجلة</text></svg></div><div style="text-align:center"><button class="next-btn" id="spinWheel">أدر العجلة 🎡</button></div><div class="wheel-message" id="wheelMessage">اختَر حظك بين ٦ تحديات ممتعة!</div><div id="wheelChallenge"></div>`;
+            document.getElementById("spinWheel").onclick=()=>{const btn=document.getElementById("spinWheel");btn.disabled=true;document.getElementById("wheelDisc").style.transform=`rotate(${1440+Math.floor(Math.random()*360)}deg)`; setTimeout(()=>{document.getElementById("wheelMessage").textContent="تحدي العجلة: أجب صحيحًا لتحصل على نجمة!"; const choices=shuffle(question.a.map((text,index)=>({text,correct:index===question.correct}))); document.getElementById("wheelChallenge").innerHTML=`<div class="question"><span>${question.q}</span></div><div class="answers">${choices.map(x=>`<button class="answer" data-correct="${x.correct}">${x.text}</button>`).join('')}</div>`;document.querySelectorAll("#wheelChallenge .answer").forEach(b=>b.onclick=()=>{document.querySelectorAll("#wheelChallenge .answer").forEach(x=>x.disabled=true);finishNewGame(b.dataset.correct==="true","أحسنت! فزت بنجمة من العجلة ⭐","حظ أوفر في اللفة القادمة!");});},2750);};
+        }
+
         /* ===================================================== 
            STARS & BADGES 
         ===================================================== */
 
         function addStars(amount) {
 
-            stars += amount;
+            stars += 1;
 
             localStorage.setItem(
                 "stars",
@@ -5386,7 +6029,7 @@
                 "harakat",
                 "truefalse",
                 "numberOrder",
-                "math", "opposites", "riddles"
+                "math", "opposites", "riddles", "connectLetters", "colors", "week", "wheel"
 
             ];
 
