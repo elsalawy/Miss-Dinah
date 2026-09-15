@@ -28,10 +28,10 @@
         }
 
         .quran-text {
-            font-size: clamp(27px, 5.2vw, 42px);
-            line-height: 2.15;
+            font-size: clamp(15px, 2.4vw, 20px);
+            line-height: 1.9;
             letter-spacing: 0;
-            word-spacing: 2px;
+            word-spacing: 1px;
         }
 
         .surah-basmala {
@@ -42,12 +42,12 @@
 
         .ayah-card.quran-ayah {
             font-family: "Amiri Quran", "KFGQPC Uthmanic Script HAFS", "Amiri", "Scheherazade New", serif;
-            font-size: clamp(23px, 4.6vw, 34px);
-            line-height: 1.95;
+            font-size: clamp(16px, 2.6vw, 22px);
+            line-height: 1.85;
             direction: rtl;
             text-align: right;
             font-feature-settings: "liga" 1, "calt" 1;
-            padding: 18px 20px;
+            padding: 14px 16px;
         }
 
         .ayah-marker {
@@ -64,8 +64,8 @@
             }
 
             .ayah-card.quran-ayah {
-                font-size: 22px;
-                line-height: 1.9;
+                font-size: 15px;
+                line-height: 1.75;
             }
 
             .surah-basmala {
@@ -766,9 +766,12 @@
 
         .surah-order-list {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
             gap: 12px;
-            max-width: 850px;
+            max-width: 1000px;
             margin: 20px auto;
         }
 
@@ -783,6 +786,9 @@
             box-shadow: 0 5px 14px rgba(0, 0, 0, .06);
             user-select: none;
             touch-action: manipulation;
+            flex: 1 1 260px;
+            max-width: 100%;
+            width: auto;
         }
 
         .ayah-card.selected {
@@ -1517,9 +1523,10 @@
             }
 
             .ayah-card {
-                font-size: 17px;
-                padding: 12px;
-                line-height: 1.8;
+                font-size: 14px;
+                padding: 10px;
+                line-height: 1.75;
+                flex-basis: 100%;
             }
 
             .challenge-hint {
@@ -1793,6 +1800,185 @@
         .activity:nth-child(24) {
             background: linear-gradient(135deg, #9c8ce5, #c8bdf4);
         }
+
+        /* ===== ألوان الكروت الأربعة الأخيرة ===== */
+        .activity:nth-child(25) {
+            background: linear-gradient(135deg, #f7c98b, #fbe0b6);
+        }
+
+        .activity:nth-child(26) {
+            background: linear-gradient(135deg, #8ad9b8, #b2e8cf);
+        }
+
+        .activity:nth-child(27) {
+            background: linear-gradient(135deg, #9fb8f0, #c2d3f6);
+        }
+
+        .activity:nth-child(28) {
+            background: linear-gradient(135deg, #eaa3cf, #f3c4e3);
+        }
+
+        /* ===== أيقونة الظل في الكارت ===== */
+        .shadow-emoji {
+            filter: brightness(0);
+            opacity: .72;
+        }
+
+        /* ===== لعبة اكتشف ظل الحيوانات ===== */
+        .shadow-wrap {
+            display: grid;
+            place-items: center;
+            width: 155px;
+            height: 155px;
+            margin: 8px auto 12px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffffff 0 52%, #e9eeff 100%);
+            box-shadow: 0 8px 20px rgba(35, 42, 120, .14), inset 0 0 0 3px rgba(255, 255, 255, .8);
+        }
+
+        .shadow-glyph {
+            font-size: 84px;
+            line-height: 1;
+            filter: brightness(0);
+            opacity: .85;
+        }
+
+        /* ===== لعبة عُدّ الحاجات ===== */
+        .count-stage {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            max-width: 340px;
+            margin: 8px auto 12px;
+            padding: 12px 10px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, .72);
+            box-shadow: 0 6px 16px rgba(35, 42, 120, .12);
+        }
+
+        .count-stage i {
+            font-style: normal;
+            font-size: 36px;
+            line-height: 1;
+        }
+
+        /* ===== لعبة أشكال الحروف (الإطارات المزخرفة) ===== */
+        .lshape-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin: 8px 0 14px;
+        }
+
+        .lshape-row {
+            display: flex;
+            direction: rtl;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .lring-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lring {
+            position: relative;
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: repeating-conic-gradient(from 0deg, #d29229 0 4deg, #f8e3ac 4deg 9deg);
+            box-shadow: 0 6px 15px rgba(35, 42, 120, .16);
+        }
+
+        .lring::before {
+            content: "";
+            position: absolute;
+            inset: 9px;
+            border-radius: 50%;
+            background: #fffdf6;
+            border: 2px solid #e0b258;
+        }
+
+        .lring.lg {
+            width: 134px;
+            height: 134px;
+        }
+
+        .lring.lg::before {
+            inset: 14px;
+        }
+
+        .lring-glyph {
+            position: relative;
+            z-index: 1;
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1;
+            color: #b3216a;
+            font-family: 'Amiri Quran', 'Amiri', serif;
+        }
+
+        .lring.lg .lring-glyph {
+            font-size: 64px;
+            color: #7b2a9e;
+        }
+
+        .lring-lbl {
+            font-size: 11px;
+            font-weight: 800;
+            color: #4c587b;
+            background: rgba(255, 255, 255, .75);
+            padding: 2px 10px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 520px) {
+            .lring {
+                width: 70px;
+                height: 70px;
+            }
+
+            .lring::before {
+                inset: 7px;
+            }
+
+            .lring-glyph {
+                font-size: 31px;
+            }
+
+            .lring.lg {
+                width: 104px;
+                height: 104px;
+            }
+
+            .lring.lg .lring-glyph {
+                font-size: 50px;
+            }
+
+            .shadow-wrap {
+                width: 128px;
+                height: 128px;
+            }
+
+            .shadow-glyph {
+                font-size: 68px;
+            }
+
+            .count-stage i {
+                font-size: 29px;
+            }
+        }
+
 
         .extra-challenge {
             display: grid !important;
@@ -4499,10 +4685,9 @@
                 max-width: 1040px;
             }
 
-            .surah-order-list {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                max-width: 1100px;
+            .memory-grid {
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+                max-width: 1180px;
             }
         }
 
@@ -4522,7 +4707,7 @@
             position: absolute;
             inset: 0;
             pointer-events: none;
-            background: linear-gradient(125deg, rgba(255,255,255,.5), transparent 38%);
+            background: linear-gradient(125deg, rgba(255, 255, 255, .5), transparent 38%);
         }
 
         .answer.correct,
@@ -4531,7 +4716,7 @@
             background: linear-gradient(135deg, #bff7cf, #eaffd7) !important;
             border-color: #16a34a !important;
             color: #14532d;
-            box-shadow: 0 0 0 4px rgba(34,197,94,.16), 0 10px 22px rgba(34,197,94,.24);
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, .16), 0 10px 22px rgba(34, 197, 94, .24);
             animation: answerGlow .65s ease;
         }
 
@@ -4541,17 +4726,24 @@
             background: linear-gradient(135deg, #ffd0d0, #fff0e6) !important;
             border-color: #ef4444 !important;
             color: #991b1b;
-            box-shadow: 0 0 0 4px rgba(239,68,68,.13), 0 10px 22px rgba(239,68,68,.18);
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, .13), 0 10px 22px rgba(239, 68, 68, .18);
             animation: answerShake .45s ease;
         }
 
         @keyframes answerGlow {
-            50% { transform: scale(1.045); }
+            50% {
+                transform: scale(1.045);
+            }
         }
 
         @keyframes answerShake {
-            25% { transform: translateX(-7px); }
-            75% { transform: translateX(7px); }
+            25% {
+                transform: translateX(-7px);
+            }
+
+            75% {
+                transform: translateX(7px);
+            }
         }
 
         .memory-grid {
@@ -4564,8 +4756,8 @@
             aspect-ratio: 1.58 / 1;
             min-height: 92px;
             font-size: clamp(31px, 4vw, 48px);
-            border: 3px solid rgba(255,255,255,.55);
-            box-shadow: 0 9px 0 rgba(61,52,138,.18), 0 15px 22px rgba(53,45,133,.18);
+            border: 3px solid rgba(255, 255, 255, .55);
+            box-shadow: 0 9px 0 rgba(61, 52, 138, .18), 0 15px 22px rgba(53, 45, 133, .18);
         }
 
         .memory-card:not(.open):not(.matched) {
@@ -4573,12 +4765,12 @@
         }
 
         .memory-card.open {
-            box-shadow: 0 8px 0 #d8d8ea, 0 12px 20px rgba(33,40,95,.12);
+            box-shadow: 0 8px 0 #d8d8ea, 0 12px 20px rgba(33, 40, 95, .12);
         }
 
         .memory-card.matched {
             background: linear-gradient(135deg, #bff7cf, #ecffd7) !important;
-            box-shadow: 0 8px 0 #79c891, 0 12px 22px rgba(34,197,94,.22);
+            box-shadow: 0 8px 0 #79c891, 0 12px 22px rgba(34, 197, 94, .22);
         }
 
         .different-board {
@@ -4599,24 +4791,45 @@
             border: 2px solid #d8c77d;
             color: #263238;
             background: linear-gradient(135deg, #fffdf4, #f7f0d2);
-            box-shadow: 0 5px 14px rgba(120,95,29,.12);
+            box-shadow: 0 5px 14px rgba(120, 95, 29, .12);
         }
 
-        .surah-order-list .ayah-card:nth-child(4n + 1) { border-right: 7px solid #d59b28; }
-        .surah-order-list .ayah-card:nth-child(4n + 2) { border-right: 7px solid #1d9b92; }
-        .surah-order-list .ayah-card:nth-child(4n + 3) { border-right: 7px solid #7656c7; }
-        .surah-order-list .ayah-card:nth-child(4n) { border-right: 7px solid #cf6277; }
+        .surah-order-list .ayah-card:nth-child(4n + 1) {
+            border-right: 7px solid #d59b28;
+        }
+
+        .surah-order-list .ayah-card:nth-child(4n + 2) {
+            border-right: 7px solid #1d9b92;
+        }
+
+        .surah-order-list .ayah-card:nth-child(4n + 3) {
+            border-right: 7px solid #7656c7;
+        }
+
+        .surah-order-list .ayah-card:nth-child(4n) {
+            border-right: 7px solid #cf6277;
+        }
 
         .ayah-card.selected {
             border-color: #7255d6;
             background: linear-gradient(135deg, #eee8ff, #fff9df);
-            box-shadow: 0 0 0 4px rgba(114,85,214,.14), 0 8px 18px rgba(74,57,143,.15);
+            box-shadow: 0 0 0 4px rgba(114, 85, 214, .14), 0 8px 18px rgba(74, 57, 143, .15);
         }
 
         @media (max-width: 760px) {
-            .memory-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-            .memory-card { min-height: 76px; }
-            .different-board { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+            .memory-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .memory-card {
+                min-height: 76px;
+            }
+
+            .different-board {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 9px;
+            }
         }
     </style>
 </head>
@@ -4813,6 +5026,38 @@
                 <div class="activity-text">
                     <h3>عجلة المفاجآت</h3>
                     <p>أدر العجلة وأجب عن التحدي</p>
+                </div>
+            </button>
+
+            <button class="activity" onclick="startGame('letterShapes')">
+                <div class="icon">✍️</div>
+                <div class="activity-text">
+                    <h3>أشكال الحروف</h3>
+                    <p>تعرّف على شكل كل حرف</p>
+                </div>
+            </button>
+
+            <button class="activity" onclick="startGame('shapesGeo')">
+                <div class="icon">🔷</div>
+                <div class="activity-text">
+                    <h3>الأشكال الهندسية</h3>
+                    <p>تعرّف على اسم كل شكل</p>
+                </div>
+            </button>
+
+            <button class="activity" onclick="startGame('counting')">
+                <div class="icon">🧮</div>
+                <div class="activity-text">
+                    <h3>عُدّ الحاجات</h3>
+                    <p>عُدّ وقول الرقم الصح</p>
+                </div>
+            </button>
+
+            <button class="activity" onclick="startGame('animalShadow')">
+                <div class="icon"><span class="shadow-emoji">🐘</span></div>
+                <div class="activity-text">
+                    <h3>اكتشف ظل الحيوانات</h3>
+                    <p>مين صاحب الظل ده؟</p>
                 </div>
             </button>
 
@@ -5486,7 +5731,8 @@
            ARABIC QUESTIONS 
         ===================================================== */
 
-        const arabicQuestions = [
+        /* أسئلة تستهدف درايه الطالب بالحروف (شكل الحرف، موقعه، عدّه) */
+        const arabicLetterQuestions = [
 
             {
                 q: "ما أول حرف في اللغة العربية؟",
@@ -5537,6 +5783,83 @@
             },
 
             {
+                q: "كم حرفًا في كلمة باب؟",
+                a: ["2", "3", "4", "5"],
+                correct: 1
+            },
+
+            {
+                q: "كم حرفًا في كلمة قلم؟",
+                a: ["2", "3", "4", "5"],
+                correct: 1
+            },
+
+            {
+                q: "أي كلمة بها حرف س؟",
+                a: ["سمك", "قلم", "باب", "موز"],
+                correct: 0
+            },
+
+            {
+                q: "أي كلمة بها حرف ن؟",
+                a: ["نور", "باب", "قلم", "بيت"],
+                correct: 0
+            },
+
+            {
+                q: "أي كلمة بها حرف ع؟",
+                a: ["عين", "باب", "قلم", "موز"],
+                correct: 0
+            },
+
+            {
+                q: "ما الحرف الذي يأتي بعد حرف (ت)؟",
+                a: ["ث", "ب", "ج", "ح"],
+                correct: 0
+            },
+
+            {
+                q: "ما الحرف الذي يأتي قبل حرف (ج)؟",
+                a: ["ح", "ث", "خ", "د"],
+                correct: 1
+            },
+
+            {
+                q: "كم حرفًا في كلمة مدرسة؟",
+                a: ["4", "5", "6", "7"],
+                correct: 2
+            },
+
+            {
+                q: "ما الحرف الموجود في بداية كلمة قمر؟",
+                a: ["ق", "ك", "غ", "ف"],
+                correct: 0
+            },
+
+            {
+                q: "ما الحرف الموجود في نهاية كلمة قلم؟",
+                a: ["ق", "ل", "م", "ا"],
+                correct: 2
+            },
+
+            {
+                q: "أي كلمة بها حرف ط؟",
+                a: ["طفل", "بيت", "قلم", "نور"],
+                correct: 0
+            },
+
+            {
+                q: "أي كلمة بها حرف ح؟",
+                a: ["حصان", "قلم", "بيت", "موز"],
+                correct: 0
+            }
+
+        ];
+
+        /* أسئلة تستهدف درايه الطالب بالكلمات (المعنى، الجمع، المفرد، الأضداد) */
+        const arabicWordQuestions = [
+
+            {
                 q: "ما جمع كلمة كتاب؟",
                 a: ["كتب", "كاتب", "كتابة", "مكتوب"],
                 correct: 0
@@ -5579,36 +5902,159 @@
             },
 
             {
-                q: "كم حرفًا في كلمة باب؟",
-                a: ["2", "3", "4", "5"],
-                correct: 1
-            },
-
-            {
-                q: "كم حرفًا في كلمة قلم؟",
-                a: ["2", "3", "4", "5"],
-                correct: 1
-            },
-
-            {
-                q: "أي كلمة بها حرف س؟",
-                a: ["سمك", "قلم", "باب", "موز"],
+                q: "ما عكس كلمة قوي؟",
+                a: ["ضعيف", "سريع", "طويل", "جميل"],
                 correct: 0
             },
 
             {
-                q: "أي كلمة بها حرف ن؟",
-                a: ["نور", "باب", "قلم", "بيت"],
+                q: "ما جمع كلمة ولد؟",
+                a: ["أولاد", "ولدان", "أوليد", "ولد"],
                 correct: 0
             },
 
             {
-                q: "أي كلمة بها حرف ع؟",
-                a: ["عين", "باب", "قلم", "موز"],
+                q: "ما مفرد كلمة بيوت؟",
+                a: ["بيتان", "بيت", "بيوتة", "أبيات"],
+                correct: 1
+            },
+
+            {
+                q: "أي كلمة تدل على فاكهة؟",
+                a: ["تفاح", "كرسي", "قلم", "باب"],
+                correct: 0
+            },
+
+            {
+                q: "ما عكس كلمة سريع؟",
+                a: ["بطيء", "قوي", "طويل", "جميل"],
+                correct: 0
+            },
+
+            {
+                q: "ما عكس كلمة فرح؟",
+                a: ["حزين", "سعيد", "قوي", "طويل"],
+                correct: 0
+            },
+
+            {
+                q: "أي كلمة تدل على شخص يعمل في المدرسة؟",
+                a: ["المعلم", "الأسد", "القلم", "الشجرة"],
+                correct: 0
+            },
+
+            {
+                q: "ما معنى كلمة (سريع)؟",
+                a: ["يتحرك بسرعة", "يتحرك ببطء", "لا يتحرك", "كبير الحجم"],
                 correct: 0
             }
 
         ];
+
+        /* ===================================================== 
+           LETTER SHAPES CHALLENGE — تحدي أشكال الحروف 
+        ===================================================== */
+        const arabicLettersList = [
+            {letter: "ا", name: "ألف"}, {letter: "ب", name: "باء"}, {letter: "ت", name: "تاء"}, {letter: "ث", name: "ثاء"},
+            {letter: "ج", name: "جيم"}, {letter: "ح", name: "حاء"}, {letter: "خ", name: "خاء"}, {letter: "د", name: "دال"},
+            {letter: "ذ", name: "ذال"}, {letter: "ر", name: "راء"}, {letter: "ز", name: "زاي"}, {letter: "س", name: "سين"},
+            {letter: "ش", name: "شين"}, {letter: "ص", name: "صاد"}, {letter: "ض", name: "ضاد"}, {letter: "ط", name: "طاء"},
+            {letter: "ظ", name: "ظاء"}, {letter: "ع", name: "عين"}, {letter: "غ", name: "غين"}, {letter: "ف", name: "فاء"},
+            {letter: "ق", name: "قاف"}, {letter: "ك", name: "كاف"}, {letter: "ل", name: "لام"}, {letter: "م", name: "ميم"},
+            {letter: "ن", name: "نون"}, {letter: "ه", name: "هاء"}, {letter: "و", name: "واو"}, {letter: "ي", name: "ياء"}
+        ];
+        const ZWJ = "\u200D";
+        function letterRing(txt, label, big) {
+            return `<span class="lring-item"><span class="lring${big ? ' lg' : ''}"><span class="lring-glyph">${txt}</span></span>${label ? `<span class="lring-lbl">${label}</span>` : ""}</span>`;
+        }
+        const letterShapeQuestions = arabicLettersList.map((item, idx) => {
+            const L = item.letter;
+            const pool = arabicLettersList.filter((_, i) => i !== idx).map(x => x.name);
+            const distractors = shuffle(pool).slice(0, 3);
+            const options = shuffle([item.name, ...distractors]);
+            const forms = [
+                {txt: L + ZWJ, lbl: "في الأول"},
+                {txt: ZWJ + L + ZWJ, lbl: "في الوسط"},
+                {txt: ZWJ + L, lbl: "في الآخر"}
+            ];
+            const board = `<span class="lshape-wrap"><span class="lshape-row">${letterRing(L, "منفصل", true)}</span><span class="lshape-row">${forms.map(f => letterRing(f.txt, f.lbl, false)).join("")}</span></span>`;
+            return {
+                q: `${board}<span>ما اسم هذا الحرف؟ ✍️</span>`,
+                a: options,
+                correct: options.indexOf(item.name)
+            };
+        });
+
+
+        /* ===================================================== 
+           GEOMETRIC SHAPES CHALLENGE — تحدي الأشكال الهندسية 
+        ===================================================== */
+        const shapesGeoBank = [
+            {icon: "⚪", name: "دائرة"}, {icon: "🟥", name: "مربع"}, {icon: "🔺", name: "مثلث"},
+            {icon: "⭐", name: "نجمة"}, {icon: "❤️", name: "قلب"}, {icon: "🔶", name: "معين"},
+            {icon: "▭", name: "مستطيل"}, {icon: "⬡", name: "سداسي"}
+        ];
+        const shapesGeoQuestions = shapesGeoBank.map((item, idx) => {
+            const pool = shapesGeoBank.filter((_, i) => i !== idx).map(x => x.name);
+            const distractors = shuffle(pool).slice(0, 3);
+            const options = shuffle([item.name, ...distractors]);
+            return {
+                q: `<span style="font-size:64px;display:block;margin:6px 0 4px;">${item.icon}</span><span>ما اسم هذا الشكل؟ 🔷</span>`,
+                a: options,
+                correct: options.indexOf(item.name)
+            };
+        });
+
+        /* ===================================================== 
+           ANIMAL SHADOW CHALLENGE — تحدي اكتشف ظل الحيوانات 
+        ===================================================== */
+        const animalShadowBank = [
+            {icon: "🐘", name: "فيل"}, {icon: "🦒", name: "زرافة"}, {icon: "🐢", name: "سلحفاة"},
+            {icon: "🐇", name: "أرنب"}, {icon: "🐟", name: "سمكة"}, {icon: "🦋", name: "فراشة"},
+            {icon: "🐍", name: "ثعبان"}, {icon: "🐪", name: "جمل"}, {icon: "🐴", name: "حصان"},
+            {icon: "🐄", name: "بقرة"}, {icon: "🐑", name: "خروف"}, {icon: "🐈", name: "قطة"},
+            {icon: "🐕", name: "كلب"}, {icon: "🦁", name: "أسد"}, {icon: "🐸", name: "ضفدع"},
+            {icon: "🐦", name: "عصفور"}, {icon: "🐝", name: "نحلة"}, {icon: "🦅", name: "نسر"},
+            {icon: "🐬", name: "دلفين"}, {icon: "🐧", name: "بطريق"}, {icon: "🦌", name: "غزال"},
+            {icon: "🐐", name: "ماعز"}, {icon: "🐓", name: "ديك"}, {icon: "🦉", name: "بومة"},
+            {icon: "🐒", name: "قرد"}, {icon: "🐊", name: "تمساح"}, {icon: "🦆", name: "بطة"},
+            {icon: "🐅", name: "نمر"}, {icon: "🐿️", name: "سنجاب"}, {icon: "🦩", name: "فلامنجو"}
+        ];
+        const animalShadowQuestions = animalShadowBank.map((item, idx) => {
+            const pool = animalShadowBank.filter((_, i) => i !== idx).map(x => x.name);
+            const distractors = shuffle(pool).slice(0, 3);
+            const options = shuffle([item.name, ...distractors]);
+            return {
+                q: `<span class="shadow-wrap"><span class="shadow-glyph">${item.icon}</span></span><span>مين صاحب الظل ده؟ 🕶️</span>`,
+                a: options,
+                correct: options.indexOf(item.name)
+            };
+        });
+
+        /* ===================================================== 
+           COUNTING CHALLENGE — تحدي عُدّ الحاجات 
+        ===================================================== */
+        const countingBank = [
+            {icon: "🍎", name: "التفاح"}, {icon: "🍌", name: "الموز"}, {icon: "⭐", name: "النجوم"},
+            {icon: "🎈", name: "البالونات"}, {icon: "🐥", name: "الكتاكيت"}, {icon: "🌸", name: "الورود"},
+            {icon: "🚗", name: "السيارات"}, {icon: "🍓", name: "الفراولة"}, {icon: "⚽", name: "الكرات"},
+            {icon: "🦋", name: "الفراشات"}, {icon: "🍊", name: "البرتقال"}, {icon: "🐟", name: "السمك"}
+        ];
+        const countingQuestions = [];
+        countingBank.forEach(item => {
+            shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, 3).forEach(n => {
+                const others = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9].filter(x => x !== n)).slice(0, 3);
+                const options = shuffle([n, ...others]).map(String);
+                const shapes = Array.from({length: n}, () => `<i>${item.icon}</i>`).join("");
+                countingQuestions.push({
+                    q: `<span class="count-stage">${shapes}</span><span>كم عدد ${item.name}؟ 🧮</span>`,
+                    a: options,
+                    correct: options.indexOf(String(n))
+                });
+            });
+        });
+        shuffle(countingQuestions);
+
 
 
 
@@ -5761,7 +6207,12 @@
 
         const usedQuestions = {
             islamic: new Set(),
-            arabic: new Set(),
+            arabicLetters: new Set(),
+            arabicWords: new Set(),
+            letterShapes: new Set(),
+            shapesGeo: new Set(),
+            animalShadow: new Set(),
+            counting: new Set(),
             scenario: new Set(),
             missing: new Set(),
             harakat: new Set(),
@@ -5977,6 +6428,10 @@
 
             currentGame = type;
 
+            if (type === "colors") {
+                colorLevelIndex = 0;
+            }
+
             if (type !== "surahOrder") {
                 challengeQuestionNumber = 0;
                 challengeCorrectAtStart = correctAnswers;
@@ -5997,7 +6452,8 @@
 
                 const types = [
                     "islamic",
-                    "arabic",
+                    "arabicLetters",
+                    "arabicWords",
                     "missing",
                     "different",
                     "reaction",
@@ -6007,7 +6463,8 @@
                     "harakat",
                     "truefalse",
                     "numberOrder",
-                    "math", "opposites", "riddles", "connectLetters", "colors", "week", "wheel"
+                    "math", "opposites", "riddles", "connectLetters", "colors", "week", "wheel",
+                    "letterShapes", "shapesGeo", "animalShadow", "counting"
                 ];
 
                 type =
@@ -6045,10 +6502,54 @@
             }
 
             else if (type === "arabic") {
+                renderArabicSelection();
+            }
+
+            else if (type === "arabicLetters") {
                 renderMCQ(
-                    "🔤 اللغة العربية",
-                    arabicQuestions,
-                    "arabic"
+                    "🔤 اللغة العربية — الحروف",
+                    arabicLetterQuestions,
+                    "arabicLetters"
+                );
+            }
+
+            else if (type === "arabicWords") {
+                renderMCQ(
+                    "🔤 اللغة العربية — الكلمات",
+                    arabicWordQuestions,
+                    "arabicWords"
+                );
+            }
+
+            else if (type === "letterShapes") {
+                renderMCQ(
+                    "✍️ أشكال الحروف",
+                    letterShapeQuestions,
+                    "letterShapes"
+                );
+            }
+
+            else if (type === "shapesGeo") {
+                renderMCQ(
+                    "🔷 الأشكال الهندسية",
+                    shapesGeoQuestions,
+                    "shapesGeo"
+                );
+            }
+
+            else if (type === "counting") {
+                renderMCQ(
+                    "🧮 عُدّ الحاجات",
+                    countingQuestions,
+                    "counting"
+                );
+            }
+
+            else if (type === "animalShadow") {
+                renderMCQ(
+                    "🐘 اكتشف ظل الحيوانات",
+                    animalShadowQuestions,
+                    "animalShadow"
                 );
             }
 
@@ -6115,6 +6616,28 @@
         }
 
 
+
+        /* ===================================================== 
+           ARABIC SELECTION (حروف / كلمات) 
+        ===================================================== */
+
+        function renderArabicSelection() {
+            document.getElementById("gameTitle").textContent = "🔤 اللغة العربية";
+            const content = document.getElementById("gameContent");
+            content.innerHTML = `
+                <div class="question"><span>عاوز تلعب تحدي إيه؟ 🤔</span></div>
+                <div class="challenge-hint">اختر حروف لو عاوز تتمرن على الحروف، أو كلمات لو عاوز تتمرن على معاني الكلمات</div>
+                <div class="option-grid-3">
+                    <button class="big-option" onclick="startGame('arabicLetters')">
+                        🔤 حروف
+                        <small style="display:block;font-size:13px;margin-top:7px;">أسئلة عن شكل وموقع الحروف</small>
+                    </button>
+                    <button class="big-option" onclick="startGame('arabicWords')">
+                        📝 كلمات
+                        <small style="display:block;font-size:13px;margin-top:7px;">أسئلة عن معنى وجمع ومفرد الكلمات</small>
+                    </button>
+                </div>`;
+        }
 
         /* ===================================================== 
            MCQ 
@@ -6520,26 +7043,24 @@
                 "🔎 اكتشف المختلف";
 
             const groups = [
-                {items: ["🍎", "🍎", "🍎", "🍌", "🍎", "🍎"], correct: "🍌"},
-                {items: ["⭐", "⭐", "🌙", "⭐", "⭐", "⭐"], correct: "🌙"},
-                {items: ["🐱", "🐱", "🐱", "🐶", "🐱", "🐱"], correct: "🐶"},
-                {items: ["🔵", "🔵", "🔵", "🔴", "🔵", "🔵"], correct: "🔴"},
-                {items: ["🍓", "🍓", "🍓", "🍇", "🍓", "🍓"], correct: "🍇"},
-                {items: ["🐟", "🐟", "🦋", "🐟", "🐟", "🐟"], correct: "🦋"},
-                {items: ["🌸", "🌸", "🌸", "🌻", "🌸", "🌸"], correct: "🌻"},
-                {items: ["🚗", "🚗", "🚗", "🚌", "🚗", "🚗"], correct: "🚌"},
-                {items: ["⚽", "⚽", "🏀", "⚽", "⚽", "⚽"], correct: "🏀"},
-                {items: ["🍉", "🍉", "🍊", "🍉", "🍉", "🍉"], correct: "🍊"},
-                {items: ["🐼", "🐼", "🐼", "🦊", "🐼", "🐼"], correct: "🦊"},
-                {items: ["🌙", "🌙", "☀️", "🌙", "🌙", "🌙"], correct: "☀️"},
-                {items: ["🎈", "🎈", "🎈", "🎁", "🎈", "🎈"], correct: "🎁"},
-                {items: ["🥕", "🥕", "🥕", "🍅", "🥕", "🥕"], correct: "🍅"},
-                {items: ["🐰", "🐰", "🐰", "🐸", "🐰", "🐰"], correct: "🐸"},
-                {items: ["🔺", "🔺", "🔺", "🔵", "🔺", "🔺"], correct: "🔵"},
-                {items: ["🍪", "🍪", "🍩", "🍪", "🍪", "🍪"], correct: "🍩"},
-                {items: ["🌳", "🌳", "🌴", "🌳", "🌳", "🌳"], correct: "🌴"},
-                {items: ["✏️", "✏️", "✏️", "🖊️", "✏️", "✏️"], correct: "🖊️"},
-                {items: ["🐝", "🐝", "🐝", "🐞", "🐝", "🐝"], correct: "🐞"}
+                {items: ["6", "6", "6", "6", "9", "6", "6", "6", "6"], correct: "9"},
+                {items: ["ب", "ب", "ب", "ب", "ت", "ب", "ب", "ب", "ب"], correct: "ت"},
+                {items: ["ن", "ن", "ن", "ن", "ب", "ن", "ن", "ن", "ن"], correct: "ب"},
+                {items: ["🐈", "🐈", "🐈", "🐈", "🐱", "🐈", "🐈", "🐈", "🐈"], correct: "🐱"},
+                {items: ["🍎", "🍎", "🍎", "🍎", "🍏", "🍎", "🍎", "🍎", "🍎"], correct: "🍏"},
+                {items: ["🔵", "🔵", "🔵", "🔵", "🔷", "🔵", "🔵", "🔵", "🔵"], correct: "🔷"},
+                {items: ["⬛", "⬛", "⬛", "⬛", "🔲", "⬛", "⬛", "⬛", "⬛"], correct: "🔲"},
+                {items: ["🐝", "🐝", "🐝", "🐝", "🪰", "🐝", "🐝", "🐝", "🐝"], correct: "🪰"},
+                {items: ["d", "d", "d", "d", "b", "d", "d", "d", "d"], correct: "b"},
+                {items: ["❤️", "❤️", "❤️", "❤️", "🧡", "❤️", "❤️", "❤️", "❤️"], correct: "🧡"},
+                {items: ["⭐", "⭐", "⭐", "⭐", "🌟", "⭐", "⭐", "⭐", "⭐"], correct: "🌟"},
+                {items: ["3", "3", "3", "3", "8", "3", "3", "3", "3"], correct: "8"},
+                {items: ["▶️", "▶️", "▶️", "▶️", "◀️", "▶️", "▶️", "▶️", "▶️"], correct: "◀️"},
+                {items: ["😀", "😀", "😀", "😀", "😃", "😀", "😀", "😀", "😀"], correct: "😃"},
+                {items: ["🔴", "🔴", "🔴", "🔴", "🟠", "🔴", "🔴", "🔴", "🔴"], correct: "🟠"},
+                {items: ["ث", "ث", "ث", "ث", "ت", "ث", "ث", "ث", "ث"], correct: "ت"},
+                {items: ["ج", "ج", "ج", "ج", "ح", "ج", "ج", "ج", "ج"], correct: "ح"},
+                {items: ["🍊", "🍊", "🍊", "🍊", "🟠", "🍊", "🍊", "🍊", "🍊"], correct: "🟠"}
             ];
 
             const group =
@@ -6554,10 +7075,10 @@
             ).innerHTML = ` 
 
         <div class="question"> 
-            <span>اختار العنصر المختلف 👀</span> 
+            <span>ركّز جيدًا واختار العنصر المختلف 👀🔍</span> 
         </div> 
 
-        <div class="answers"> 
+        <div class="answers" style="grid-template-columns:repeat(3, minmax(0,1fr)); max-width:460px; margin:0 auto;"> 
 
             ${shuffle(group.items).map(
                 item => ` 
@@ -6571,7 +7092,7 @@
                             '${group.correct}' 
                         ) 
                         " 
-                        style="font-size:40px" 
+                        style="font-size:32px" 
                     > 
                         ${item} 
                     </button> 
@@ -7722,12 +8243,22 @@
             document.getElementById("gameContent").innerHTML = `<div class="question"><span>وصّل كل حرف بمثله</span></div><div class="challenge-hint">اختر حرفًا من المجموعة الأولى، ثم اختر الحرف المطابق له من المجموعة الثانية.</div><div class="letter-match-board"><div class="letter-match-column" id="letterLeft">${left.map((l, i) => `<button class="letter-tile" data-letter="${l}" data-side="left" data-row="${i}">${l}</button>`).join('')}</div><div class="match-divider" id="matchDivider">${letters.map(() => '<span>—</span>').join('')}</div><div class="letter-match-column" id="letterRight">${right.map((l, i) => `<button class="letter-tile" data-letter="${l}" data-side="right" data-row="${i}">${l}</button>`).join('')}</div></div>`;
             document.querySelectorAll(".letter-tile").forEach(btn => btn.onclick = () => {if (btn.disabled) return; if (btn.dataset.side === "left") {document.querySelectorAll('#letterLeft .letter-tile').forEach(x => x.classList.remove('pick')); chosen = btn; btn.classList.add('pick'); return;} if (!chosen) return; if (btn.dataset.letter !== chosen.dataset.letter) {btn.classList.add('wrong'); setTimeout(() => btn.classList.remove('wrong'), 400); return;} chosen.disabled = true; btn.disabled = true; chosen.classList.remove('pick'); chosen.classList.add('matched'); btn.classList.add('matched'); const connector = document.querySelectorAll('#matchDivider span')[Number(chosen.dataset.row)]; if (connector) {connector.textContent = '🔗'; connector.classList.add('matched');} chosen = null; matches++; if (matches === letters.length) finishNewGame(true, 'رائع! وصلت كل الحروف بشكل صحيح ⭐', '');});
         }
+        const colorLevels = [
+            [{name: "أحمر", hex: "#ef5350"}, {name: "أزرق", hex: "#42a5f5"}, {name: "أصفر", hex: "#fbc02d"}, {name: "أخضر", hex: "#66bb6a"}],
+            [{name: "برتقالي", hex: "#ff9800"}, {name: "بنفسجي", hex: "#9c27b0"}, {name: "وردي", hex: "#ec407a"}, {name: "بني", hex: "#8d6e63"}],
+            [{name: "رمادي", hex: "#9e9e9e"}, {name: "أسود", hex: "#263238"}, {name: "أبيض", hex: "#fafafa"}, {name: "سماوي", hex: "#29b6f6"}],
+            [{name: "فيروزي", hex: "#26a69a"}, {name: "كحلي", hex: "#1a237e"}, {name: "نبيتي", hex: "#ad1457"}, {name: "ذهبي", hex: "#ffca28"}],
+            [{name: "فضي", hex: "#cfd8dc"}, {name: "كريمي", hex: "#fff3e0"}, {name: "زيتي", hex: "#827717"}, {name: "موف", hex: "#b39ddb"}]
+        ];
+        let colorLevelIndex = 0;
         function renderColors() {
-            const colors = shuffle([{name: "أحمر", hex: "#ef5350"}, {name: "أزرق", hex: "#42a5f5"}, {name: "أصفر", hex: "#fbc02d"}]); let selected = null, placed = 0;
-            document.getElementById("gameTitle").textContent = "🎨 الألوان في مكانها";
-            document.getElementById("gameContent").innerHTML = `<div class="question"><span>اختر اللون ثم اضغط على اسمه</span></div><div class="challenge-hint">ضع كل لون في المكان المخصص له</div><div class="color-palette">${shuffle(colors).map(c => `<button class="color-dot" data-name="${c.name}" style="background:${c.hex}" aria-label="${c.name}"></button>`).join('')}</div><div class="color-targets">${shuffle(colors).map(c => `<button class="color-target" data-name="${c.name}">${c.name}</button>`).join('')}</div>`;
+            const levelNum = (colorLevelIndex % colorLevels.length) + 1;
+            const colors = colorLevels[colorLevelIndex % colorLevels.length];
+            let selected = null, placed = 0;
+            document.getElementById("gameTitle").textContent = `🎨 الألوان في مكانها — المستوى ${levelNum} من ${colorLevels.length}`;
+            document.getElementById("gameContent").innerHTML = `<div class="question"><span>اختر اللون ثم اضغط على اسمه</span></div><div class="challenge-hint">ضع كل لون في المكان المخصص له (${colors.length} ألوان في هذا المستوى)</div><div class="color-palette">${shuffle(colors).map(c => `<button class="color-dot" data-name="${c.name}" style="background:${c.hex}" aria-label="${c.name}"></button>`).join('')}</div><div class="color-targets">${shuffle(colors).map(c => `<button class="color-target" data-name="${c.name}">${c.name}</button>`).join('')}</div>`;
             document.querySelectorAll(".color-dot").forEach(dot => dot.onclick = () => {if (dot.disabled) return; document.querySelectorAll(".color-dot").forEach(x => x.classList.remove("selected")); dot.classList.add("selected"); selected = dot;});
-            document.querySelectorAll(".color-target").forEach(target => target.onclick = () => {if (!selected || target.classList.contains("filled")) return; if (target.dataset.name !== selected.dataset.name) {target.classList.add("wrong"); setTimeout(() => target.classList.remove("wrong"), 400); return;} target.classList.add("filled"); target.style.background = selected.style.background; selected.disabled = true; selected.classList.remove("selected"); selected = null; placed++; if (placed === 3) finishNewGame(true, "رائع! وضعت الألوان كلها في أماكنها ⭐", "");});
+            document.querySelectorAll(".color-target").forEach(target => target.onclick = () => {if (!selected || target.classList.contains("filled")) return; if (target.dataset.name !== selected.dataset.name) {target.classList.add("wrong"); setTimeout(() => target.classList.remove("wrong"), 400); return;} target.classList.add("filled"); target.style.background = selected.style.background; selected.disabled = true; selected.classList.remove("selected"); selected = null; placed++; if (placed === colors.length) {colorLevelIndex++; const doneAll = colorLevelIndex % colorLevels.length === 0; finishNewGame(true, doneAll ? "🏆 أحسنت! أنهيت كل مستويات الألوان الخمسة!" : `رائع! أكملت المستوى ${levelNum} 🎨⭐ — ننتقل للمستوى التالي`, "");} });
         }
         function renderWeek() {
             const days = ["السبت", "الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة"], chosen = [];
@@ -7735,6 +8266,7 @@
             document.getElementById("gameContent").innerHTML = `<div class="question"><span>رتّب أيام الأسبوع بالترتيب الصحيح</span></div><div class="challenge-hint">ابدأ بيوم السبت</div><div class="word-answer" id="weekAnswer" style="flex-wrap:wrap;height:auto">${days.map(() => '<span style="width:auto;padding:0 9px;font-size:15px"></span>').join('')}</div><div class="week-options">${shuffle(days).map(d => `<button class="week-day" data-day="${d}">${d}</button>`).join('')}</div>`;
             document.querySelectorAll(".week-day").forEach(btn => btn.onclick = () => {if (btn.disabled) return; const correct = days[chosen.length]; if (btn.dataset.day !== correct) {btn.classList.add("wrong"); setTimeout(() => btn.classList.remove("wrong"), 400); return;} btn.disabled = true; btn.classList.add("used", "correct"); chosen.push(correct); document.querySelectorAll("#weekAnswer span")[chosen.length - 1].textContent = correct; if (chosen.length === days.length) finishNewGame(true, "ممتاز! رتبت أيام الأسبوع كلها ⭐", "");});
         }
+
         function renderWheel() {
             let selectedCategory = null;
             document.getElementById("gameTitle").textContent = "🎡 عجلة المفاجآت";
@@ -7997,7 +8529,8 @@
             const types = [
 
                 "islamic",
-                "arabic",
+                "arabicLetters",
+                "arabicWords",
                 "missing",
                 "memory",
                 "different",
@@ -8011,7 +8544,8 @@
                 "harakat",
                 "truefalse",
                 "numberOrder",
-                "math", "opposites", "riddles", "connectLetters", "colors", "week", "wheel"
+                "math", "opposites", "riddles", "connectLetters", "colors", "week", "wheel",
+                "letterShapes", "shapesGeo", "animalShadow", "counting"
 
             ];
 
